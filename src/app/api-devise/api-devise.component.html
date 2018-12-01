@@ -1,3 +1,16 @@
-<p>
-  api-devise works!
-</p>
+<div class="menu-devise">
+  <table class="ui selectable inverted table">
+    <thead>
+      <tr>
+        <th>Devise</th>
+        <th>Prix</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let data of datas | async">
+        <td>{{ data.symbol }}</td>
+        <td>{{ data.price }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

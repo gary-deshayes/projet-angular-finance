@@ -1,16 +1,22 @@
 import { Component, OnInit } from '@angular/core';
-import { Http, Response } from '@angular/http';
-import { catchError, map, tap } from 'rxjs/operators';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
-  selector: 'app-api-devise',
+  selector: 'api-devise',
   templateUrl: './api-devise.component.html',
   styleUrls: ['./api-devise.component.scss']
 })
-export class ApiDeviseComponent implements OnInit {
 
-  constructor(private http: Http) {
-    console.log('Hello fellow user');
+export class ApiDeviseComponent implements OnInit {
+  private apiUrl = 'https://forex.1forge.com/1.0.3/quotes?pairs=EURUSD,GBPJPY,AUDUSD,BTCEUR,CADJPY&api_key=feHHOAGAv7TLYtJ0m17tRWU8JLiLY5yg';
+  datas: any;
+
+  constructor(private http: HttpClient) {
+    this.getDevises();
+  }
+
+  getDevises(){
+    this.datas = this.http.get(this.apiUrl);
   }
 
   ngOnInit(){}
