@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { NavbarMenuComponent } from './navbar-menu/navbar-menu.component';
 import { ApiDeviseComponent } from './api-devise/api-devise.component';
 import { FooterComponent } from './footer/footer.component';
+import { EconomicCalendarComponent } from './economic-calendar/economic-calendar.component';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import { FooterComponent } from './footer/footer.component';
     AppComponent,
     NavbarMenuComponent,
     ApiDeviseComponent,
-    FooterComponent
+    FooterComponent,
+    EconomicCalendarComponent
   ],
   imports: [
     HttpClientModule,

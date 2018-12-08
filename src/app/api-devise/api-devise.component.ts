@@ -14,7 +14,7 @@ export class ApiDeviseComponent implements OnInit {
   constructor(private http: HttpClient) {
     setInterval(() => {
       this.getDevises();
-    }, 5000);
+    }, 20000);
   }
 
   getDevises(){
