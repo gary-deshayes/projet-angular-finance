@@ -1,17 +1,32 @@
 /* You can add global styles to this file, and also import other style files */
 .account-menu {
-  padding: 0 !important; }
-  .account-menu img {
-    height: 40px;
-    width: 40px; }
+  padding: 0 !important;
+}
+.account-menu img {
+  height: 40px;
+  width: 40px;
+}
 
 .menu-calendar {
-  margin: 5%; }
+  margin: 5%;
+}
+
+#searchYoutubeDiv {
+  margin: 10px 0 10px 0;
+}
+
+.buttonPagination {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0 10px 0;
+}
 
 #footer p {
-  text-align: center; }
+  text-align: center;
+}
 
 .ui.grid > [class*="three wide"].column {
-  width: 14.74% !important; }
+  width: 14.74% !important;
+}
 
 /*# sourceMappingURL=styles.css.map */
