@@ -1,7 +1,1 @@
-{
-"version": 3,
-"mappings": "AAAA,+EAA+E;ACA/E,aAAc;EACV,OAAO,EAAE,YAAY;EACrB,iBAAI;IACJ,MAAM,EAAE,IAAI;IACZ,KAAK,EAAE,IAAI;;ACJf,cAAe;EACX,MAAM,EAAE,EAAE;;ACAV,SAAE;EACE,UAAU,EAAE,MAAM;;AHI1B,uCAAwC;EACpC,KAAK,EAAE,iBAAiB",
-"sources": ["../../styles.scss","../../app/navbar-menu/navbar-menu.component.scss","../../app/economic-calendar/economic-calendar.component.scss","../../app/footer/footer.component.scss"],
-"names": [],
-"file": "styles.css"
-}
+{"version":3,"sourceRoot":"","sources":["../../styles.scss","../../app/navbar-menu/navbar-menu.component.scss","../../app/economic-calendar/economic-calendar.component.scss","../../app/footer/footer.component.scss"],"names":[],"mappings":"AAAA;ACAA;EACI;;AACA;EACA;EACA;;;ACJJ;EACI;;;ACAA;EACI;;;AHIR;EACI","file":"styles.css"}

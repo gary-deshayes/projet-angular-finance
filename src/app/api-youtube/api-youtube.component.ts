@@ -32,10 +32,10 @@ export class ApiYoutubeComponent implements OnInit {
     }
   }
 
-  getVideos(search: string){
-    search = search.replace(" ", "%7C");
-    this.search = search;
-    this.http.get("https://www.googleapis.com/youtube/v3/search?part=snippet&q=" + search + "&type=video&videoCaption=any&key=AIzaSyCyaZRe4xMnxqPdh9_fwuizP7bKTreyKNc&maxResults=5")
+  public getVideos(varSearch: string){
+    varSearch = varSearch.replace(" ", "%7C");
+    this.search = varSearch;
+    this.http.get("https://www.googleapis.com/youtube/v3/search?part=snippet&q=" + varSearch + "&type=video&videoCaption=any&key=AIzaSyCyaZRe4xMnxqPdh9_fwuizP7bKTreyKNc&maxResults=5")
       .subscribe((response: Array<Object>) => {
         this.videos = response["items"];
         this.nextPage = response["nextPageToken"];
@@ -44,7 +44,7 @@ export class ApiYoutubeComponent implements OnInit {
           this.dangerousVideoUrl = 'http://www.youtube.com/embed/' + element["id"]["videoId"] + '?enablejsapi=1&origin=http://example.com';
           element['urlSecure'] = this.sanitizer.bypassSecurityTrustResourceUrl(this.dangerousVideoUrl);
         });
-        console.log(search);
+        console.log(varSearch);
       });
   }
   getVideosNext(){

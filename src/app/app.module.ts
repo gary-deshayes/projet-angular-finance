@@ -1,3 +1,4 @@
+import { RouterModule, Router } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
@@ -7,6 +8,9 @@ import { ApiDeviseComponent } from './api-devise/api-devise.component';
 import { FooterComponent } from './footer/footer.component';
 import { EconomicCalendarComponent } from './economic-calendar/economic-calendar.component';
 import { ApiYoutubeComponent } from './api-youtube/api-youtube.component';
+import { PageTutorielComponent } from './page-tutoriel/page-tutoriel.component';
+import { AppRoutingModule } from './app-routing.module';
+import { PageAccueilComponent } from './page-accueil/page-accueil.component';
 
 @NgModule({
   declarations: [
@@ -15,13 +19,16 @@ import { ApiYoutubeComponent } from './api-youtube/api-youtube.component';
     ApiDeviseComponent,
     FooterComponent,
     EconomicCalendarComponent,
-    ApiYoutubeComponent
+    ApiYoutubeComponent,
+    PageTutorielComponent,
+    PageAccueilComponent
   ],
   imports: [
     HttpClientModule,
-    BrowserModule
+    BrowserModule,
+    AppRoutingModule
   ],
-  providers: [],
+  providers: [ApiYoutubeComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
