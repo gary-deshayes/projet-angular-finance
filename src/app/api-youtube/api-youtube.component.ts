@@ -41,14 +41,14 @@ export class ApiYoutubeComponent implements OnInit {
         this.nextPage = response["nextPageToken"];
         console.log(response);
         this.videos.forEach(element => {
-          this.dangerousVideoUrl = 'http://www.youtube.com/embed/' + element["id"]["videoId"] + '?enablejsapi=1&origin=http://example.com';
+          this.dangerousVideoUrl = 'http://www.youtube.com/embed/' + element["id"]["videoId"] + '?enablejsapi=1&origin=http://example.com&rel=1';
           element['urlSecure'] = this.sanitizer.bypassSecurityTrustResourceUrl(this.dangerousVideoUrl);
         });
         console.log(varSearch);
       });
   }
   getVideosNext(){
-    this.http.get("https://www.googleapis.com/youtube/v3/search?part=snippet&q=" + this.search + "&type=video&videoCaption=any&key=AIzaSyCyaZRe4xMnxqPdh9_fwuizP7bKTreyKNc&maxResults=5&order=rating&pageToken=" + this.nextPage)
+    this.http.get("https://www.googleapis.com/youtube/v3/search?part=snippet&q=" + this.search + "&type=video&videoCaption=any&key=AIzaSyCyaZRe4xMnxqPdh9_fwuizP7bKTreyKNc&maxResults=6&pageToken=" + this.nextPage)
       .subscribe((response: Array<Object>) => {
         this.videos = response["items"];
         this.nextPage = response["nextPageToken"];
@@ -61,7 +61,7 @@ export class ApiYoutubeComponent implements OnInit {
       });
   }
   getVideosPrev(){
-    this.http.get("https://www.googleapis.com/youtube/v3/search?part=snippet&q=" + this.search + "&type=video&videoCaption=any&key=AIzaSyCyaZRe4xMnxqPdh9_fwuizP7bKTreyKNc&maxResults=5&order=rating&pageToken=" + this.prevPage)
+    this.http.get("https://www.googleapis.com/youtube/v3/search?part=snippet&q=" + this.search + "&type=video&videoCaption=any&key=AIzaSyCyaZRe4xMnxqPdh9_fwuizP7bKTreyKNc&maxResults=6&pageToken=" + this.prevPage)
       .subscribe((response: Array<Object>) => {
         this.videos = response["items"];
         this.nextPage = response["nextPageToken"];

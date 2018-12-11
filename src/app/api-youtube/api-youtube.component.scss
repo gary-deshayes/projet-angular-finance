@@ -1,3 +1,39 @@
+@import '../../assets/variables.scss';
+
 #searchYoutubeDiv{
     margin: 10px 0 10px 0;
+}
+
+app-api-youtube {
+    .grid {
+        .eight {
+            margin-bottom: 10px;
+            padding: 30px 0;
+
+            .ui.grid > .column:not(.row) {
+                padding-top: 1rem;
+                padding-bottom: 0rem;
+            }
+
+            iframe {
+                height: 230px;
+            }
+
+            h4 {
+                margin-top: 0;
+            }
+        }
+    }
+}
+
+.buttonPagination{
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0 10px 0;
+
+    .button {
+        color: white;
+        background-color: $primary-color;
+        font-size: 0.8em;
+    }
 }
