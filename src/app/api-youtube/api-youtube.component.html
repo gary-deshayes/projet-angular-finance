@@ -1,21 +1,22 @@
 <div id="searchYoutubeDiv" class="ui input fluid">
-        <input #search type="text" placeholder="Cherchez vos vidéos">
-        <div (click)="getVideos(search.value)" class="ui secondary button">
-            <i class="fas fa-search"></i>
-            </div>
-</div>
-
-
-<div >
-    <div *ngFor="let video of videos">
-        <iframe id="player" type="text/html" width="640" height="360" [src]="video.urlSecure" frameborder="0"></iframe>
-        <h2>{{ video.snippet.channelTitle}}</h2>
-        <div>Chaine : {{ video.snippet.channelTitle}}</div>
-        <div>Publié le : {{ video.snippet.publishedAt | date : "MMM d, y h:mm:ss" }}</div>
-        <hr>
+    <input #search type="text" placeholder="Cherchez vos vidéos" (keyup.enter)="getVideos(search.value)">
+    <div (click)="getVideos(search.value)" class="ui button">
+        <i class="fas fa-search"></i>
     </div>
 </div>
-<div #buttonPage class="ui centered">
-    <div class="ui button primary" (click)="getVideosPrev()">Précédent</div>
-    <div class="ui button primary" (click)="getVideosNext()">Suivant</div>
+
+<div class="buttonPagination">
+    <div class="ui button" (click)="getVideosPrev()">Précédent</div>
+    <div class="ui button" (click)="getVideosNext()">Suivant</div>
+</div>
+
+<div class="ui grid">
+    <div *ngFor="let video of videos" class="eight wide column">
+        <iframe id="player" type="text/html" width="100%" height="100%" [src]="video.urlSecure" frameborder="0"></iframe>
+        <h4>{{ video.snippet.channelTitle}}</h4>
+    </div>
+</div>
+<div class="buttonPagination">
+    <div class="ui button" (click)="getVideosPrev()">Précédent</div>
+    <div class="ui button" (click)="getVideosNext()">Suivant</div>
 </div>

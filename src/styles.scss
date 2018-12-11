@@ -3,10 +3,21 @@
 @import 'app/navbar-menu/navbar-menu.component.scss';
 @import 'app/economic-calendar/economic-calendar.component.scss';
 @import 'app/api-youtube/api-youtube.component.scss';
-@import 'app/footer/footer.component.scss';
+@import 'assets/variables.scss';
 
 body {
     background-color: #DCDCDC;
+}
+
+.ui.inverted.table {
+    background: $primary-color;
+    color: rgba(255, 255, 255, 0.9);
+    border: none;
+}
+
+.ui.inverted.segment, .ui.primary.inverted.segment {
+    background: $primary-color;
+    color: rgba(255, 255, 255, 0.9);
 }
 
 .ui.grid > [class*="three wide"].column {
