@@ -35,7 +35,7 @@ export class ApiYoutubeComponent implements OnInit {
   getVideos(search: string){
     search = search.replace(" ", "%7C");
     this.search = search;
-    this.http.get("https://www.googleapis.com/youtube/v3/search?part=snippet&q=" + search + "&type=video&videoCaption=any&key=AIzaSyCyaZRe4xMnxqPdh9_fwuizP7bKTreyKNc&maxResults=5&order=rating")
+    this.http.get("https://www.googleapis.com/youtube/v3/search?part=snippet&q=" + search + "&type=video&videoCaption=any&key=AIzaSyCyaZRe4xMnxqPdh9_fwuizP7bKTreyKNc&maxResults=5")
       .subscribe((response: Array<Object>) => {
         this.videos = response["items"];
         this.nextPage = response["nextPageToken"];
