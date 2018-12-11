@@ -1,7 +1,7 @@
 {
 "version": 3,
-"mappings": "AAAA,+EAA+E;ACA/E,aAAc;EACV,OAAO,EAAE,YAAY;EACrB,iBAAI;IACJ,MAAM,EAAE,IAAI;IACZ,KAAK,EAAE,IAAI;;ACJf,cAAe;EACX,MAAM,EAAE,EAAE;;ACAV,SAAE;EACE,UAAU,EAAE,MAAM;;AHI1B,uCAAwC;EACpC,KAAK,EAAE,iBAAiB",
-"sources": ["../../styles.scss","../../app/navbar-menu/navbar-menu.component.scss","../../app/economic-calendar/economic-calendar.component.scss","../../app/footer/footer.component.scss"],
+"mappings": "AAAA,+EAA+E;ACA/E,aAAc;EACV,OAAO,EAAE,YAAY;EACrB,iBAAI;IACJ,MAAM,EAAE,IAAI;IACZ,KAAK,EAAE,IAAI;;ACJf,cAAe;EACX,MAAM,EAAE,EAAE;;ACDd,iBAAiB;EACb,MAAM,EAAE,aAAa;;AAGzB,iBAAkB;EACd,OAAO,EAAE,eAAe;;ACJxB,SAAE;EACE,UAAU,EAAE,MAAM;;AJK1B,IAAK;EACD,gBAAgB,EAAE,OAAO;;AAG7B,uCAAwC;EACpC,KAAK,EAAE,iBAAiB",
+"sources": ["../../styles.scss","../../app/navbar-menu/navbar-menu.component.scss","../../app/economic-calendar/economic-calendar.component.scss","../../app/api-youtube/api-youtube.component.scss","../../app/footer/footer.component.scss"],
 "names": [],
 "file": "styles.css"
 }

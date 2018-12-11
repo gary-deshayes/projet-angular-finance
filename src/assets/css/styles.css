@@ -8,8 +8,17 @@
 .menu-calendar {
   margin: 5%; }
 
+#searchYoutubeDiv {
+  margin: 10px 0 10px 0; }
+
+.button-1dpg_T2E- {
+  display: none !important;}
+
 #footer p {
   text-align: center; }
+
+body {
+  background-color: #DCDCDC; }
 
 .ui.grid > [class*="three wide"].column {
   width: 14.74% !important; }
