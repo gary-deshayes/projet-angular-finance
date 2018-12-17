@@ -4,7 +4,7 @@ Application web permettant de recenser toutes les dernières vidéos YouTube bas
 
 ## Technologies
 
-- AngularJS 7
+- Angular 7
 - SCSS
 - Semantic UI
 #### API Utilisées
