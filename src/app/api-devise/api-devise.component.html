@@ -3,7 +3,7 @@
     <thead>
       <tr>
         <th>Devise</th>
-        <th>Prix</th>
+        <th class="refresh">Prix <a (click)="getDevises()"><i class="fas fa-sync-alt"></i></a></th>
       </tr>
     </thead>
     <tbody>
@@ -13,5 +13,5 @@
       </tr>
     </tbody>
   </table>
-  <button (click)="getDevises()" class="mini ui button"><i class="fas fa-sync-alt"></i></button>
+  
 </div>

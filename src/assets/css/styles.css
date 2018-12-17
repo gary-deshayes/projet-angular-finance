@@ -1,15 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
 .account-menu {
-  padding: 0 !important;
-}
-.account-menu img {
-  height: 40px;
-  width: 40px;
-}
+  padding: 0 !important; }
+  .account-menu img {
+    height: 40px;
+    width: 40px; }
+
+.item:first-child {
+  padding: 0 20px !important; }
+  .item:first-child img#logo {
+    width: 150px;
+    height: 35px; }
 
 .menu-calendar {
-  margin: 5%;
-}
+  margin: 5%; }
 
 #searchYoutubeDiv {
   margin: 10px 0 10px 0; }
@@ -47,7 +50,6 @@ body {
   color: rgba(255, 255, 255, 0.9); }
 
 .ui.grid > [class*="three wide"].column {
-  width: 14.74% !important;
-}
+  width: 14.74% !important; }
 
 /*# sourceMappingURL=styles.css.map */
