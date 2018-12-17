@@ -11,6 +11,8 @@ import { ApiYoutubeComponent } from './api-youtube/api-youtube.component';
 import { PageTutorielComponent } from './page-tutoriel/page-tutoriel.component';
 import { AppRoutingModule } from './app-routing.module';
 import { PageAccueilComponent } from './page-accueil/page-accueil.component';
+import { ApiActualiteEcoComponent } from './api-actualite-eco/api-actualite-eco.component';
+import { PageActualiteEconomiqueComponent } from './page-actualite-economique/page-actualite-economique.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { PageAccueilComponent } from './page-accueil/page-accueil.component';
     EconomicCalendarComponent,
     ApiYoutubeComponent,
     PageTutorielComponent,
-    PageAccueilComponent
+    PageAccueilComponent,
+    ApiActualiteEcoComponent,
+    PageActualiteEconomiqueComponent
   ],
   imports: [
     HttpClientModule,
