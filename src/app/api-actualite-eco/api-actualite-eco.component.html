@@ -1,0 +1,24 @@
+<label for="nbPerPage">Nombre de news par page : </label>
+<select name="nbPage" id="nbPerPage" class="ui selection dropdown"  (change)="nbPerPageChange($event.path[0].value)" >
+    <option value="10">10</option>
+    <option value="20">20</option>
+    <option value="30">30</option>
+</select>
+<div *ngFor="let new of news" class="ui items">
+    <h2><a href="{{new.url}}">{{new.title}}</a></h2>
+    <div class="item">
+        <div class="image" *ngIf='new.urlToImage !== null'>
+            <img src="{{new.urlToImage}}" alt="{{new.title}}">
+        </div>
+        <div class="content">
+            <div class="description">
+                <p>{{new.description}}</p>
+            </div>
+            <div class="meta">
+                <span class="date">{{ new.publishedAt | date: "M/d/yyyy h'h'mm" }}</span>
+            </div>
+        </div>
+    </div>
+
+    <hr>
+</div>
