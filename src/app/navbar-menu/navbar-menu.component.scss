@@ -1,16 +1,20 @@
-.account-menu {
-    padding: 0 !important;
-    img {
-    height: 40px;
-    width: 40px;
+.menu-top {
+    border-radius: 0;
+
+    .account-menu {
+        padding: 0 !important;
+        img {
+            height: 40px;
+            width: 40px;
+        }
+    }
+    .item:first-child {
+        padding: 0 20px !important;
+
+        img#logo {
+            width: 150px;
+            height: 35px;
+        }
     }
 }
 
-.item:first-child {
-    padding: 0 20px !important;
-
-    img#logo {
-        width: 150px;
-        height: 35px;
-    }
-}

@@ -1,16 +1,17 @@
 @charset "UTF-8";
 /* You can add global styles to this file, and also import other style files */
-.account-menu {
-  padding: 0 !important; }
-  .account-menu img {
-    height: 40px;
-    width: 40px; }
-
-.item:first-child {
-  padding: 0 20px !important; }
-  .item:first-child img#logo {
-    width: 150px;
-    height: 35px; }
+.menu-top {
+  border-radius: 0; }
+  .menu-top .account-menu {
+    padding: 0 !important; }
+    .menu-top .account-menu img {
+      height: 40px;
+      width: 40px; }
+  .menu-top .item:first-child {
+    padding: 0 20px !important; }
+    .menu-top .item:first-child img#logo {
+      width: 150px;
+      height: 35px; }
 
 .menu-calendar {
   margin: 5%; }
