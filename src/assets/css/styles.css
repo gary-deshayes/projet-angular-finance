@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /* You can add global styles to this file, and also import other style files */
 .account-menu {
   padding: 0 !important; }
@@ -15,49 +16,64 @@
   margin: 5%; }
 
 #searchYoutubeDiv {
-  margin: 10px 0 10px 0;
-}
+  margin: 10px 0 10px 0; }
 
 app-api-youtube .grid .eight {
   margin-bottom: 10px;
-  padding: 30px 0;
-}
-app-api-youtube .grid .eight .ui.grid > .column:not(.row) {
-  padding-top: 1rem;
-  padding-bottom: 0rem;
-}
-app-api-youtube .grid .eight iframe {
-  height: 230px;
-}
-app-api-youtube .grid .eight h4 {
-  margin-top: 0;
-}
+  padding: 30px 0; }
+  app-api-youtube .grid .eight .ui.grid > .column:not(.row) {
+    padding-top: 1rem;
+    padding-bottom: 0rem; }
+  app-api-youtube .grid .eight iframe {
+    height: 230px; }
+  app-api-youtube .grid .eight h4 {
+    margin-top: 0; }
 
 .buttonPagination {
   display: flex;
   justify-content: space-between;
-  margin: 20px 0 10px 0;
-}
-.buttonPagination .button {
-  color: white;
-  background-color: #262b3e;
-  font-size: 0.8em;
-}
+  margin: 20px 0 10px 0; }
+  .buttonPagination .button {
+    color: white;
+    background-color: #262b3e;
+    font-size: 0.8em; }
 
+/* Extra Small Devices */
+@media screen and (max-width: 768px) {
+  /* ----- GLOBAL ----- */
+  /* Retrait de la fonctionnalit├® Api-Devise */
+  api-devise {
+    display: none; }
+
+  /* Retrait du widget TradingView */
+  div.menu-calendar {
+    display: none; }
+
+  /* Menu */
+  app-navbar-menu a {
+    display: none !important; }
+
+  /* ----- ACCUEIL ----- */
+  /* Disposition des vid├®os */
+  .ui.grid > [class*="ten wide"].column {
+    width: 70% !important; }
+
+  .ui.grid > [class*="eight wide"].column {
+    width: 100% !important; } }
+/* Small Devices */
+/* Medium Devices */
+/* Large Devices */
 body {
-  background-color: #DCDCDC;
-}
+  background-color: #DCDCDC; }
 
 .ui.inverted.table {
   background: #262b3e;
   color: rgba(255, 255, 255, 0.9);
-  border: none;
-}
+  border: none; }
 
 .ui.inverted.segment, .ui.primary.inverted.segment {
   background: #262b3e;
-  color: rgba(255, 255, 255, 0.9);
-}
+  color: rgba(255, 255, 255, 0.9); }
 
 .ui.grid > [class*="three wide"].column {
   width: 14.74% !important; }
