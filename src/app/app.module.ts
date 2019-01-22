@@ -13,6 +13,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { PageAccueilComponent } from './page-accueil/page-accueil.component';
 import { ApiActualiteEcoComponent } from './api-actualite-eco/api-actualite-eco.component';
 import { PageActualiteEconomiqueComponent } from './page-actualite-economique/page-actualite-economique.component';
+import { PageVideoComponent } from './page-video/page-video.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { PageActualiteEconomiqueComponent } from './page-actualite-economique/pa
     PageTutorielComponent,
     PageAccueilComponent,
     ApiActualiteEcoComponent,
-    PageActualiteEconomiqueComponent
+    PageActualiteEconomiqueComponent,
+    PageVideoComponent
   ],
   imports: [
     HttpClientModule,
