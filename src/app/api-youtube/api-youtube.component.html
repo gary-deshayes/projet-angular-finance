@@ -11,11 +11,22 @@
 </div>
 
 <div class="ui grid">
-    <div *ngFor="let video of videos" class="eight wide column">
-        <iframe id="player" type="text/html" width="100%" height="100%" [src]="video.urlSecure" frameborder="0"></iframe>
-        <h4>{{ video.snippet.channelTitle}}</h4>
+    <div *ngFor="let video of videos" class="eight wide column videosytb">
+        <div class="ui card">
+            <div class="image">
+                <img [src]="video.snippet.thumbnails.high.url">
+            </div>
+            <div class="content">
+                <a class="header">{{ video.snippet.title }}</a>
+                <div class="meta">
+                <span class="date">{{ video.snippet.channelTitle }}</span>
+                </div>
+                <div class="description">{{ video.snippet.description }}</div>
+            </div>
+        </div>
     </div>
 </div>
+
 <div class="buttonPagination">
     <div class="ui button" (click)="getVideosPrev()">Précédent</div>
     <div class="ui button" (click)="getVideosNext()">Suivant</div>

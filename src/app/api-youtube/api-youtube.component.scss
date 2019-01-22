@@ -15,12 +15,31 @@ app-api-youtube {
                 padding-bottom: 0rem;
             }
 
+            .card {
+                height: 415.65px;
+            }
+
             iframe {
                 height: 230px;
             }
 
             h4 {
                 margin-top: 0;
+            }
+        }
+        .videosytb {
+            display: flex !important;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+
+            .thumbnails {
+                width: 350px;
+                height: 240px;
+            }
+
+            .description {
+                font-size: 12px;
             }
         }
     }
@@ -36,4 +55,8 @@ app-api-youtube {
         background-color: $primary-color;
         font-size: 0.8em;
     }
+}
+
+.ui.grid > [class*="eight wide"].column {
+    width: 33% !important;
 }

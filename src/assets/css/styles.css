@@ -24,10 +24,22 @@ app-api-youtube .grid .eight {
   app-api-youtube .grid .eight .ui.grid > .column:not(.row) {
     padding-top: 1rem;
     padding-bottom: 0rem; }
+  app-api-youtube .grid .eight .card {
+    height: 415.65px; }
   app-api-youtube .grid .eight iframe {
     height: 230px; }
   app-api-youtube .grid .eight h4 {
     margin-top: 0; }
+app-api-youtube .grid .videosytb {
+  display: flex !important;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center; }
+  app-api-youtube .grid .videosytb .thumbnails {
+    width: 350px;
+    height: 240px; }
+  app-api-youtube .grid .videosytb .description {
+    font-size: 12px; }
 
 .buttonPagination {
   display: flex;
@@ -37,6 +49,9 @@ app-api-youtube .grid .eight {
     color: white;
     background-color: #262b3e;
     font-size: 0.8em; }
+
+.ui.grid > [class*="eight wide"].column {
+  width: 33% !important; }
 
 /* Extra Small Devices */
 @media screen and (max-width: 768px) {
@@ -50,13 +65,11 @@ app-api-youtube .grid .eight {
     display: none; }
 
   /* Menu */
-  app-navbar-menu a {
-    display: none !important; }
-
   /* ----- ACCUEIL ----- */
   /* Disposition des vid├®os */
   .ui.grid > [class*="ten wide"].column {
-    width: 70% !important; }
+    width: 90% !important;
+    margin: 0 auto; }
 
   .ui.grid > [class*="eight wide"].column {
     width: 100% !important; } }
