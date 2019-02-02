@@ -1,6 +1,15 @@
-#footer {
-    border-radius: 0;
-    p {
-        text-align: center;
+@import '../../assets/variables.scss';
+
+footer {
+    padding: 20px 0;
+    background-color: $primary-color;
+
+    .container {
+        display: flex;
+        justify-content: center;
+
+        .text-muted {
+            color: white !important;
+        }
     }
 }
