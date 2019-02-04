@@ -39,12 +39,10 @@ export class ApiYoutubeComponent implements OnInit {
       .subscribe((response: Array<Object>) => {
         this.videos = response["items"];
         this.nextPage = response["nextPageToken"];
-        console.log(response);
         this.videos.forEach(element => {
           this.dangerousVideoUrl = 'http://www.youtube.com/embed/' + element["id"]["videoId"] + '?enablejsapi=1&origin=http://example.com&rel=1';
           element['urlSecure'] = this.sanitizer.bypassSecurityTrustResourceUrl(this.dangerousVideoUrl);
         });
-        console.log(varSearch);
       });
   }
   getVideosNext(){
@@ -53,7 +51,6 @@ export class ApiYoutubeComponent implements OnInit {
         this.videos = response["items"];
         this.nextPage = response["nextPageToken"];
         this.prevPage = response["prevPageToken"];
-        console.log(response);
         this.videos.forEach(element => {
           this.dangerousVideoUrl = 'http://www.youtube.com/embed/' + element["id"]["videoId"] + '?enablejsapi=1&origin=http://example.com';
           element['urlSecure'] = this.sanitizer.bypassSecurityTrustResourceUrl(this.dangerousVideoUrl);
@@ -66,7 +63,6 @@ export class ApiYoutubeComponent implements OnInit {
         this.videos = response["items"];
         this.nextPage = response["nextPageToken"];
         this.prevPage = response["prevPageToken"];
-        console.log(response);
         this.videos.forEach(element => {
           this.dangerousVideoUrl = 'http://www.youtube.com/embed/' + element["id"]["videoId"] + '?enablejsapi=1&origin=http://example.com';
           element['urlSecure'] = this.sanitizer.bypassSecurityTrustResourceUrl(this.dangerousVideoUrl);

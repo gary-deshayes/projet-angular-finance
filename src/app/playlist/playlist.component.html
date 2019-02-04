@@ -1,0 +1,9 @@
+<button (click)="getPlaylists()">playlists</button>
+<div class="ui grid">
+  <div *ngFor="let playlist of playlists | async" class="eight wide column">
+      <h4>{{ playlist.snippet.channelTitle}}</h4>
+      <p>{{ playlist.snippet.description}}</p>
+      <img src="{{ playlist.snippet.thumbnails.default.url }}">
+  </div>
+  
+</div>

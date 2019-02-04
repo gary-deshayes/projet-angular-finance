@@ -21,6 +21,8 @@ import {
   NG_GAPI_CONFIG,
   GoogleApiConfig
 } from "ng-gapi";
+import { PagePlaylistComponent } from './page-playlist/page-playlist.component';
+import { PlaylistComponent } from './playlist/playlist.component';
 
 
 let gapiClientConfig: NgGapiClientConfig = {
@@ -43,7 +45,9 @@ let gapiClientConfig: NgGapiClientConfig = {
     PageTutorielComponent,
     PageAccueilComponent,
     ApiActualiteEcoComponent,
-    PageActualiteEconomiqueComponent
+    PageActualiteEconomiqueComponent,
+    PagePlaylistComponent,
+    PlaylistComponent
   ],
   imports: [
     HttpClientModule,

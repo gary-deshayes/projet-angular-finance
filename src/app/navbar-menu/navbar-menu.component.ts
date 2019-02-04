@@ -1,5 +1,7 @@
 import { YoutubeAuthService } from './../youtube-auth.service';
 import { Component, OnInit, ComponentRef } from '@angular/core';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-navbar-menu',
@@ -9,7 +11,7 @@ import { Component, OnInit, ComponentRef } from '@angular/core';
 export class NavbarMenuComponent implements OnInit {
   infosUser: any;
 
-  constructor(private youtubeAuth: YoutubeAuthService) { }
+  constructor(private youtubeAuth: YoutubeAuthService, private router: Router) { }
 
   ngOnInit() {
   }
@@ -20,7 +22,7 @@ export class NavbarMenuComponent implements OnInit {
   }
 
   alertToken(){
-    console.log("Alert Token",this.youtubeAuth.getToken());
+    this.youtubeAuth.getPlaylists();
   }
 
   alertProfile(){
@@ -28,14 +30,8 @@ export class NavbarMenuComponent implements OnInit {
   }
 
   isLogged(){
-    var bool = this.youtubeAuth.isSignedIn();
-    if(bool){
-      this.infosUser = this.youtubeAuth.getProfile();
-      console.log("isLogged",this.infosUser);
-      return true;
-    }else{
-      return false;
-    }
+    this.infosUser = this.youtubeAuth.getUser();
+    return this.youtubeAuth.isSignedIn();
   }
   disconnect(){
     this.youtubeAuth.disconnect();
