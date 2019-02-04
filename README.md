@@ -6,11 +6,14 @@ Application web permettant de recenser toutes les dernières vidéos YouTube bas
 
 - Angular 7
 - SCSS
-- Semantic UI
+- Bootstrap
 #### API Utilisées
 - 1forge
 - Youtube
-- Investing
+- newsapi
+
+#### Widget Utilisé
+- Tradingview news économiques
 
 ## Lancement du projet
 
