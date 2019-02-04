@@ -9,7 +9,7 @@
         <div class="ui button" (click)="getNewsNext()">Suivant</div>
     </div>
 <div *ngFor="let new of news" class="ui items">
-    <h2><a href="{{new.url}}">{{new.title}}</a></h2>
+    <h2><a href="{{new.url}}" target="_blank">{{new.title}}</a></h2>
     <div class="item">
         <div class="image" *ngIf='new.urlToImage !== null'>
             <img src="{{new.urlToImage}}" alt="{{new.title}}">
