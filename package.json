@@ -22,6 +22,7 @@
     "@angular/router": "~7.0.0",
     "core-js": "^2.5.4",
     "google-auth-library": "^2.0.1",
+    "ng-gapi": "0.0.7",
     "rxjs": "~6.3.3",
     "sass": "^1.15.1",
     "zone.js": "~0.8.26"

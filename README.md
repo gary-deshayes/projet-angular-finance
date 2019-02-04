@@ -14,6 +14,7 @@ Application web permettant de recenser toutes les dernières vidéos YouTube bas
 
 ## Lancement du projet
 
+> npm install (installe toutes les dépendances)
 > ng serve --open
 
 ## Modification du scss
