@@ -13,14 +13,15 @@
       <a class="item" routerLink="/tutoriel" routerLinkActive="active" [routerLinkActiveOptions]="{exact:
           true}">Tutoriel
       </a>
-      <a class="item">Playlists </a>
+      <a class="item" *ngIf="isLogged()" routerLink="/playlists" routerLinkActive="active" [routerLinkActiveOptions]="{exact:
+        true}">Playlists </a>
       <a class="item" (click)="signin()" *ngIf="!isLogged()">Connexion</a>
       <a class="item" (click)="alertToken()" *ngIf="isLogged()">Token alert</a>
       <a class="item" (click)="alertProfile()" *ngIf="isLogged()">profile alert</a>
       <div class="right menu" *ngIf="isLogged()">
         <div class="ui simple account-menu dropdown item">
           <div class="account-img">
-            <img class="ui circular image" [src]="this.infosUser.Paa">
+            <img class="ui circular image" [src]="this.infosUser.w3.Paa">
           </div>
 
           <div class="menu">
