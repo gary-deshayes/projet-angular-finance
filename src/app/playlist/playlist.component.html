@@ -1,9 +1,23 @@
-<button (click)="getPlaylists()">playlists</button>
-<div class="ui grid">
-  <div *ngFor="let playlist of playlists | async" class="eight wide column">
-      <h4>{{ playlist.snippet.channelTitle}}</h4>
-      <p>{{ playlist.snippet.description}}</p>
+<h1>Mes playlists : </h1>
+<div class="row">
+  <div *ngFor="let playlist of playlistsUser" class="col-4 onHover" (click)="getVideosPlaylists(playlist.id)">
+      <h4>{{ playlist.snippet.title}}</h4>
       <img src="{{ playlist.snippet.thumbnails.default.url }}">
+      <p>{{ playlist.snippet.description}}</p>
+      <a href="https://www.youtube.com/playlist?list={{ playlist.id}}">Aller vers la playlist</a>
   </div>
   
+</div>
+
+<div *ngIf='videosPlaylists != undefined' id='videoPlaylists'>
+  <h2>Vidéos de la playlists :</h2>
+
+  <div class="row">
+    <div *ngFor="let video of videosPlaylists" class="col-4 onHover">
+      <span (click)="onDeleteVideosPlaylist(video.id)" class="onHoverDelete">X</span>
+      <h4>{{ video.snippet.title}}</h4>
+      <img src="{{ video.snippet.thumbnails.default.url }}">
+    </div>
+  </div>
+
 </div>
