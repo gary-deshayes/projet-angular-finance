@@ -5,7 +5,7 @@
   <div class="collapse navbar-collapse" id="navbarText">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <a class="nav-link" routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{exact:
+        <a class="nav-link" id="lien-accueil" routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{exact:
           true}">Accueil</a>
       </li>
       <li class="nav-item">
@@ -16,8 +16,8 @@
           <a class="nav-link" routerLink="/tutoriel" routerLinkActive="active" [routerLinkActiveOptions]="{exact:
             true}">Tutoriel</a>
       </li>
-      <li class="nav-item">
-          <a class="nav-link" routerLink="/playlists" routerLinkActive="active" [routerLinkActiveOptions]="{exact:
+      <li class="nav-item" *ngIf='isLogged()'>
+          <a class="nav-link" id="lien-playlists" routerLink="/playlists" routerLinkActive="active" [routerLinkActiveOptions]="{exact:
             true}">Playlists</a>
       </li>
       <li class="nav-item">
@@ -30,11 +30,11 @@
         <a class="nav-link" (click)="alertProfile()" *ngIf="isLogged()">profile alert</a>
       </li>
     </ul>
-    <div class="right menu" *ngIf="isLogged()">
+    <div class="right menu" *ngIf="isLogged()" >
       <a class="nav-link" href="#">Paramètres</a>
       <a class="nav-link" (click)="disconnect()">Déconnexion</a>
       <div class="account-img">
-        <img class="ui circular image" [src]="this.infosUser.w3.Paa">
+        <img class="ui circular image" [src]="user.w3.Paa">
       </div>
     </div>
   </div>
