@@ -21,21 +21,30 @@
             true}">Playlists</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" (click)="signin()" *ngIf="!isLogged()">Connexion</a>
-      </li>
-      <li class="nav-item">
         <a class="nav-link" (click)="alertToken()" *ngIf="isLogged()">Token alert</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" (click)="alertProfile()" *ngIf="isLogged()">profile alert</a>
       </li>
     </ul>
-    <div class="right menu" *ngIf="isLogged()">
-      <a class="nav-link" href="#">Paramètres</a>
-      <a class="nav-link" (click)="disconnect()">Déconnexion</a>
-      <div class="account-img">
-        <img class="ui circular image" [src]="this.infosUser.w3.Paa">
-      </div>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a class="nav-link" href="#" (click)="signin()" *ngIf="!isLogged()"><i class="fas fa-user-alt"></i> Connexion</a></li>
+    </ul>
+
+
+    <div class="connected" *ngIf="isLogged()">
+        <li class="nav-item dropdown">
+            <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <div class="account-img">
+                <img [src]="this.infosUser.w3.Paa">
+              </div>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="nav-link" href="#">Paramètres</a>
+              <div class="dropdown-divider"></div>
+              <a class="nav-link" href="#" (click)="disconnect()">Déconnexion</a>
+            </div>
+        </li>
     </div>
   </div>
 </nav>

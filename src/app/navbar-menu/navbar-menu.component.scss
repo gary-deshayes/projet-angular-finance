@@ -1,14 +1,28 @@
+@import '../../assets/variables.scss';
+
 .navbar {
     padding: 10px 140px;
-}
-.account-img {
-    img {
-        border-radius: 20px;
-        height: 40px;
-        width: 40px;
+    background-color: $primary-color !important;
+
+    .account-img {
+        img {
+            border-radius: 20px;
+            height: 40px;
+            width: 40px;
+        }
     }
-}
-#logo {
-    width: 150px;
-    height: 35px;
+
+    li {
+        list-style: none;
+    }
+
+    #logo {
+        width: 150px;
+        height: 35px;
+    }
+
+    .connected {
+        display: flex;
+        flex-direction: row;
+    }
 }
