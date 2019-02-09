@@ -1,0 +1,5 @@
+<div *ngFor="let video of videos">
+  <iframe class="e2e-iframe-trusted-src" width="640" height="390" [src]="videoUrl"></iframe>
+  <h5 class="card-title">{{ video.snippet.title }}</h5>
+  <p class="card-text">{{ video.snippet.description }}</p>     
+</div>
