@@ -152,66 +152,9 @@ export class PlaylistComponent implements OnInit {
   }
 
   editerPlaylists(playlist: any) {
-    this.affichageFormulaireUpdate = true;
     this.playlistModif = playlist;
-  //   console.log("Editer : " + idPlaylist);
-  //   this.youtubeAuth.getApiService().subscribe(() => {
-
-  //     let that = this;
-  //     console.log("subscribe passed");
-  //     //  on load auth2 client
-  //     gapi.load('client:auth2', {
-  //       callback: function () {
-
-  //         console.log("initialisation ...");
-  //         // On initialise gapi.client
-  //         gapi.client.init(that.youtubeAuth.args).then(
-  //           (value) => {
-  //             console.log(value)
-  //           },
-  //           (reason) => {
-  //             console.log(reason)
-  //           }
-  //         );
-  //         if (gapi.client != undefined) {
-  //           console.log("Gapi has loaded update api !");
-  //           var data = {
-  //             path: "https://www.googleapis.com/youtube/v3/playlists",
-  //             method: "PUT",
-  //             params: {
-  //               'part': 'snippet,status'
-  //             },
-  //             body: {
-  //               "id": idPlaylist,
-  //               "snippet":
-  //               {
-  //                 "title": "Update playlist 3 ",
-  //                 "description": "Changement de playlist pour Angular 7 privacy",
-  //                 "tags": ["Angular 7", "Licence informatique"],
-  //               },
-  //               "status": 
-  //               {
-  //                 "privacyStatus": "public"
-  //               }
-  //             }
-  //           }
-  //           gapi.client.request(data).execute((response) => {
-  //             console.log(response);
-  //           })
-  //         }
-
-  //       },
-  //       onerror: function () {
-  //         // Handle loading error.
-  //         alert('gapi.client failed to load!');
-  //       },
-  //       timeout: 5000, // 5 seconds.
-  //       ontimeout: function () {
-  //         // Handle timeout.
-  //         alert('gapi.client could not load in a timely manner!');
-  //       }
-  //     });
-  //   });
+    this.affichageFormulaireUpdate = true;
+    
   }
 
 }

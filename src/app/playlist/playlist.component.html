@@ -7,7 +7,7 @@
       <p>{{ playlist.snippet.description}}</p>
     </div>
     <a href="https://www.youtube.com/playlist?list={{ playlist.id}}">Aller vers la playlist</a>
-    <button (click)="editerPlaylists(playlist)">Editer la playlist</button>
+    <button (click)="editerPlaylists(playlist)" class="btn btn-outline-secondary">Editer la playlist</button>
   </div>
 
 </div>
@@ -27,6 +27,6 @@
 
 <div *ngIf='affichageFormulaireUpdate'>
   <hr>
-  <app-form-update-playlist playlist = "{{playlistModif}}"></app-form-update-playlist>
+  <app-form-update-playlist [playlist]="playlistModif"></app-form-update-playlist>
   
 </div>

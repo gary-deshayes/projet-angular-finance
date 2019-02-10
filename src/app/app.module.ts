@@ -14,6 +14,7 @@ import { PageAccueilComponent } from './page-accueil/page-accueil.component';
 import { ApiActualiteEcoComponent } from './api-actualite-eco/api-actualite-eco.component';
 import { PageActualiteEconomiqueComponent } from './page-actualite-economique/page-actualite-economique.component';
 import { PageVideoComponent } from './page-video/page-video.component';
+import { FormsModule } from '@angular/forms';
 import {
   GoogleApiModule, 
   GoogleApiService, 
@@ -54,6 +55,7 @@ let gapiClientConfig: NgGapiClientConfig = {
     FormUpdatePlaylistComponent
   ],
   imports: [
+    FormsModule,
     HttpClientModule,
     BrowserModule,
     AppRoutingModule,
