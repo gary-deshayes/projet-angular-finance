@@ -1,0 +1,14 @@
+<h3>Modification de la playlist : {{ idplaylistModif}}</h3>
+<form id="updatePlaylist" class="form-group">
+  <label for="title">Titre de la playlist :</label>
+  <input type="text" required placeholder="Titre de la playlist" name="title">
+  <label for="description">Description de la playlist :</label>
+  <textarea class="form-control" rows="5" name="description"></textarea>
+  <label for="tags">Tags (séparés de ;) :</label>
+  <input type="text" required placeholder="Tags de la playlist" name="tags">
+  <select name="privacyStatus">
+    <option value = 0>Privée</option>
+    <option value = 1>Public</option>
+    <option value = 2>Non répertoriée</option>
+  </select>
+</form>

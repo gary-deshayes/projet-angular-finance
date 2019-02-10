@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { YoutubeAuthService } from './../youtube-auth.service';
+import { Router } from "@angular/router"
 
 @Component({
   selector: 'app-playlist',
@@ -9,62 +10,63 @@ import { YoutubeAuthService } from './../youtube-auth.service';
 export class PlaylistComponent implements OnInit {
   playlistsUser;
   videosPlaylists;
+  affichageFormulaireUpdate = false;
+  playlistModif;
 
-  
 
-  constructor(private youtubeAuth: YoutubeAuthService) { }
 
-  ngOnInit(){
-    this.getPlaylists();
-    
-  }
-  getPlaylists(){
-    let args = {
-      clientId: '238523767005-90jndv6p8oot3la91kv9u7kg9b3kaj2i.apps.googleusercontent.com',
-      discoveryDocs: ['https://www.googleapis.com/discovery/v1/apis/youtube/v3/rest'],
-      scope: 'https://www.googleapis.com/auth/youtube.force-ssl https://www.googleapis.com/auth/youtube.readonly',
-      apiKey: "AIzaSyBQfBCA8tKpCL9uQsZNEjYFAGIcrMIh-ak"
+  constructor(private youtubeAuth: YoutubeAuthService, private router: Router) {
+    if (this.youtubeAuth.getProfile() == false) {
+      console.log("redirection to ''");
+      this.router.navigate(['']);
     }
-    this.youtubeAuth.getPlaylists().subscribe(() => {
-      
+  }
+
+  ngOnInit() {
+    this.getPlaylists();
+
+  }
+  getPlaylists() {
+    this.youtubeAuth.getApiService().subscribe(() => {
+
       let that = this;
       console.log("subscribe passed");
       //  on load auth2 client
       gapi.load('client:auth2', {
         callback: function () {
-          
+
           console.log("initialisation ...");
           // On initialise gapi.client
-          gapi.client.init(args).then(
-            (value ) => {
+          gapi.client.init(that.youtubeAuth.args).then(
+            (value) => {
               console.log(value)
             },
-            (reason ) => {
-               console.log(reason) 
+            (reason) => {
+              console.log(reason)
             }
           );
           if (gapi.client != undefined) {
             console.log("Gapi has loaded !");
             var data = {
-                path: "https://www.googleapis.com/youtube/v3/playlists",
-                method: "GET",
-                params: {
+              path: "https://www.googleapis.com/youtube/v3/playlists",
+              method: "GET",
+              params: {
                 part: "snippet",
                 mine: true
               }
             }
             gapi.client.request(data).then((response) => {
-              
+
               that.playlistsUser = response["result"]["items"];
-              if(that.playlistsUser != undefined){
+              if (that.playlistsUser != undefined) {
                 console.log(that.playlistsUser);
                 document.getElementById("lien-playlists").click();
               }
-              
+
             },
-            (reason) => {
-              return reason;
-            });
+              (reason) => {
+                return reason;
+              });
           }
 
         },
@@ -79,10 +81,10 @@ export class PlaylistComponent implements OnInit {
         }
       });
     });
-    
+
   }
 
-  getVideosPlaylists(idPlaylists: string){
+  getVideosPlaylists(idPlaylists: string) {
     console.log(idPlaylists);
     this.youtubeAuth.getVideosPlaylists(idPlaylists).subscribe((response: Array<Object>) => {
       this.videosPlaylists = response["items"];
@@ -90,55 +92,49 @@ export class PlaylistComponent implements OnInit {
     });
   }
 
-  onDeleteVideosPlaylist(idVideoPlaylist: string){
-    if(confirm("Êtes vous sûr de vouloir supprimer cette vidéo ?")){
+  onDeleteVideosPlaylist(idVideoPlaylist: string) {
+    if (confirm("Êtes vous sûr de vouloir supprimer cette vidéo ?")) {
       console.log(idVideoPlaylist);
       this.deleteVideoPlaylist(idVideoPlaylist);
-      
+
     }
   }
 
-  deleteVideoPlaylist(idVideoPlaylist: string){
-    let args = {
-      clientId: '238523767005-90jndv6p8oot3la91kv9u7kg9b3kaj2i.apps.googleusercontent.com',
-      discoveryDocs: ['https://www.googleapis.com/discovery/v1/apis/youtube/v3/rest'],
-      scope: 'https://www.googleapis.com/auth/youtube.force-ssl https://www.googleapis.com/auth/youtube.readonly',
-      apiKey: "AIzaSyBQfBCA8tKpCL9uQsZNEjYFAGIcrMIh-ak"
-    }
-    this.youtubeAuth.deleteVideoPlaylist().subscribe(() => {
-      
+  deleteVideoPlaylist(idVideoPlaylist: string) {
+    this.youtubeAuth.getApiService().subscribe(() => {
+
       let that = this;
       console.log("subscribe passed");
       //  on load auth2 client
       gapi.load('client:auth2', {
         callback: function () {
-          
+
           console.log("initialisation ...");
           // On initialise gapi.client
-          gapi.client.init(args).then(
-            (value ) => {
+          gapi.client.init(that.youtubeAuth.args).then(
+            (value) => {
               console.log(value)
             },
-            (reason ) => {
-               console.log(reason) 
+            (reason) => {
+              console.log(reason)
             }
           );
           if (gapi.client != undefined) {
             console.log("Gapi has loaded !");
             var data = {
-                path: "/youtube/v3/playlistItems",
-                method: "DELETE",
-                params: {
+              path: "https://www.googleapis.com/youtube/v3/playlistItems",
+              method: "DELETE",
+              params: {
                 id: idVideoPlaylist
               }
             }
             gapi.client.request(data).then((response) => {
               console.log(response);
-              
+
             },
-            (reason) => {
-              return reason;
-            });
+              (reason) => {
+                return reason;
+              });
           }
 
         },
@@ -153,6 +149,69 @@ export class PlaylistComponent implements OnInit {
         }
       });
     });
+  }
+
+  editerPlaylists(playlist: any) {
+    this.affichageFormulaireUpdate = true;
+    this.playlistModif = playlist;
+  //   console.log("Editer : " + idPlaylist);
+  //   this.youtubeAuth.getApiService().subscribe(() => {
+
+  //     let that = this;
+  //     console.log("subscribe passed");
+  //     //  on load auth2 client
+  //     gapi.load('client:auth2', {
+  //       callback: function () {
+
+  //         console.log("initialisation ...");
+  //         // On initialise gapi.client
+  //         gapi.client.init(that.youtubeAuth.args).then(
+  //           (value) => {
+  //             console.log(value)
+  //           },
+  //           (reason) => {
+  //             console.log(reason)
+  //           }
+  //         );
+  //         if (gapi.client != undefined) {
+  //           console.log("Gapi has loaded update api !");
+  //           var data = {
+  //             path: "https://www.googleapis.com/youtube/v3/playlists",
+  //             method: "PUT",
+  //             params: {
+  //               'part': 'snippet,status'
+  //             },
+  //             body: {
+  //               "id": idPlaylist,
+  //               "snippet":
+  //               {
+  //                 "title": "Update playlist 3 ",
+  //                 "description": "Changement de playlist pour Angular 7 privacy",
+  //                 "tags": ["Angular 7", "Licence informatique"],
+  //               },
+  //               "status": 
+  //               {
+  //                 "privacyStatus": "public"
+  //               }
+  //             }
+  //           }
+  //           gapi.client.request(data).execute((response) => {
+  //             console.log(response);
+  //           })
+  //         }
+
+  //       },
+  //       onerror: function () {
+  //         // Handle loading error.
+  //         alert('gapi.client failed to load!');
+  //       },
+  //       timeout: 5000, // 5 seconds.
+  //       ontimeout: function () {
+  //         // Handle timeout.
+  //         alert('gapi.client could not load in a timely manner!');
+  //       }
+  //     });
+  //   });
   }
 
 }

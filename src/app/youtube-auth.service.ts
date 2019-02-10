@@ -16,6 +16,13 @@ export class YoutubeAuthService {
   playlists;
   videosPlaylists;
 
+  args = {
+    clientId: '238523767005-90jndv6p8oot3la91kv9u7kg9b3kaj2i.apps.googleusercontent.com',
+    discoveryDocs: ['https://www.googleapis.com/discovery/v1/apis/youtube/v3/rest'],
+    scope: 'https://www.googleapis.com/auth/youtube.force-ssl',
+    apiKey: "AIzaSyBQfBCA8tKpCL9uQsZNEjYFAGIcrMIh-ak"
+  }
+
 
   constructor(private googleAuth: GoogleAuthService, private router: Router, private GoogleApi: GoogleApiService, private http: HttpClient) {
 
@@ -41,7 +48,12 @@ export class YoutubeAuthService {
   }
 
   public getProfile() {
-    return this.user.getBasicProfile();
+    if(this.user != undefined){
+      return this.user.getBasicProfile();
+    }else{
+      return false;
+    }
+    
   }
 
   public getUser() {
@@ -65,20 +77,13 @@ export class YoutubeAuthService {
 
   }
 
-  public getPlaylists(): Observable<void> {
-    console.log("loading gapi...");
-    // On charge la librairie google
-    return this.GoogleApi.onLoad();
-    
-  }
-
   public getVideosPlaylists(idPlaylists: string){
       return this.http.get("https://www.googleapis.com/youtube/v3/playlistItems?part=snippet%2CcontentDetails&maxResults=25&playlistId=" + idPlaylists + "&key=" + this.apiKey);
         
   }
 
-  public deleteVideoPlaylist(): Observable<void> {
-    console.log("loading gapi delete...");
+  public getApiService(): Observable<void> {
+    console.log("loading gapi");
     // On charge la librairie google
     return this.GoogleApi.onLoad();
     
