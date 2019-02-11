@@ -1,26 +1,14 @@
-@import '../../assets/variables.scss';
+.row {
+    max-width: 100%;
 
-#searchYoutubeDiv{
-    margin: 10px 0 10px 0;
-}
-
-.buttonPagination{
-    display: flex;
-    justify-content: space-between;
-    margin: 20px 0 10px 0;
-
-    .button {
-        color: white;
-        background-color: $primary-color;
-        font-size: 0.8em;
+    .col-2 {
+        display: flex;
+        justify-content: center;
     }
-}
-
-.card {
-    max-height: 450px;
-    margin: 10px 0;
-
-    .card-text {
-        font-size: 10px;
+    .col-7 {
+        margin-top: 20px;
+    }
+    .col-3 {
+        padding-right: 0;
     }
 }
