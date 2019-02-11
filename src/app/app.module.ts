@@ -26,6 +26,7 @@ import {
 import { PagePlaylistComponent } from './page-playlist/page-playlist.component';
 import { PlaylistComponent } from './playlist/playlist.component';
 import { FormUpdatePlaylistComponent } from './form-update-playlist/form-update-playlist.component';
+import { PageFormulaireModificationPlaylistComponent } from './page-formulaire-modification-playlist/page-formulaire-modification-playlist.component';
 
 
 let gapiClientConfig: NgGapiClientConfig = {
@@ -52,7 +53,8 @@ let gapiClientConfig: NgGapiClientConfig = {
     PageVideoComponent,
     PagePlaylistComponent,
     PlaylistComponent,
-    FormUpdatePlaylistComponent
+    FormUpdatePlaylistComponent,
+    PageFormulaireModificationPlaylistComponent
   ],
   imports: [
     FormsModule,

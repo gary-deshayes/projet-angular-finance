@@ -154,6 +154,7 @@ export class PlaylistComponent implements OnInit {
   editerPlaylists(playlist: any) {
     this.playlistModif = playlist;
     this.affichageFormulaireUpdate = true;
+    this.router.navigateByUrl("modification-playlist/" + this.playlistModif.id);
     
   }
 
