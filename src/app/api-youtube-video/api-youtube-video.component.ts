@@ -21,7 +21,6 @@ export class ApiYoutubeVideoComponent implements OnInit {
   public videos = [];
 
   constructor(private route: ActivatedRoute, private http: HttpClient, private sanitizer: DomSanitizer, private youtubeAuth: YoutubeAuthService) {
-    this.youtubeAuth.getToken();
    }
 
   ngOnInit() {
