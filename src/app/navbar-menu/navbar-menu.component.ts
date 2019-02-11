@@ -47,10 +47,6 @@ export class NavbarMenuComponent implements OnInit {
     
   }
 
-  alertToken(){
-    this.youtubeAuth.getPlaylists();
-  }
-
   alertProfile(){
     console.log("Alert Profile",this.youtubeAuth.getProfile());
   }
