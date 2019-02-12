@@ -77,6 +77,18 @@ export class YoutubeAuthService {
 
   }
 
+  public getPlaylists(): Observable<void> {
+    console.log("loading gapi...");
+    // On charge la librairie google
+    return this.GoogleApi.onLoad();
+  }
+
+  public postRate(): Observable<void> {
+    console.log("loading gapi post...");
+    // On charge la librairie google
+    return this.GoogleApi.onLoad();
+  }
+  
   public getVideosPlaylists(idPlaylists: string){
       return this.http.get("https://www.googleapis.com/youtube/v3/playlistItems?part=snippet%2CcontentDetails&maxResults=25&playlistId=" + idPlaylists + "&key=" + this.apiKey);
         

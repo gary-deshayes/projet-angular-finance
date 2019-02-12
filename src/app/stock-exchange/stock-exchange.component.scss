@@ -1,0 +1,60 @@
+/*
+@giphy: http://giphy.com/gifs/3ohze2apsm6Qpb281y
+@see: http://simianuprising.com/wp-content/uploads/2012/08/solarized-reference-horizontal.png
+*/
+
+body {
+    width: 630px;
+    margin: 0 auto;
+    background-color:#002B36;
+    color: #FDF6E3;
+    font-family: 'Cousine', monospace;
+}
+
+h1 {
+  font-variant: small-caps;
+  letter-spacing: 2px ;
+  font-size:60px;
+}
+
+#btc {
+  font-size:40px;
+  color:#859900;
+}
+
+#exchange-values {
+  padding-top: 7px;
+  padding-bottom: 7px;
+}
+
+#exchange {
+  margin-top:4px;
+  color: #E53B27;
+}
+
+#sell {
+  color: #D7B836;
+}
+/*
+@see:http://jsfiddle.net/jonathansampson/xxuxd/
+*/
+
+/* Make it a marquee */
+.marquee {
+    background-color: #073642;
+
+    overflow: hidden;
+    white-space: nowrap;
+    box-sizing: border-box;
+    animation: marquee 50s linear infinite;
+}
+
+.marquee:hover {
+    animation-play-state: paused
+}
+
+/* Make it move */
+@keyframes marquee {
+    0%   { text-indent: 27.5em }
+    100% { text-indent: -105em }
+}

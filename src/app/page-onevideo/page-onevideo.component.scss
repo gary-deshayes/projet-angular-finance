@@ -1,0 +1,14 @@
+.row {
+    max-width: 100%;
+
+    .col-2 {
+        display: flex;
+        justify-content: center;
+    }
+    .col-7 {
+        margin-top: 20px;
+    }
+    .col-3 {
+        padding-right: 0;
+    }
+}

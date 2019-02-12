@@ -2,97 +2,87 @@
 /* You can add global styles to this file, and also import other style files */
 .navbar {
   padding: 10px 140px;
-}
-
-.account-img img {
-  border-radius: 20px;
-  height: 40px;
-  width: 40px;
-}
+  background-color: #262b3e !important; }
+  .navbar .account-img img {
+    border-radius: 20px;
+    height: 40px;
+    width: 40px; }
+  .navbar li {
+    list-style: none; }
+  .navbar #logo {
+    width: 150px;
+    height: 35px; }
+  .navbar .connected {
+    display: flex;
+    flex-direction: row; }
 
 #logo {
   width: 150px;
-  height: 35px;
-}
+  height: 35px; }
 
 a {
-  cursor: pointer;
-}
+  cursor: pointer; }
 
 .menu-calendar {
   display: flex;
   justify-content: flex-end;
-  margin-top: 10px;
-}
+  margin-top: 10px; }
 
 #searchYoutubeDiv {
-  margin: 10px 0 10px 0;
-}
+  margin: 10px 0 10px 0; }
 
 .buttonPagination {
   display: flex;
   justify-content: space-between;
-  margin: 20px 0 10px 0;
-}
-.buttonPagination .button {
-  color: white;
-  background-color: #262b3e;
-  font-size: 0.8em;
-}
+  margin: 20px 0 10px 0; }
+  .buttonPagination .button {
+    color: white;
+    background-color: #262b3e;
+    font-size: 0.8em; }
 
 .card {
   max-height: 450px;
   margin: 10px 0;
-}
-.card .card-text {
-  font-size: 10px;
-}
+  cursor: pointer; }
+  .card .card-text {
+    font-size: 10px; }
 
 /* Extra Small Devices */
 @media screen and (max-width: 768px) {
   /* ----- GLOBAL ----- */
-  /* Retrait de la fonctionnalité Api-Devise */
+  /* Retrait de la fonctionnalit├® Api-Devise */
   api-devise {
-    display: none;
-  }
+    display: none; }
 
   /* Retrait du widget TradingView */
   div.menu-calendar {
-    display: none;
-  }
+    display: none; }
 
   /* Menu */
   /* ----- ACCUEIL ----- */
-  /* Disposition des vidéos */
+  /* Disposition des vid├®os */
   .ui.grid > [class*="ten wide"].column {
     width: 90% !important;
-    margin: 0 auto;
-  }
+    margin: 0 auto; }
 
   .ui.grid > [class*="eight wide"].column {
-    width: 100% !important;
-  }
-}
+    width: 100% !important; } }
 /* Small Devices */
 /* Medium Devices */
 /* Large Devices */
 body {
-  background-color: #DCDCDC;
-}
+  background-color: #DCDCDC; }
 
 .ui.inverted.table {
   background: #262b3e;
   color: rgba(255, 255, 255, 0.9);
-  border: none;
-}
+  border: none; }
 
 .ui.inverted.segment, .ui.primary.inverted.segment {
   background: #262b3e;
-  color: rgba(255, 255, 255, 0.9);
-}
+  color: rgba(255, 255, 255, 0.9); }
 
 .ui.grid > [class*="three wide"].column {
-  width: 14.74% !important;
-}
+  width: 14.74% !important; }
 
 /*# sourceMappingURL=styles.css.map */
