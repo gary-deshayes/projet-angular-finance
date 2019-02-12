@@ -86,9 +86,57 @@ export class PlaylistComponent implements OnInit {
 
   getVideosPlaylists(idPlaylists: string) {
     console.log(idPlaylists);
-    this.youtubeAuth.getVideosPlaylists(idPlaylists).subscribe((response: Array<Object>) => {
-      this.videosPlaylists = response["items"];
-      console.log(this.videosPlaylists);
+
+    this.youtubeAuth.getApiService().subscribe(() => {
+
+      let that = this;
+      console.log("subscribe passed");
+      //  on load auth2 client
+      gapi.load('client:auth2', {
+        callback: function () {
+
+          console.log("initialisation ...");
+          // On initialise gapi.client
+          gapi.client.init(that.youtubeAuth.args).then(
+            (value) => {
+              console.log(value)
+            },
+            (reason) => {
+              console.log(reason)
+            }
+          );
+          if (gapi.client != undefined) {
+            console.log("Gapi has loaded !");
+            var data = {
+              path: "https://www.googleapis.com/youtube/v3/playlistItems",
+              method: "GET",
+              params: {
+                part: "snippet",
+                playlistId: idPlaylists,
+                maxResults: 25
+              }
+            }
+            gapi.client.request(data).then((response) => {
+              that.videosPlaylists = response["result"]["items"];
+              document.getElementById("lien-playlists").click();
+
+            },
+              (reason) => {
+                return reason;
+              });
+          }
+
+        },
+        onerror: function () {
+          // Handle loading error.
+          alert('gapi.client failed to load!');
+        },
+        timeout: 5000, // 5 seconds.
+        ontimeout: function () {
+          // Handle timeout.
+          alert('gapi.client could not load in a timely manner!');
+        }
+      });
     });
   }
 
@@ -154,6 +202,7 @@ export class PlaylistComponent implements OnInit {
   editerPlaylists(playlist: any) {
     this.playlistModif = playlist;
     this.affichageFormulaireUpdate = true;
+    this.router.navigateByUrl("modification-playlist/" + this.playlistModif.id);
     
   }
 

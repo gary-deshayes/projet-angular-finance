@@ -29,6 +29,7 @@ import { StockExchangeComponent } from './stock-exchange/stock-exchange.componen
 import { PageOnevideoComponent } from './page-onevideo/page-onevideo.component';
 import { ApiYoutubeVideoComponent } from './api-youtube-video/api-youtube-video.component';
 import { FormUpdatePlaylistComponent } from './form-update-playlist/form-update-playlist.component';
+import { PageFormulaireModificationPlaylistComponent } from './page-formulaire-modification-playlist/page-formulaire-modification-playlist.component';
 
 
 let gapiClientConfig: NgGapiClientConfig = {
@@ -55,6 +56,7 @@ let gapiClientConfig: NgGapiClientConfig = {
     PageVideoComponent,
     PagePlaylistComponent,
     PlaylistComponent,
+    PageFormulaireModificationPlaylistComponent,
     StockExchangeComponent,
     PageOnevideoComponent,
     ApiYoutubeVideoComponent,
