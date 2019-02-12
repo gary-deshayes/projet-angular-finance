@@ -3,8 +3,8 @@
     <iframe class="e2e-iframe-trusted-src" width="1100" height="600" [src]="videoUrl"></iframe>
     <div class="counter">
       <span>{{ video.statistics.viewCount }} vues</span>
-      <button (click)="postLike()">{{ video.statistics.likeCount }} like(s)</button>
-      <span>{{ video.statistics.dislikeCount }} dislike(s)</span>      
+      <button (click)="postRate(video.id, 'like')">{{ video.statistics.likeCount }} like(s)</button>
+      <button (click)="postRate(video.id, 'dislike')">{{ video.statistics.dislikeCount }} dislike(s)</button>      
     </div>
   </div>
 
