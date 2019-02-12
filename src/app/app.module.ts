@@ -25,6 +25,9 @@ import {
 } from "ng-gapi";
 import { PagePlaylistComponent } from './page-playlist/page-playlist.component';
 import { PlaylistComponent } from './playlist/playlist.component';
+import { StockExchangeComponent } from './stock-exchange/stock-exchange.component';
+import { PageOnevideoComponent } from './page-onevideo/page-onevideo.component';
+import { ApiYoutubeVideoComponent } from './api-youtube-video/api-youtube-video.component';
 import { FormUpdatePlaylistComponent } from './form-update-playlist/form-update-playlist.component';
 import { PageFormulaireModificationPlaylistComponent } from './page-formulaire-modification-playlist/page-formulaire-modification-playlist.component';
 
@@ -53,8 +56,11 @@ let gapiClientConfig: NgGapiClientConfig = {
     PageVideoComponent,
     PagePlaylistComponent,
     PlaylistComponent,
-    FormUpdatePlaylistComponent,
-    PageFormulaireModificationPlaylistComponent
+    PageFormulaireModificationPlaylistComponent,
+    StockExchangeComponent,
+    PageOnevideoComponent,
+    ApiYoutubeVideoComponent,
+    FormUpdatePlaylistComponent
   ],
   imports: [
     FormsModule,

@@ -12,7 +12,7 @@
     <button type="button" class="btn btn-light" (click)="getVideosNext()">Suivant</button>
 </div>
 <div class="row">
-    <div *ngFor="let video of videos" class="col-4">
+    <div *ngFor="let video of videos" class="col-4" routerLink="/video/{{ video.id.videoId }}">
         <div class="card">
             <img class="card-img-top" [src]="video.snippet.thumbnails.high.url" alt="Card image cap">
             <div class="card-body">

@@ -1,0 +1,14 @@
+<div class="video" *ngFor="let video of videos">
+  <div class="main">
+    <iframe class="e2e-iframe-trusted-src" width="1100" height="600" [src]="videoUrl"></iframe>
+    <div class="counter">
+      <span>{{ video.statistics.viewCount }} vues</span>
+      <button (click)="postRate(video.id, 'like')">{{ video.statistics.likeCount }} like(s)</button>
+      <button (click)="postRate(video.id, 'dislike')">{{ video.statistics.dislikeCount }} dislike(s)</button>      
+    </div>
+  </div>
+
+  <h5 class="card-title">{{ video.snippet.title }}</h5>
+  <p class="card-text">{{ video.snippet.description }}</p>
+  
+</div>
