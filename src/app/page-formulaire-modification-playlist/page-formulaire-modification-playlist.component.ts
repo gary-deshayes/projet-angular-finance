@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute }     from '@angular/router';
+import { ActivatedRoute, Router }     from '@angular/router';
 import { YoutubeAuthService } from './../youtube-auth.service';
 
 @Component({
@@ -13,23 +13,26 @@ export class PageFormulaireModificationPlaylistComponent implements OnInit {
   playlistModif;
   affichageFormulaireUpdate = false;
 
-  constructor(private route: ActivatedRoute, private apiyoutube: YoutubeAuthService) { 
+  constructor(private route: ActivatedRoute, private apiyoutube: YoutubeAuthService, private router: Router) { 
+    if (this.apiyoutube.getProfile() == false) {
+      this.router.navigate(['']);
+      
+    }
 
   }
 
-  ngOnInit() {
+  ngAfterViewInit(): void {
+    console.log(document.getElementById("btn-refresh-page"));
+    
     this.route.params.subscribe(params => {
       this.id_playlist = params;
     });
     this.apiyoutube.getApiService().subscribe(() => {
 
       let that = this;
-      console.log(that.id_playlist);
       //  on load auth2 client
       gapi.load('client:auth2', {
         callback: function () {
-
-          console.log("initialisation ...");
           // On initialise gapi.client
           gapi.client.init(that.apiyoutube.args).then(
             (value) => {
@@ -40,7 +43,6 @@ export class PageFormulaireModificationPlaylistComponent implements OnInit {
             }
           );
           if (gapi.client != undefined) {
-            console.log("Gapi has loaded !");
             var data = {
               path: "https://www.googleapis.com/youtube/v3/playlists",
               method: "GET",
@@ -53,8 +55,8 @@ export class PageFormulaireModificationPlaylistComponent implements OnInit {
 
               that.playlistModif = response["result"]["items"];
               if (that.playlistModif != undefined) {
-                console.log(that.playlistModif[0]);
                 that.affichageFormulaireUpdate = true;
+                document.getElementById("link-hidden").click();
               }
 
             },
@@ -75,6 +77,10 @@ export class PageFormulaireModificationPlaylistComponent implements OnInit {
         }
       });
     });
+    
+  }
+
+  ngOnInit() {
   }
 
 }

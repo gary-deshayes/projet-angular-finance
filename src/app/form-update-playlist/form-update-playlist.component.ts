@@ -14,6 +14,7 @@ export class FormUpdatePlaylistComponent implements OnInit {
   inputDescription: string;
   inputTags: string;
   selectStatus: number;
+  playlistModif;
   
 
   constructor(private youtubeAuth: YoutubeAuthService, private router: Router) { 
@@ -21,19 +22,13 @@ export class FormUpdatePlaylistComponent implements OnInit {
   }
 
   ngOnInit() {
-
-    console.log(this.playlist);
+    this.playlistModif = this.playlist[0];
   }
 
   modifierPlaylist(e){
-    console.log(e);
-    console.log(this.inputTitle);
-    console.log(this.inputDescription);
-    console.log(this.inputTags);
-    console.log(this.selectStatus);
-    // if(this.inputTitle == undefined && (this.selectStatus == undefined || this.selectStatus == 0)){
-    //   alert("Veuillez au moins remplir le titre et le statut");
-    // }else{
+    if(this.inputTitle == undefined && (this.selectStatus == undefined || this.selectStatus == 0)){
+      alert("Veuillez au moins remplir le titre et le statut");
+    }else{
       let status;
       switch(this.selectStatus){
         case 0:
@@ -46,12 +41,9 @@ export class FormUpdatePlaylistComponent implements OnInit {
       this.youtubeAuth.getApiService().subscribe(() => {
 
         let that = this;
-        console.log("subscribe passed");
         //  on load auth2 client
         gapi.load('client:auth2', {
           callback: function () {
-  
-            console.log("initialisation ...");
             // On initialise gapi.client
             gapi.client.init(that.youtubeAuth.args).then(
               (value) => {
@@ -62,7 +54,6 @@ export class FormUpdatePlaylistComponent implements OnInit {
               }
             );
             if (gapi.client != undefined) {
-              console.log("Gapi has loaded update api !");
               var data = {
                 path: "https://www.googleapis.com/youtube/v3/playlists",
                 method: "PUT",
@@ -70,7 +61,7 @@ export class FormUpdatePlaylistComponent implements OnInit {
                   'part': 'snippet,status'
                 },
                 body: {
-                  "id": that.playlist.id,
+                  "id": that.playlistModif.id,
                   "snippet":
                   {
                     "title": that.inputTitle,
@@ -83,11 +74,12 @@ export class FormUpdatePlaylistComponent implements OnInit {
                   }
                 }
               }
+              console.log(data);
               gapi.client.request(data).execute((response) => {
                 if(response.error != undefined){
                   alert("Erreur lors de la mise à jour de la playlist");
                 }else{
-                  console.log(response);
+                  document.getElementById("lien-playlists").click();
                 }
               })
             }
@@ -107,6 +99,6 @@ export class FormUpdatePlaylistComponent implements OnInit {
     }
 
     
-  // }
+  }
 
 }

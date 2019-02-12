@@ -78,7 +78,7 @@ export class YoutubeAuthService {
   }
 
   public getVideosPlaylists(idPlaylists: string){
-      return this.http.get("https://www.googleapis.com/youtube/v3/playlistItems?part=snippet%2CcontentDetails&maxResults=25&playlistId=" + idPlaylists + "&key=" + this.apiKey);
+      return this.http.get("https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=25&playlistId=" + idPlaylists + "&key=" + this.apiKey);
         
   }
 
