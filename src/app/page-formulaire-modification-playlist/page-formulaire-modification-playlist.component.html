@@ -1,5 +1,21 @@
-<div *ngIf='affichageFormulaireUpdate' id="formulaire-update">
-  <hr>
-  <app-form-update-playlist [playlist]="playlistModif"></app-form-update-playlist>
 
+
+<app-navbar-menu></app-navbar-menu>
+
+<div class="row">
+  <div class="col-2">
+    <api-devise></api-devise>
+  </div>
+  <div class="col-7">
+    <div *ngIf='affichageFormulaireUpdate == true' id="formulaire-update">
+      <hr>
+      <app-form-update-playlist [playlist]="playlistModif"></app-form-update-playlist>
+    
+    </div>
+  </div>
+  <div class="col-3">
+    <app-economic-calendar></app-economic-calendar>
+  </div>
 </div>
+
+<app-footer></app-footer>
