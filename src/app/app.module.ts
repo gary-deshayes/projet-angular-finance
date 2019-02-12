@@ -14,6 +14,7 @@ import { PageAccueilComponent } from './page-accueil/page-accueil.component';
 import { ApiActualiteEcoComponent } from './api-actualite-eco/api-actualite-eco.component';
 import { PageActualiteEconomiqueComponent } from './page-actualite-economique/page-actualite-economique.component';
 import { PageVideoComponent } from './page-video/page-video.component';
+import { FormsModule } from '@angular/forms';
 import {
   GoogleApiModule, 
   GoogleApiService, 
@@ -27,6 +28,7 @@ import { PlaylistComponent } from './playlist/playlist.component';
 import { StockExchangeComponent } from './stock-exchange/stock-exchange.component';
 import { PageOnevideoComponent } from './page-onevideo/page-onevideo.component';
 import { ApiYoutubeVideoComponent } from './api-youtube-video/api-youtube-video.component';
+import { FormUpdatePlaylistComponent } from './form-update-playlist/form-update-playlist.component';
 
 
 let gapiClientConfig: NgGapiClientConfig = {
@@ -55,9 +57,11 @@ let gapiClientConfig: NgGapiClientConfig = {
     PlaylistComponent,
     StockExchangeComponent,
     PageOnevideoComponent,
-    ApiYoutubeVideoComponent
+    ApiYoutubeVideoComponent,
+    FormUpdatePlaylistComponent
   ],
   imports: [
+    FormsModule,
     HttpClientModule,
     BrowserModule,
     AppRoutingModule,
