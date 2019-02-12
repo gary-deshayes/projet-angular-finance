@@ -21,10 +21,7 @@
             true}">Playlists</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" (click)="alertToken()" *ngIf="isLogged()">Token alert</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" (click)="alertProfile()" *ngIf="isLogged()">profile alert</a>
+        <a class="nav-link" (click)="signin()" *ngIf="!isLogged()">Connexion</a>
       </li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
