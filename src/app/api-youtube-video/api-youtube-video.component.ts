@@ -15,6 +15,7 @@ export class ApiYoutubeVideoComponent implements OnInit {
   videoId = this.route.snapshot.paramMap.get('id');
   dangerousVideoUrl = 'http://www.youtube.com/embed/' + this.videoId;
   videoUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.dangerousVideoUrl);
+  getingRating;
   public videos = [];
 
   constructor(private route: ActivatedRoute, private http: HttpClient, private sanitizer: DomSanitizer, private youtubeAuth: YoutubeAuthService) {
@@ -23,6 +24,7 @@ export class ApiYoutubeVideoComponent implements OnInit {
   ngOnInit() {
     this.getVideo();
     this.youtubeAuth.getToken();
+    this.getRate(this.videoId);
   }
 
   public getVideo(){
@@ -30,6 +32,68 @@ export class ApiYoutubeVideoComponent implements OnInit {
       .subscribe((response: Array<Object>) => {
         this.videos = response["items"];
       });
+  }
+
+  getRate(idVideo: string){
+    let args = {
+      clientId: '238523767005-90jndv6p8oot3la91kv9u7kg9b3kaj2i.apps.googleusercontent.com',
+      discoveryDocs: ['https://www.googleapis.com/discovery/v1/apis/youtube/v3/rest'],
+      scope: 'https://www.googleapis.com/auth/youtube.force-ssl https://www.googleapis.com/auth/youtube.readonly',
+      apiKey: "AIzaSyBQfBCA8tKpCL9uQsZNEjYFAGIcrMIh-ak"
+    }
+    this.youtubeAuth.postRate().subscribe(() => {
+      
+      let that = this;
+      console.log("subscribe passed");
+      //  on load auth2 client
+      gapi.load('client:auth2', {
+        callback: function () {
+          
+          console.log("initialisation ...");
+          // On initialise gapi.client
+          gapi.client.init(args).then(
+            (value ) => {
+              console.log(value)
+            },
+            (reason ) => {
+               console.log(reason) 
+            }
+          );
+          if (gapi.client != undefined) {
+            console.log("Gapi has loaded !");
+            var data = {
+                path: "/youtube/v3/videos/getRating",
+                method: "GET",
+                params: {
+                id: idVideo
+              }
+            }
+            gapi.client.request(data).then((response) => {
+
+              that.getingRating = response["result"]["items"];
+              if (that.getingRating!= undefined) {
+                console.log(that.getingRating);
+                return that.getingRating;
+              }
+              
+            },
+            (reason) => {
+              return reason;
+            });
+          }
+
+        },
+        onerror: function () {
+          // Handle loading error.
+          alert('gapi.client failed to load!');
+        },
+        timeout: 5000, // 5 seconds.
+        ontimeout: function () {
+          // Handle timeout.
+          alert('gapi.client could not load in a timely manner!');
+        }
+      });
+    });
   }
 
   postRate(idVideo: string, type: string){
