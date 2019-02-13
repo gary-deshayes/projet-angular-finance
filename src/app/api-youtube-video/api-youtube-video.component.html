@@ -7,6 +7,9 @@
       <button (click)="postRate(video.id, 'dislike')">{{ video.statistics.dislikeCount }} dislike(s)</button>      
     </div>
   </div>
+  <div *ngFor="let rate of getingRating">
+    <p>{{ rate.rating }}</p>
+  </div>
 
   <h5 class="card-title">{{ video.snippet.title }}</h5>
   <p class="card-text">{{ video.snippet.description }}</p>

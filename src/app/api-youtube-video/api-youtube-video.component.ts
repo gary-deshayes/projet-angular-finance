@@ -73,7 +73,6 @@ export class ApiYoutubeVideoComponent implements OnInit {
               that.getingRating = response["result"]["items"];
               if (that.getingRating!= undefined) {
                 console.log(that.getingRating);
-                return that.getingRating;
               }
               
             },
