@@ -1,14 +1,27 @@
+<style>
+.red {
+  background-color: red;
+}
+.green {
+  background-color: green;
+}
+</style>
+
 <div class="video" *ngFor="let video of videos">
   <div class="main">
     <iframe class="e2e-iframe-trusted-src" width="1100" height="600" [src]="videoUrl"></iframe>
-    <div class="counter">
+    <div class="counter" *ngFor="let rate of getingRating">
       <span>{{ video.statistics.viewCount }} vues</span>
-      <button (click)="postRate(video.id, 'like')">{{ video.statistics.likeCount }} like(s)</button>
-      <button (click)="postRate(video.id, 'dislike')">{{ video.statistics.dislikeCount }} dislike(s)</button>      
+
+      <div *ngFor="let rate of getingRating">
+        <button type="button" class="btn" [ngClass]="rate.rating == 'like' ? 'btn-primary' : ' '" (click)="postRate(video.id, 'like')">
+          J'aime <span class="badge badge-light">{{ video.statistics.likeCount }}</span>
+        </button>
+        <button type="button" class="btn" [ngClass]="rate.rating == 'dislike' ? 'btn-danger' : ' '" (click)="postRate(video.id, 'dislike')">
+            Je n'aime pas <span class="badge badge-light">{{ video.statistics.dislikeCount }}</span>
+        </button>
+      </div>
     </div>
-  </div>
-  <div *ngFor="let rate of getingRating">
-    <p>{{ rate.rating }}</p>
   </div>
 
   <h5 class="card-title">{{ video.snippet.title }}</h5>
