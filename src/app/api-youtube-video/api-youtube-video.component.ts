@@ -95,13 +95,6 @@ export class ApiYoutubeVideoComponent implements OnInit {
     });
   }
 
-  setMyStyles() {
-    let styles = {
-      'color':  'blue'
-    };
-    return styles;
-  }
-
   postRate(idVideo: string, type: string){
     let args = {
       clientId: '238523767005-90jndv6p8oot3la91kv9u7kg9b3kaj2i.apps.googleusercontent.com',
