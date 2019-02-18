@@ -1,4 +1,7 @@
-<div id="searchYoutubeDiv">
+
+<img src="../../assets/img/loader.gif" class="loader" *ngIf="loading == true" >
+
+<div id="searchYoutubeDiv" *ngIf="loading == false">
     <div class="input-group">
         <input #search type="text" placeholder="Cherchez vos vidéos" (keyup.enter)="getVideos(search.value)" class="form-control">
         <span class="input-group-btn">
@@ -7,7 +10,7 @@
       </div>
 </div>
 
-<div class="buttonPagination">
+<div class="buttonPagination" *ngIf="loading == false">
     <button type="button" class="btn btn-light" (click)="getVideosPrev()">Précédent</button>
     <button type="button" class="btn btn-light" (click)="getVideosNext()">Suivant</button>
 </div>
@@ -23,7 +26,7 @@
     </div>
 </div>
 
-<div class="buttonPagination">
+<div class="buttonPagination" *ngIf="loading == false">
     <button type="button" class="btn btn-light" (click)="getVideosPrev()">Précédent</button>
     <button type="button" class="btn btn-light" (click)="getVideosNext()">Suivant</button>
 </div>

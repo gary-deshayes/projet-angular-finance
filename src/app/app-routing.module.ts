@@ -6,14 +6,16 @@ import { PageTutorielComponent } from './page-tutoriel/page-tutoriel.component';
 import { PagePlaylistComponent } from './page-playlist/page-playlist.component';
 import { PageFormulaireModificationPlaylistComponent } from './page-formulaire-modification-playlist/page-formulaire-modification-playlist.component';
 import { PageOnevideoComponent } from './page-onevideo/page-onevideo.component';
+import { PageNouvellePlaylistComponent } from './page-nouvelle-playlist/page-nouvelle-playlist.component';
 
 const routes: Routes = [
   { path: '', component: PageAccueilComponent},
   { path: 'tutoriel', component: PageTutorielComponent},
   { path: 'actualite-economique', component: PageActualiteEconomiqueComponent},
   { path: 'playlists', component: PagePlaylistComponent},
-  { path: 'modification-playlist/:id', component: PageFormulaireModificationPlaylistComponent }
-  { path: 'video/:id', component: PageOnevideoComponent}
+  { path: 'modification-playlist/:id', component: PageFormulaireModificationPlaylistComponent },
+  { path: 'video/:id', component: PageOnevideoComponent},
+  { path: "nouvelle-playlist", component: PageNouvellePlaylistComponent}
 ];
 
 @NgModule({

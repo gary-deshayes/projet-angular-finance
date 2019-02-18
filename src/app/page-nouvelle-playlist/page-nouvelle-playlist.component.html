@@ -4,12 +4,8 @@
     <api-devise></api-devise>
   </div>
   <div class="col-7">
-    <div id="formulaire-update" *ngIf="affichageFormulaireUpdate">
-        <h3>Modification de la playlist : </h3>
-      
-      <app-form-playlist [playlist]="playlistModif"></app-form-playlist>
-    
-    </div>
+    <h3>Création de la playlist : </h3>
+    <app-form-playlist></app-form-playlist>
   </div>
   <div class="col-3">
     <app-economic-calendar></app-economic-calendar>

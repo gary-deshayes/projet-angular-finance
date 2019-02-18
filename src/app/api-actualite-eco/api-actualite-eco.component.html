@@ -5,8 +5,8 @@
     <option value="30">30</option>
 </select>
 <div class="buttonPagination">
-        <div class="ui button" (click)="getNewsPrev()">Précédent</div>
-        <div class="ui button" (click)="getNewsNext()">Suivant</div>
+        <div class="btn btn-light" (click)="getNewsPrev()">Précédent</div>
+        <div class="btn btn-light" (click)="getNewsNext()">Suivant</div>
     </div>
 <div *ngFor="let new of news" class="ui items">
     <h2><a href="{{new.url}}" target="_blank">{{new.title}}</a></h2>
@@ -27,6 +27,6 @@
     <hr>
 </div>
 <div class="buttonPagination">
-    <div class="ui button" (click)="getNewsPrev()">Précédent</div>
-    <div class="ui button" (click)="getNewsNext()">Suivant</div>
+    <div class="btn btn-light" (click)="getNewsPrev()">Précédent</div>
+    <div class="btn btn-light" (click)="getNewsNext()">Suivant</div>
 </div>

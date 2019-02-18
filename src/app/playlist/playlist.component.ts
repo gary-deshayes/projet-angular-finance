@@ -206,4 +206,9 @@ export class PlaylistComponent implements OnInit {
     
   }
 
+  nouvellePlaylist() {
+    this.router.navigateByUrl("nouvelle-playlist");
+    
+  }
+
 }

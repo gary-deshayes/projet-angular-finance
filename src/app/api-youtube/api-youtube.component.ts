@@ -18,6 +18,7 @@ export class ApiYoutubeComponent implements OnInit {
   prevPage = "";
   search = "";
   dangerousVideoUrl = "";
+  loading = true;
 
   constructor(private http: HttpClient,private sanitizer: DomSanitizer) { 
     
@@ -33,6 +34,7 @@ export class ApiYoutubeComponent implements OnInit {
   }
 
   public getVideos(varSearch: string){
+    this.loading = true;
     varSearch = varSearch.replace(" ", "%7C");
     this.search = varSearch;
     this.http.get("https://www.googleapis.com/youtube/v3/search?part=snippet&q=" + varSearch + "&type=video&videoCaption=any&key=AIzaSyCyaZRe4xMnxqPdh9_fwuizP7bKTreyKNc&maxResults=6")
@@ -42,7 +44,11 @@ export class ApiYoutubeComponent implements OnInit {
         this.videos.forEach(element => {
           this.dangerousVideoUrl = 'http://www.youtube.com/embed/' + element["id"]["videoId"] + '?enablejsapi=1&origin=http://example.com&rel=1';
           element['urlSecure'] = this.sanitizer.bypassSecurityTrustResourceUrl(this.dangerousVideoUrl);
+          this.loading = false;
         });
+      },
+      (error)=>{
+        console.log(error);
       });
   }
   getVideosNext(){

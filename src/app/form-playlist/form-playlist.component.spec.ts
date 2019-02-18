@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FormUpdatePlaylistComponent } from './form-update-playlist.component';
+import { FormPlaylistComponent } from './form-playlist.component';
 
-describe('FormUpdatePlaylistComponent', () => {
-  let component: FormUpdatePlaylistComponent;
-  let fixture: ComponentFixture<FormUpdatePlaylistComponent>;
+describe('FormPlaylistComponent', () => {
+  let component: FormPlaylistComponent;
+  let fixture: ComponentFixture<FormPlaylistComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ FormUpdatePlaylistComponent ]
+      declarations: [ FormPlaylistComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(FormUpdatePlaylistComponent);
+    fixture = TestBed.createComponent(FormPlaylistComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
