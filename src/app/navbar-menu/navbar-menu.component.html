@@ -20,9 +20,6 @@
           <a class="nav-link" id="lien-playlists" routerLink="/playlists" routerLinkActive="active" [routerLinkActiveOptions]="{exact:
             true}">Playlists</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" (click)="signin()" *ngIf="!isLogged()">Connexion</a>
-      </li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
       <li><a class="nav-link" href="#" (click)="signin()" *ngIf="!isLogged()"><i class="fas fa-user-alt"></i> Connexion</a></li>
@@ -31,7 +28,7 @@
 
     <div class="connected" *ngIf="isLogged()">
         <li class="nav-item dropdown">
-            <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <div class="account-img">
                 <img [src]="user.w3.Paa">
               </div>

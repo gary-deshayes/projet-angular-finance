@@ -1,5 +1,6 @@
 @charset "UTF-8";
 /* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css?family=Montserrat");
 .navbar {
   padding: 10px 140px;
   background-color: #262b3e !important; }
@@ -44,8 +45,13 @@ a {
   max-height: 450px;
   margin: 10px 0;
   cursor: pointer; }
-  .card .card-text {
-    font-size: 10px; }
+  .card .card-body {
+    padding: 1rem; }
+    .card .card-body .card-title {
+      color: #000;
+      font-weight: 600; }
+    .card .card-body .card-text {
+      font-size: 10px; }
 
 /* Extra Small Devices */
 @media screen and (max-width: 768px) {
@@ -71,7 +77,8 @@ a {
 /* Medium Devices */
 /* Large Devices */
 body {
-  background-color: #DCDCDC; }
+  background-color: #DCDCDC;
+  font-family: 'Montserrat', sans-serif; }
 
 .ui.inverted.table {
   background: #262b3e;
