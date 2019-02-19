@@ -21,7 +21,16 @@
     margin: 10px 0;
     cursor: pointer;
 
-    .card-text {
-        font-size: 10px;
+    .card-body{
+        padding: 1rem;
+
+        .card-title {
+            color: #000;
+            font-weight: 600;
+        }
+        .card-text {
+            font-size: 10px;
+        }
     }
+
 }
