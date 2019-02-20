@@ -32,5 +32,10 @@
             font-size: 10px;
         }
     }
+}
 
+@media (max-width: 768px) {
+    .col-4 {
+        width: 100%;
+    }
 }

@@ -12,7 +12,7 @@ const routes: Routes = [
   { path: 'tutoriel', component: PageTutorielComponent},
   { path: 'actualite-economique', component: PageActualiteEconomiqueComponent},
   { path: 'playlists', component: PagePlaylistComponent},
-  { path: 'modification-playlist/:id', component: PageFormulaireModificationPlaylistComponent }
+  { path: 'modification-playlist/:id', component: PageFormulaireModificationPlaylistComponent },
   { path: 'video/:id', component: PageOnevideoComponent}
 ];
 
