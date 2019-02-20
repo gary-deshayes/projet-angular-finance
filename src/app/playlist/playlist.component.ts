@@ -13,8 +13,6 @@ export class PlaylistComponent implements OnInit {
   affichageFormulaireUpdate = false;
   playlistModif;
 
-
-
   constructor(private youtubeAuth: YoutubeAuthService, private router: Router) {
     if (this.youtubeAuth.getProfile() == false) {
       console.log("redirection to ''");
@@ -26,6 +24,8 @@ export class PlaylistComponent implements OnInit {
     this.getPlaylists();
 
   }
+
+  //Permet la récupération des playlists du compte connecté
   getPlaylists() {
     this.youtubeAuth.getApiService().subscribe(() => {
 
@@ -84,6 +84,7 @@ export class PlaylistComponent implements OnInit {
 
   }
 
+  //Récupère des vidéos d'une playlist
   getVideosPlaylists(idPlaylists: string) {
     console.log(idPlaylists);
 
@@ -139,7 +140,7 @@ export class PlaylistComponent implements OnInit {
       });
     });
   }
-
+  // Supprime une vidéo d'une playlist
   onDeleteVideosPlaylist(idVideoPlaylist: string) {
     if (confirm("Êtes vous sûr de vouloir supprimer cette vidéo ?")) {
       console.log(idVideoPlaylist);
@@ -147,7 +148,7 @@ export class PlaylistComponent implements OnInit {
 
     }
   }
-
+  // Supprime une vidéo d'une playlist
   deleteVideoPlaylist(idVideoPlaylist: string) {
     this.youtubeAuth.getApiService().subscribe(() => {
 
@@ -198,7 +199,7 @@ export class PlaylistComponent implements OnInit {
       });
     });
   }
-
+  // Permet d'éditer une playlist
   editerPlaylists(playlist: any) {
     this.playlistModif = playlist;
     this.affichageFormulaireUpdate = true;
@@ -206,6 +207,7 @@ export class PlaylistComponent implements OnInit {
     
   }
 
+  //Redirige vers le formulaire pour créer une nouvelle playlist
   nouvellePlaylist() {
     this.router.navigateByUrl("nouvelle-playlist");
     

@@ -1,32 +1,38 @@
-<label for="nbPerPage">Nombre de news par page : </label>
-<select name="nbPage" id="nbPerPage" class="ui selection dropdown" (change)="nbPerPageChange($event.path[0].value)">
-    <option value="10">10</option>
-    <option value="20">20</option>
-    <option value="30">30</option>
-</select>
-<div class="buttonPagination">
+<img src="../../assets/img/loader.gif" class="loader" *ngIf="loading == true">
+<div *ngIf="error">
+    <p>Erreur lors du chargement des actualités économiques</p>
+</div>
+<div *ngIf="loading == false">
+    <label for="nbPerPage">Nombre de news par page : </label>
+    <select name="nbPage" id="nbPerPage" class="ui selection dropdown" (change)="nbPerPageChange($event.path[0].value)">
+        <option value="10">10</option>
+        <option value="20">20</option>
+        <option value="30">30</option>
+    </select>
+    <div class="buttonPagination">
         <div class="btn btn-light" (click)="getNewsPrev()">Précédent</div>
         <div class="btn btn-light" (click)="getNewsNext()">Suivant</div>
     </div>
-<div *ngFor="let new of news" class="ui items">
-    <h2><a href="{{new.url}}" target="_blank">{{new.title}}</a></h2>
-    <div class="item">
-        <div class="image" *ngIf='new.urlToImage !== null'>
-            <img src="{{new.urlToImage}}" alt="{{new.title}}">
-        </div>
-        <div class="content">
-            <div class="description">
-                <p>{{new.description}}</p>
+    <div *ngFor="let new of news" class="ui items">
+        <h2><a href="{{new.url}}" target="_blank">{{new.title}}</a></h2>
+        <div class="item">
+            <div class="image" *ngIf='new.urlToImage !== null'>
+                <img src="{{new.urlToImage}}" alt="{{new.title}}">
             </div>
-            <div class="meta">
-                <span class="date">{{ new.publishedAt | date: "d/M/yyyy h'h'mm" }}</span>
+            <div class="content">
+                <div class="description">
+                    <p>{{new.description}}</p>
+                </div>
+                <div class="meta">
+                    <span class="date">{{ new.publishedAt | date: "d/M/yyyy h'h'mm" }}</span>
+                </div>
             </div>
         </div>
-    </div>
 
-    <hr>
-</div>
-<div class="buttonPagination">
-    <div class="btn btn-light" (click)="getNewsPrev()">Précédent</div>
-    <div class="btn btn-light" (click)="getNewsNext()">Suivant</div>
+        <hr>
+    </div>
+    <div class="buttonPagination">
+        <div class="btn btn-light" (click)="getNewsPrev()">Précédent</div>
+        <div class="btn btn-light" (click)="getNewsNext()">Suivant</div>
+    </div>
 </div>

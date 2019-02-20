@@ -13,23 +13,27 @@ import { $ } from 'protractor';
 })
 export class NavbarMenuComponent implements OnInit {
   private user: GoogleUser;
-  private userLogged = false;
+  private userLogged;
 
   constructor(private youtubeAuth: YoutubeAuthService, private router: Router) {
-    // this.user = JSON.parse(localStorage.getItem("userGoogle"));
-    // if(this.user != undefined){
-    //   this.userLogged = true;
-
-    // }
-   }
+    this.user = JSON.parse(localStorage.getItem("googleUser"));
+    if (this.user != undefined) {
+      this.userLogged = true;
+      console.log(this.user);
+    } else{
+      this.userLogged = false;
+    }
+  }
 
   ngOnInit() {
-    
-  }
-  
-  
 
-  signin(){
+
+
+  }
+
+
+
+  signin() {
     const response = this.youtubeAuth.signIn();
     response.subscribe((auth: GoogleUser) => {
       auth.signIn()
@@ -37,25 +41,26 @@ export class NavbarMenuComponent implements OnInit {
           console.log(res);
           this.youtubeAuth.signInSuccessHandler(res);
           this.user = res;
-          if(res != undefined){
+          if (res != undefined) {
+            localStorage.setItem("googleUser", JSON.stringify(res));
             document.getElementById("lien-accueil").click();
           }
         }
           // 
         );
     });
-    
+
   }
 
-  alertProfile(){
-    console.log("Alert Profile",this.youtubeAuth.getProfile());
+  alertProfile() {
+    console.log("Alert Profile", this.youtubeAuth.getProfile());
   }
 
-  isLogged(){
+  isLogged() {
     this.user = this.youtubeAuth.getUser();
     return this.youtubeAuth.isSignedIn();
   }
-  disconnect(){
+  disconnect() {
     this.youtubeAuth.disconnect();
   }
 }
