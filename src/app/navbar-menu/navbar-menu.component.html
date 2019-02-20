@@ -25,7 +25,6 @@
       <li><a class="nav-link" href="#" (click)="signin()" *ngIf="!isLogged()"><i class="fas fa-user-alt"></i> Connexion</a></li>
     </ul>
 
-
     <div class="connected" *ngIf="isLogged()">
         <li class="nav-item dropdown">
             <a href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -42,3 +41,24 @@
     </div>
   </div>
 </nav>
+
+<div class="menu-mobile">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" id="lien-accueil" routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{exact:
+          true}"><i class="fas fa-home"></i><p>Accueil</p></a>
+      </li>
+      <li class="nav-item">
+          <a class="nav-link" routerLink="/actualite-economique" routerLinkActive="active" [routerLinkActiveOptions]="{exact:
+            true}"><i class="far fa-newspaper"></i><p>Actualités</p></a>
+      </li>
+      <li class="nav-item">
+          <a class="nav-link" routerLink="/tutoriel" routerLinkActive="active" [routerLinkActiveOptions]="{exact:
+            true}"><i class="fas fa-book-open"></i><p>Tutoriel</p></a>
+      </li>
+      <li class="nav-item" *ngIf='isLogged()'>
+          <a class="nav-link" id="lien-playlists" routerLink="/playlists" routerLinkActive="active" [routerLinkActiveOptions]="{exact:
+            true}"><i class="fab fa-youtube"></i><p>Playlists</p></a>
+      </li>
+    </ul>
+  </div>
