@@ -54,7 +54,6 @@ let gapiClientConfig: NgGapiClientConfig = {
     PageVideoComponent,
     PagePlaylistComponent,
     PlaylistComponent,
-    StockExchangeComponent,
     PageOnevideoComponent,
     ApiYoutubeVideoComponent,
     FormUpdatePlaylistComponent
