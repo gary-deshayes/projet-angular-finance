@@ -1,6 +1,11 @@
 
 <img src="../../assets/img/loader.gif" class="loader" *ngIf="loading == true" >
 
+<div *ngIf="error">
+    <p>Erreur lors du chargement des vidéos youtube, veuillez réessayer plus tard.</p>
+    <p>Code erreur : {{ errorStatus }}</p>
+</div>
+
 <div id="searchYoutubeDiv" *ngIf="loading == false">
     <div class="input-group">
         <input #search type="text" placeholder="Cherchez vos vidéos" (keyup.enter)="getVideos(search.value)" class="form-control">
