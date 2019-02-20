@@ -1,15 +1,17 @@
-<h1>Mes playlists : </h1>
-<div class="row">
-  <div *ngFor="let playlist of playlistsUser" class="col-4">
-    <div class="onHover"  (click)="getVideosPlaylists(playlist.id)">
-      <h4>{{ playlist.snippet.title}}</h4>
-      <img src="{{ playlist.snippet.thumbnails.default.url }}">
-      <p>{{ playlist.snippet.description}}</p>
+<div id="my-playlists"> 
+  <h1>Mes playlists : </h1>
+  <div class="row">
+    <div *ngFor="let playlist of playlistsUser" class="col-4">
+      <div class="onHover" (click)="getVideosPlaylists(playlist.id)">
+        <h4>{{ playlist.snippet.title}}</h4>
+        <img src="{{ playlist.snippet.thumbnails.default.url }}">
+        <p>{{ playlist.snippet.description}}</p>
+      </div>
+      <a href="https://www.youtube.com/playlist?list={{ playlist.id}}">Aller vers la playlist</a>
+      <button (click)="editerPlaylists(playlist)" class="btn btn-outline-secondary">Editer la playlist</button>
     </div>
-    <a href="https://www.youtube.com/playlist?list={{ playlist.id}}">Aller vers la playlist</a>
-    <button (click)="editerPlaylists(playlist)" class="btn btn-outline-secondary">Editer la playlist</button>
-  </div>
 
+  </div>
 </div>
 
 <div *ngIf='videosPlaylists != undefined' id='videoPlaylists'>
@@ -25,8 +27,3 @@
 
 </div>
 
-<div *ngIf='affichageFormulaireUpdate'>
-  <hr>
-  <app-form-update-playlist [playlist]="playlistModif"></app-form-update-playlist>
-  
-</div>

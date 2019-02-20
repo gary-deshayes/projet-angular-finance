@@ -8,15 +8,15 @@
 </div>
 
 <div class="buttonPagination">
-    <button type="button" class="btn btn-light" (click)="getVideosPrev()">Précédent</button>
-    <button type="button" class="btn btn-light" (click)="getVideosNext()">Suivant</button>
+    <button type="button" class="btn btn-light" (click)="getVideosPrev()">Page précédente</button>
+    <button type="button" class="btn btn-light" (click)="getVideosNext()">Page suivante</button>
 </div>
 <div class="row">
     <div *ngFor="let video of videos" class="col-4" routerLink="/video/{{ video.id.videoId }}">
         <div class="card">
-            <img class="card-img-top" [src]="video.snippet.thumbnails.high.url" alt="Card image cap">
+            <img class="card-img-top" [src]="video.snippet.thumbnails.medium.url" alt="Card image cap">
             <div class="card-body">
-                <h5 class="card-title">{{ video.snippet.title }}</h5>
+                <a class="card-title">{{ video.snippet.title }}</a>
                 <p class="card-text">{{ video.snippet.description }}</p>
             </div>
         </div>
@@ -24,6 +24,6 @@
 </div>
 
 <div class="buttonPagination">
-    <button type="button" class="btn btn-light" (click)="getVideosPrev()">Précédent</button>
-    <button type="button" class="btn btn-light" (click)="getVideosNext()">Suivant</button>
+    <button type="button" class="btn btn-light" (click)="getVideosPrev()">Page précédente</button>
+    <button type="button" class="btn btn-light" (click)="getVideosNext()">Page suivante</button>
 </div>

@@ -1,14 +1,24 @@
-h2 {
-    font-size: 20px;
-}
 
-img {
-    margin-left: 5px;
-    width: 33%;
-    height: 33%;
-    vertical-align: text-top;
-}
+.col-md-6 {
+    margin-bottom: 30px;
 
-.col-7 {
-    margin-top: 30px;
+    .mb-4 {
+        background-color: #fff;
+        height: 100%;
+
+        .news {
+            a {
+                text-align: right;
+            }
+            .news-top {
+                img {
+                    width: 100%;
+                    height: 100%;
+                }
+                h4 {
+                    margin-top: 10px;
+                }
+            }
+        }
+    }
 }

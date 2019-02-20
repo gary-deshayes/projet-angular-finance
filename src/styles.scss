@@ -5,9 +5,11 @@
 @import 'app/api-youtube/api-youtube.component.scss';
 @import 'assets/variables.scss';
 @import 'assets/responsive.scss';
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
 
 body {
     background-color: #DCDCDC;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .ui.inverted.table {
