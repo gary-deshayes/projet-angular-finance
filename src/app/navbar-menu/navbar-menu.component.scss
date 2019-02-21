@@ -34,3 +34,67 @@
 a{
     cursor: pointer;
 }
+
+.menu-mobile {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        padding: 10px;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
+
+        .navbar-collapse {
+            flex-basis: 0;
+            display: flex;
+            justify-content: flex-end;
+
+            .dropdown-menu {
+                margin: .125rem 0 0 -125px;
+            }
+        }
+
+        .collapse:not(.show) {
+            display: inherit;
+
+            .mr-auto {
+                display: none;
+            }
+        }
+    }
+    .menu-mobile {
+        display: block;
+        position: fixed;
+        bottom: 0;
+        z-index: 5;
+        background-color: $primary-color;
+        width: 100%;
+
+        ul {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+
+            li {
+                margin: 0 10px;
+
+                a {
+                    color: #fff;
+                    display: flex;
+                    justify-content: center;
+                    flex-direction: column;
+
+                    i {
+                        margin: 0 auto;
+                    }
+
+                    p {
+                        margin-bottom: 0;
+                    }
+                }
+            }
+        }
+    }
+}
