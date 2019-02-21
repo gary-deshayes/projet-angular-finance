@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, NgZone } from '@angular/core';
 import { YoutubeAuthService } from './../youtube-auth.service';
 import { Router } from "@angular/router"
 
@@ -12,8 +12,12 @@ export class PlaylistComponent implements OnInit {
   videosPlaylists;
   affichageFormulaireUpdate = false;
   playlistModif;
+  loading = true;
+  error = false;
+  errorStatus;
+  test;
 
-  constructor(private youtubeAuth: YoutubeAuthService, private router: Router) {
+  constructor(private youtubeAuth: YoutubeAuthService, private router: Router, private ngZone: NgZone) {
     if (this.youtubeAuth.getProfile() == false) {
       console.log("redirection to ''");
       this.router.navigate(['']);
@@ -27,6 +31,9 @@ export class PlaylistComponent implements OnInit {
 
   //Permet la récupération des playlists du compte connecté
   getPlaylists() {
+
+    this.loading = true;
+    this.error = false;
     this.youtubeAuth.getApiService().subscribe(() => {
 
       let that = this;
@@ -56,6 +63,7 @@ export class PlaylistComponent implements OnInit {
               }
             }
             gapi.client.request(data).then((response) => {
+              that.loading = false;
 
               that.playlistsUser = response["result"]["items"];
               if (that.playlistsUser != undefined) {
@@ -64,8 +72,19 @@ export class PlaylistComponent implements OnInit {
               }
 
             },
-              (reason) => {
-                return reason;
+              (error) => {
+                that.ngZone.run(() => {
+
+                  console.log(error);
+                  that.loading = true;
+                  that.error = true;
+                  that.errorStatus = error.status;
+
+                  console.log(that.error);
+                  console.log(that.errorStatus);
+                })
+
+
               });
           }
 
@@ -82,6 +101,10 @@ export class PlaylistComponent implements OnInit {
       });
     });
 
+  }
+
+  testt() {
+    this.test = null;
   }
 
   //Récupère des vidéos d'une playlist
@@ -204,13 +227,13 @@ export class PlaylistComponent implements OnInit {
     this.playlistModif = playlist;
     this.affichageFormulaireUpdate = true;
     this.router.navigateByUrl("modification-playlist/" + this.playlistModif.id);
-    
+
   }
 
   //Redirige vers le formulaire pour créer une nouvelle playlist
   nouvellePlaylist() {
     this.router.navigateByUrl("nouvelle-playlist");
-    
+
   }
 
 }
