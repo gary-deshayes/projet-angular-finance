@@ -14,7 +14,7 @@
 <div class="row">
     <div *ngFor="let video of videos" class="col-4" routerLink="/video/{{ video.id.videoId }}">
         <div class="card">
-            <img class="card-img-top" [src]="video.snippet.thumbnails.medium.url" alt="Card image cap">
+            <img class="card-img-top" [src]="video.snippet.thumbnails.medium.url" alt="{{ video.snippet.title }}">
             <div class="card-body">
                 <a class="card-title">{{ video.snippet.title }}</a>
                 <p class="card-text">{{ video.snippet.description }}</p>
