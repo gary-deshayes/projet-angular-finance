@@ -44,12 +44,14 @@
 }
 
 @media (max-width: 768px) {
-    .row {
-        display: flex;
-        flex-direction: column;
+    app-page-accueil {
+        .row {
+            display: flex;
+            flex-direction: column;
 
-        .col-4 {
-            max-width: 100%;
+            .col-4 {
+                max-width: 100% !important;
+            }
         }
     }
 }

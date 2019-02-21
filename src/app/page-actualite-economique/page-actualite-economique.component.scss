@@ -12,3 +12,11 @@
         margin-top: 30px;
     }
 }
+
+@media (max-width: 768px) {
+    .col-7 {
+        max-width: 100%;
+        flex: 0 0 100%;
+        margin-left: 3%;
+    }
+}
