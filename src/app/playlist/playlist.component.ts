@@ -1,6 +1,7 @@
 import { Component, OnInit, NgZone } from '@angular/core';
 import { YoutubeAuthService } from './../youtube-auth.service';
 import { Router } from "@angular/router"
+import * as alertify from 'alertifyjs';
 
 @Component({
   selector: 'app-playlist',
@@ -15,7 +16,6 @@ export class PlaylistComponent implements OnInit {
   loading = true;
   error = false;
   errorStatus;
-  test;
 
   constructor(private youtubeAuth: YoutubeAuthService, private router: Router, private ngZone: NgZone) {
     if (this.youtubeAuth.getProfile() == false) {
@@ -26,7 +26,6 @@ export class PlaylistComponent implements OnInit {
 
   ngOnInit() {
     this.getPlaylists();
-
   }
 
   //Permet la récupération des playlists du compte connecté
@@ -41,7 +40,6 @@ export class PlaylistComponent implements OnInit {
       //  on load auth2 client
       gapi.load('client:auth2', {
         callback: function () {
-
           console.log("initialisation ...");
           // On initialise gapi.client
           gapi.client.init(that.youtubeAuth.args).then(
@@ -64,30 +62,20 @@ export class PlaylistComponent implements OnInit {
             }
             gapi.client.request(data).then((response) => {
               that.loading = false;
-
               that.playlistsUser = response["result"]["items"];
               if (that.playlistsUser != undefined) {
                 console.log(that.playlistsUser);
                 document.getElementById("lien-playlists").click();
               }
-
             },
               (error) => {
                 that.ngZone.run(() => {
-
-                  console.log(error);
                   that.loading = true;
                   that.error = true;
                   that.errorStatus = error.status;
-
-                  console.log(that.error);
-                  console.log(that.errorStatus);
                 })
-
-
               });
           }
-
         },
         onerror: function () {
           // Handle loading error.
@@ -103,22 +91,14 @@ export class PlaylistComponent implements OnInit {
 
   }
 
-  testt() {
-    this.test = null;
-  }
-
   //Récupère des vidéos d'une playlist
   getVideosPlaylists(idPlaylists: string) {
-    console.log(idPlaylists);
-
     this.youtubeAuth.getApiService().subscribe(() => {
-
       let that = this;
       console.log("subscribe passed");
       //  on load auth2 client
       gapi.load('client:auth2', {
         callback: function () {
-
           console.log("initialisation ...");
           // On initialise gapi.client
           gapi.client.init(that.youtubeAuth.args).then(
@@ -141,15 +121,22 @@ export class PlaylistComponent implements OnInit {
               }
             }
             gapi.client.request(data).then((response) => {
-              that.videosPlaylists = response["result"]["items"];
-              document.getElementById("lien-playlists").click();
-
+              if (response.result.pageInfo.totalResults > 0) {
+                that.ngZone.run(() => {
+                  that.videosPlaylists = response["result"]["items"];
+                  document.getElementById("lien-playlists").click();
+                });
+              } else {
+                alertify.notify("Aucune vidéos trouvée pour cette playlist", "message", 5);
+                that.ngZone.run(() => {
+                  that.videosPlaylists = undefined;
+                });
+              }
             },
               (reason) => {
                 return reason;
               });
           }
-
         },
         onerror: function () {
           // Handle loading error.
@@ -163,24 +150,22 @@ export class PlaylistComponent implements OnInit {
       });
     });
   }
+
   // Supprime une vidéo d'une playlist
   onDeleteVideosPlaylist(idVideoPlaylist: string) {
-    if (confirm("Êtes vous sûr de vouloir supprimer cette vidéo ?")) {
+    if (confirm("Êtes vous sûr de vouloir supprimer cette vidéo de la playlist ?")) {
       console.log(idVideoPlaylist);
       this.deleteVideoPlaylist(idVideoPlaylist);
-
     }
   }
   // Supprime une vidéo d'une playlist
   deleteVideoPlaylist(idVideoPlaylist: string) {
     this.youtubeAuth.getApiService().subscribe(() => {
-
       let that = this;
       console.log("subscribe passed");
       //  on load auth2 client
       gapi.load('client:auth2', {
         callback: function () {
-
           console.log("initialisation ...");
           // On initialise gapi.client
           gapi.client.init(that.youtubeAuth.args).then(
@@ -201,14 +186,20 @@ export class PlaylistComponent implements OnInit {
               }
             }
             gapi.client.request(data).then((response) => {
-              console.log(response);
-
+              if (response.status == 204) {
+                alertify.notify("Vidéo supprimée de la playlist", "success", 5);
+                that.ngZone.run(() => {
+                  that.videosPlaylists = undefined;
+                  that.getPlaylists();
+                });
+              }
             },
-              (reason) => {
-                return reason;
+              (error) => {
+                if (error.status == 404) {
+                  alertify.notify("Erreur lors de la suppression de la vidéo de la playlist", "error", 15);
+                }
               });
           }
-
         },
         onerror: function () {
           // Handle loading error.
@@ -227,13 +218,10 @@ export class PlaylistComponent implements OnInit {
     this.playlistModif = playlist;
     this.affichageFormulaireUpdate = true;
     this.router.navigateByUrl("modification-playlist/" + this.playlistModif.id);
-
   }
 
   //Redirige vers le formulaire pour créer une nouvelle playlist
   nouvellePlaylist() {
     this.router.navigateByUrl("nouvelle-playlist");
-
   }
-
 }

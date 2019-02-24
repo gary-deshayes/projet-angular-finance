@@ -1,6 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, NgZone } from '@angular/core';
 import { YoutubeAuthService } from './../youtube-auth.service';
 import { Router } from "@angular/router";
+import * as alertify from 'alertifyjs';
 
 @Component({
   selector: 'app-form-playlist',
@@ -16,32 +17,31 @@ export class FormPlaylistComponent implements OnInit {
   selectStatus: number;
   playlistModif;
   ajoutPlaylist = false;
-  
 
-  constructor(private youtubeAuth: YoutubeAuthService, private router: Router) { 
-    
+  constructor(private youtubeAuth: YoutubeAuthService, private router: Router, private ngZone: NgZone) {
+
   }
 
   ngOnInit() {
-    if(this.playlist != undefined){
+    if (this.playlist != undefined) {
       this.playlistModif = this.playlist[0];
-    }else{
+    } else {
       this.ajoutPlaylist = true;
     }
   }
 
-  modifierPlaylist(e){
-    if(this.inputTitle == undefined && (this.selectStatus == undefined || this.selectStatus == 0)){
+  modifierPlaylist(e) {
+    if (this.inputTitle == undefined && (this.selectStatus == undefined || this.selectStatus == 0)) {
       alert("Veuillez au moins remplir le titre et le statut");
-    }else{
+    } else {
       let status;
-      switch(this.selectStatus){
+      switch (this.selectStatus) {
         case 0:
           status = "private";
-        break;
+          break;
         case 1:
           status = "public";
-        break;
+          break;
       }
       this.youtubeAuth.getApiService().subscribe(() => {
 
@@ -73,22 +73,21 @@ export class FormPlaylistComponent implements OnInit {
                     "description": that.inputDescription,
                     "tags": that.inputTags,
                   },
-                  "status": 
+                  "status":
                   {
                     "privacyStatus": status
                   }
                 }
               }
-              console.log(data);
               gapi.client.request(data).execute((response) => {
-                if(response.error != undefined){
-                  alert("Erreur lors de la mise à jour de la playlist");
-                }else{
+                if (response == false) {
+                  alertify.notify("Erreur lors de la mise à jour de la playlist", "error", 15);
+                } else {
                   document.getElementById("lien-playlists").click();
                 }
               })
             }
-  
+
           },
           onerror: function () {
             // Handle loading error.
@@ -103,21 +102,21 @@ export class FormPlaylistComponent implements OnInit {
       });
     }
 
-    
+
   }
 
-  ajouterPlaylist(e){
-    if(this.inputTitle == undefined && (this.selectStatus == undefined || this.selectStatus == 0)){
+  ajouterPlaylist(e) {
+    if (this.inputTitle == undefined && (this.selectStatus == undefined || this.selectStatus == 0)) {
       alert("Veuillez au moins remplir le titre et le statut");
-    }else{
+    } else {
       let status;
-      switch(this.selectStatus){
+      switch (this.selectStatus) {
         case 0:
           status = "private";
-        break;
+          break;
         case 1:
           status = "public";
-        break;
+          break;
       }
       this.youtubeAuth.getApiService().subscribe(() => {
 
@@ -142,27 +141,27 @@ export class FormPlaylistComponent implements OnInit {
                   'part': 'snippet,status'
                 },
                 body: {
-                  "snippet": 
+                  "snippet":
                   {
                     "title": that.inputTitle,
                     "description": that.inputDescription
                   },
-                  "status": 
+                  "status":
                   {
                     "privacyStatus": status
                   }
                 }
               }
-              console.log(data);
               gapi.client.request(data).execute((response) => {
-                if(response.error != undefined){
-                  alert("Erreur lors de l'ajout' de la playlist");
-                }else{
+                console.log(response);
+                if (response == false) {
+                  alertify.notify("Erreur lors de l'ajout de la playlist", "error", 15);
+                } else {
                   document.getElementById("lien-playlists").click();
                 }
               })
             }
-  
+
           },
           onerror: function () {
             // Handle loading error.
@@ -177,7 +176,7 @@ export class FormPlaylistComponent implements OnInit {
       });
     }
 
-  
-}
+
+  }
 
 }

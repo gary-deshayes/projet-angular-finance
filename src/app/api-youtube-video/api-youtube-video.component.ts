@@ -75,7 +75,9 @@ export class ApiYoutubeVideoComponent implements OnInit {
               }
             }
             gapi.client.request(data).then((response) => {
-              console.log(response);
+              if(response.status == 204){
+                alertify.notify(type + " envoyé !", "success", 10);
+              }
               
             },
             (reason) => {
