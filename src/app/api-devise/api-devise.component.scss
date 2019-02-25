@@ -3,7 +3,12 @@
     background-color: white;
 }
 
-.error{
+.error {
     color:red;
     font-weight: bold;
+}
+
+    @media (max-width: 992px) {
+        font-size: 10px;
+    }
 }

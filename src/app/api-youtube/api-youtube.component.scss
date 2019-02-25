@@ -21,8 +21,50 @@
     margin: 10px 0;
     cursor: pointer;
 
-    .card-text {
-        font-size: 10px;
+    .card-body{
+        padding: 1rem;
+
+        .card-title {
+            color: #000;
+            font-weight: 600;
+        }
+        .card-text {
+            font-size: 10px;
+        }
+    }
+}
+
+@media (max-width: 992px) {
+    .row {
+        .col-4 {
+            max-width: 50%;
+            flex: 0 0 50%;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    app-page-accueil {
+        .row {
+            display: flex;
+
+            .col-4 {
+                max-width: 50% !important;
+            }
+        }
+    }
+}
+
+@media (max-width: 576px) {
+    app-page-accueil {
+        .row {
+            display: flex;
+            flex-direction: column;
+
+            .col-4 {
+                max-width: 100% !important;
+            }
+        }
     }
 }
 
