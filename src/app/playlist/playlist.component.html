@@ -28,7 +28,7 @@
     <h2>Vidéos de la playlists :</h2>
 
     <div class="row">
-      <div *ngFor="let video of videosPlaylists" class="col-4 onHover">
+      <div *ngFor="let video of videosPlaylists" class="col-4 onHover" routerLink="/video/{{ video.id }}">
         <span (click)="onDeleteVideosPlaylist(video.id)" class="onHoverDelete">X</span>
         <h4>{{ video.snippet.title}}</h4>
         <img src="{{ video.snippet.thumbnails.default.url }}">
