@@ -19,21 +19,14 @@ export class NavbarMenuComponent implements OnInit {
     
   }
   ngOnInit() {
+    this.ngZone.run(() => {
 
-    // this.user = JSON.parse(localStorage.getItem("googleUser"));
-    // console.log(this.user.w3.Paa);
-    // this.ngZone.run(() => {
-
-    //   if (this.user != undefined) {
-    //     this.userLogged = true;
-    //     console.log(this.user);
-    //   } else {
-    //     this.userLogged = false;
-    //   }
-    // })
-
-
-
+      if (this.user != undefined) {
+        this.userLogged = true;
+      } else {
+        this.userLogged = false;
+      }
+    })
   }
 
 
@@ -44,11 +37,11 @@ export class NavbarMenuComponent implements OnInit {
       auth.signIn()
         .then(res => {
           this.ngZone.run(() => {
-            console.log(res);
             this.youtubeAuth.signInSuccessHandler(res);
             this.user = res;
             if (res != undefined) {
-              localStorage.setItem("googleUser", JSON.stringify(res));
+              // localStorage.setItem("googleUser", JSON.stringify(res));
+              this.userLogged = true;
             }
           })
 
@@ -57,10 +50,6 @@ export class NavbarMenuComponent implements OnInit {
         );
     });
 
-  }
-
-  alertProfile() {
-    console.log("Alert Profile", this.youtubeAuth.getProfile());
   }
 
   isLogged() {
