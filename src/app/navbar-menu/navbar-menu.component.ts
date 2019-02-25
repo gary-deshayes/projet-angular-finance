@@ -1,5 +1,5 @@
 import { YoutubeAuthService } from './../youtube-auth.service';
-import { Component, OnInit, ComponentRef } from '@angular/core';
+import { Component, OnInit, NgZone } from '@angular/core';
 import { Router } from '@angular/router';
 import GoogleUser = gapi.auth2.GoogleUser;
 import { routerNgProbeToken } from '@angular/router/src/router_module';
@@ -13,49 +13,61 @@ import { $ } from 'protractor';
 })
 export class NavbarMenuComponent implements OnInit {
   private user: GoogleUser;
-  private userLogged = false;
+  private userLogged;
 
-  constructor(private youtubeAuth: YoutubeAuthService, private router: Router) {
-    // this.user = JSON.parse(localStorage.getItem("userGoogle"));
-    // if(this.user != undefined){
-    //   this.userLogged = true;
-
-    // }
-   }
-
-  ngOnInit() {
+  constructor(private youtubeAuth: YoutubeAuthService, private router: Router, private ngZone: NgZone) {
     
   }
-  
-  
+  ngOnInit() {
 
-  signin(){
+    // this.user = JSON.parse(localStorage.getItem("googleUser"));
+    // console.log(this.user.w3.Paa);
+    // this.ngZone.run(() => {
+
+    //   if (this.user != undefined) {
+    //     this.userLogged = true;
+    //     console.log(this.user);
+    //   } else {
+    //     this.userLogged = false;
+    //   }
+    // })
+
+
+
+  }
+
+
+
+  signin() {
     const response = this.youtubeAuth.signIn();
     response.subscribe((auth: GoogleUser) => {
       auth.signIn()
         .then(res => {
-          console.log(res);
-          this.youtubeAuth.signInSuccessHandler(res);
-          this.user = res;
-          if(res != undefined){
-            document.getElementById("lien-accueil").click();
-          }
+          this.ngZone.run(() => {
+            console.log(res);
+            this.youtubeAuth.signInSuccessHandler(res);
+            this.user = res;
+            if (res != undefined) {
+              localStorage.setItem("googleUser", JSON.stringify(res));
+            }
+          })
+
         }
           // 
         );
     });
-    
+
   }
 
-  alertProfile(){
-    console.log("Alert Profile",this.youtubeAuth.getProfile());
+  alertProfile() {
+    console.log("Alert Profile", this.youtubeAuth.getProfile());
   }
 
-  isLogged(){
+  isLogged() {
     this.user = this.youtubeAuth.getUser();
     return this.youtubeAuth.isSignedIn();
   }
-  disconnect(){
+  disconnect() {
     this.youtubeAuth.disconnect();
   }
 }

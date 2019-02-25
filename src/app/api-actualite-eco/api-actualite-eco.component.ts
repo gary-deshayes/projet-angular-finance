@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import * as alertify from 'alertifyjs';
 @Component({
   selector: 'app-api-actualite-eco',
   templateUrl: './api-actualite-eco.component.html',
@@ -8,12 +9,13 @@ import { Component, OnInit } from '@angular/core';
 export class ApiActualiteEcoComponent implements OnInit {
 
   public news = [];
-
   pageSize;
   page;
   selectedValue = null;
   resultatTotal = null;
   nombrePagePossible = null;
+  loading = true;
+  error = false;
 
   // Au lancement du composant la première page est appelée, on retourne 10 article par appel et les articles sont affichés
   constructor(private http: HttpClient) {
@@ -27,11 +29,20 @@ export class ApiActualiteEcoComponent implements OnInit {
 
   // Récupère les articles grâce à la page et le nombre d'articles par appel
   getNews(page: string, pageSize: string) {
+    this.error = false;
+    this.loading = true;
     this.http.get("https://newsapi.org/v2/everything?sources=les-echos&apiKey=330165c9dd764219b001ac944d15fb0a&page=" + page + "&pageSize=" + pageSize)
       .subscribe((response: Array<Object>) => {
         this.news = response["articles"];
         this.resultatTotal = response["totalResults"];
         this.nombrePagePossible = Math.round(this.resultatTotal / this.pageSize);
+        this.loading = false;
+      }, 
+      (error)=>{
+        if(error.status == 0){
+          alertify.notify("Erreur lors de la récupération des actualités économiques, réessayez plus tard", "error", 15);
+          this.error = true;
+        }
       });
 
   }

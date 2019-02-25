@@ -25,7 +25,7 @@
       <li><a class="nav-link" href="#" (click)="signin()" *ngIf="!isLogged()"><i class="fas fa-user-alt"></i> Connexion</a></li>
     </ul>
 
-    <div class="connected" *ngIf="isLogged()">
+    <div class="connected" *ngIf="userLogged">
         <li class="nav-item dropdown">
             <a href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <div class="account-img">

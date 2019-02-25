@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router }     from '@angular/router';
+import { Component, OnInit, NgZone } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { YoutubeAuthService } from './../youtube-auth.service';
 
 @Component({
@@ -13,22 +13,21 @@ export class PageFormulaireModificationPlaylistComponent implements OnInit {
   playlistModif;
   affichageFormulaireUpdate = false;
 
-  constructor(private route: ActivatedRoute, private apiyoutube: YoutubeAuthService, private router: Router) { 
+  constructor(private route: ActivatedRoute, private apiyoutube: YoutubeAuthService, private router: Router, private ngZone: NgZone) {
+    //Redirection en cas de non connexion
     if (this.apiyoutube.getProfile() == false) {
       this.router.navigate(['']);
-      
     }
 
   }
-
-  ngAfterViewInit(): void {
-    console.log(document.getElementById("btn-refresh-page"));
-    
+  // Initialisation du composant
+  ngOnInit() {
+    // Récupération de l'id de la playlist à récuperer
     this.route.params.subscribe(params => {
       this.id_playlist = params;
     });
     this.apiyoutube.getApiService().subscribe(() => {
-
+      // Instance du composant
       let that = this;
       //  on load auth2 client
       gapi.load('client:auth2', {
@@ -52,12 +51,13 @@ export class PageFormulaireModificationPlaylistComponent implements OnInit {
               }
             }
             gapi.client.request(data).then((response) => {
-
-              that.playlistModif = response["result"]["items"];
-              if (that.playlistModif != undefined) {
-                that.affichageFormulaireUpdate = true;
-                document.getElementById("link-hidden").click();
-              }
+              //On revient dans la zone Angular pour mettre à jour les données sinon elles ne sont pas mises à jour dans la vue
+              that.ngZone.run(() => {
+                that.playlistModif = response["result"]["items"];
+                if (that.playlistModif != undefined) {
+                  that.affichageFormulaireUpdate = true;
+                }
+              })
 
             },
               (reason) => {
@@ -77,10 +77,6 @@ export class PageFormulaireModificationPlaylistComponent implements OnInit {
         }
       });
     });
-    
-  }
-
-  ngOnInit() {
   }
 
 }

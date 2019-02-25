@@ -11,6 +11,7 @@
         <button type="button" class="btn" [ngClass]="rate.rating == 'dislike' ? 'btn-danger' : ' '" (click)="postRate(video.id, 'dislike')">
             Je n'aime pas <span class="badge badge-light">{{ video.statistics.dislikeCount }}</span>
         </button>
+        <button class="btn btn-info" (click)="postAbonnement()">S'abonner</button>  
       </div>
     </div>
   </div>

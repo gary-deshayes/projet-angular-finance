@@ -1,4 +1,4 @@
-<div class="menu-devise">
+<div class="menu-devise" >
   <table class="table">
     <thead>
       <tr>
@@ -6,12 +6,19 @@
         <th class="refresh">Prix <a (click)="getDevises()"><i class="fas fa-sync-alt"></i></a></th>
       </tr>
     </thead>
-    <tbody>
-      <tr *ngFor="let data of datas | async">
+    <tbody *ngIf="datas != null && datas != undefined; else errorBlock">
+      <tr *ngFor="let data of datas" >
         <td>{{ data.symbol }}</td>
         <td>{{ data.price }}</td>
       </tr>
     </tbody>
+    <ng-template #errorBlock >
+        <tr>
+          <td class="error">Erreur lors de la récupération des données des devises</td>
+        </tr>
+        <tr>
+            <td class="error">Code erreur : {{ error.status }}</td>
+          </tr>
+      </ng-template>
   </table>
-  
 </div>

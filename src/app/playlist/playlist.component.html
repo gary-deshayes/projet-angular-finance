@@ -1,30 +1,39 @@
-<div id="my-playlists"> 
-  <h1>Mes playlists : </h1>
-  <div class="row">
-    <div *ngFor="let playlist of playlistsUser" class="col-4">
-      <div class="onHover" (click)="getVideosPlaylists(playlist.id)">
-        <h4>{{ playlist.snippet.title}}</h4>
-        <img src="{{ playlist.snippet.thumbnails.default.url }}">
-        <p>{{ playlist.snippet.description}}</p>
+<img src="../../assets/img/loader.gif" class="loader" *ngIf="loading == true">
+
+<div *ngIf="error">
+  <p>Erreur lors du chargement des playlists youtube, veuillez réessayer plus tard.</p>
+  <p>Code erreur : {{ errorStatus }}</p>
+</div>
+
+<div *ngIf="loading == false">
+  <button class="btn btn-primary" (click)="nouvellePlaylist()">Ajouter une playlist</button>
+
+  <div id="my-playlists">
+    <h1>Mes playlists : </h1>
+    <div class="row">
+      <div *ngFor="let playlist of playlistsUser" class="col-4">
+        <div class="onHover" (click)="getVideosPlaylists(playlist.id)">
+          <h4>{{ playlist.snippet.title}}</h4>
+          <img src="{{ playlist.snippet.thumbnails.default.url }}">
+          <p>{{ playlist.snippet.description}}</p>
+        </div>
+        <a href="https://www.youtube.com/playlist?list={{ playlist.id}}">Aller vers la playlist</a>
+        <button (click)="editerPlaylists(playlist)" class="btn btn-outline-secondary">Editer la playlist</button>
       </div>
-      <a href="https://www.youtube.com/playlist?list={{ playlist.id}}">Aller vers la playlist</a>
-      <button (click)="editerPlaylists(playlist)" class="btn btn-outline-secondary">Editer la playlist</button>
+
+    </div>
+  </div>
+
+  <div *ngIf='videosPlaylists != undefined' id='videoPlaylists'>
+    <h2>Vidéos de la playlists :</h2>
+
+    <div class="row">
+      <div *ngFor="let video of videosPlaylists" class="col-4 onHover">
+        <span (click)="onDeleteVideosPlaylist(video.id)" class="onHoverDelete">X</span>
+        <h4>{{ video.snippet.title}}</h4>
+        <img src="{{ video.snippet.thumbnails.default.url }}">
+      </div>
     </div>
 
   </div>
 </div>
-
-<div *ngIf='videosPlaylists != undefined' id='videoPlaylists'>
-  
-  <h2>Vidéos de la playlists :</h2>
-
-  <div class="row">
-    <div *ngFor="let video of videosPlaylists" class="col-4 onHover">
-      <span (click)="onDeleteVideosPlaylist(video.id)" class="onHoverDelete">X</span>
-      <h4>{{ video.snippet.title}}</h4>
-      <img src="{{ video.snippet.thumbnails.default.url }}">
-    </div>
-  </div>
-
-</div>
-
