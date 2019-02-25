@@ -2,8 +2,7 @@ import { YoutubeAuthService } from './../youtube-auth.service';
 import { Component, OnInit, NgZone } from '@angular/core';
 import { Router } from '@angular/router';
 import GoogleUser = gapi.auth2.GoogleUser;
-import { routerNgProbeToken } from '@angular/router/src/router_module';
-import { $ } from 'protractor';
+import * as alertify from 'alertifyjs';
 
 
 @Component({
@@ -19,14 +18,12 @@ export class NavbarMenuComponent implements OnInit {
     
   }
   ngOnInit() {
-    this.ngZone.run(() => {
-
-      if (this.user != undefined) {
-        this.userLogged = true;
-      } else {
-        this.userLogged = false;
-      }
-    })
+    this.user = this.youtubeAuth.getUser();
+    if(this.user != undefined){
+      this.userLogged = true;
+    }else {
+      this.userLogged = false;
+    }
   }
 
 
@@ -55,8 +52,12 @@ export class NavbarMenuComponent implements OnInit {
   isLogged() {
     this.user = this.youtubeAuth.getUser();
     return this.youtubeAuth.isSignedIn();
+    
   }
   disconnect() {
     this.youtubeAuth.disconnect();
+    this.user = undefined;
+    this.userLogged = false;
+    alertify.notify("Déconnexion réussie", "success", 5);
   }
 }

@@ -3,7 +3,6 @@ import { GoogleAuthService, GoogleApiService } from 'ng-gapi';
 import GoogleUser = gapi.auth2.GoogleUser;
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/internal/operators';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({
@@ -62,10 +61,8 @@ export class YoutubeAuthService {
 
   public disconnect() {
     this.user.disconnect();
+    this.user = undefined;
     YoutubeAuthService.SESSION_STORAGE_KEY = 'accessToken';
-    console.log("Déconnexion");
-    document.getElementById("lien-accueil").click();
-    document.getElementById("lien-accueil").click();
   }
 
   public isSignedIn() {
