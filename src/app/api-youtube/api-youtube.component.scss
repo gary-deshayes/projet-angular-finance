@@ -47,6 +47,18 @@
     app-page-accueil {
         .row {
             display: flex;
+
+            .col-4 {
+                max-width: 50% !important;
+            }
+        }
+    }
+}
+
+@media (max-width: 576px) {
+    app-page-accueil {
+        .row {
+            display: flex;
             flex-direction: column;
 
             .col-4 {
