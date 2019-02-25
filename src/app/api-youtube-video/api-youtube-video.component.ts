@@ -18,6 +18,7 @@ export class ApiYoutubeVideoComponent implements OnInit {
   videoUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.dangerousVideoUrl);
   isLogged = false;
   public videos = [];
+  getingRating;
 
   constructor(private route: ActivatedRoute, private http: HttpClient, private sanitizer: DomSanitizer, private youtubeAuth: YoutubeAuthService, private router: Router) {
     if (this.youtubeAuth.getProfile() != false) {

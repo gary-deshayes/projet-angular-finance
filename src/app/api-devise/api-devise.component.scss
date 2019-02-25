@@ -1,6 +1,10 @@
 .table {
     margin-top: 20px;
     background-color: white;
+
+    @media (max-width: 992px) {
+        font-size: 10px;
+    }
 }
 
 .error {
@@ -8,7 +12,5 @@
     font-weight: bold;
 }
 
-    @media (max-width: 992px) {
-        font-size: 10px;
-    }
-}
+
+
