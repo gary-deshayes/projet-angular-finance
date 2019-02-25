@@ -1,5 +1,7 @@
 
-<img src="../../assets/img/loader.gif" class="loader" *ngIf="loading == true" >
+<div class="loader">
+    <img src="../../assets/img/loader.gif" *ngIf="loading == true" >
+</div>
 
 <div *ngIf="error">
     <p>Erreur lors du chargement des vidéos youtube, veuillez réessayer plus tard.</p>
