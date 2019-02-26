@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, NgZone } from '@angular/core';
 import { GoogleAuthService, GoogleApiService } from 'ng-gapi';
 import GoogleUser = gapi.auth2.GoogleUser;
 import { Router } from '@angular/router';
@@ -23,7 +23,13 @@ export class YoutubeAuthService {
   }
 
 
-  constructor(private googleAuth: GoogleAuthService, private router: Router, private GoogleApi: GoogleApiService, private http: HttpClient) {
+  constructor(private googleAuth: GoogleAuthService, private router: Router, private GoogleApi: GoogleApiService, private http: HttpClient, private ngZone: NgZone) {
+    googleAuth.getAuth().subscribe((response)=>{
+      this.ngZone.run(()=>{
+        this.user = response.currentUser.get();
+      console.log(this.user);
+      })
+    });
 
   }
 
@@ -61,6 +67,9 @@ export class YoutubeAuthService {
 
   public disconnect() {
     this.user.disconnect();
+    this.googleAuth.getAuth().subscribe((response)=>{
+      response.signOut();
+    });
     this.user = undefined;
     YoutubeAuthService.SESSION_STORAGE_KEY = 'accessToken';
   }
@@ -74,28 +83,14 @@ export class YoutubeAuthService {
 
   }
 
-  public getPlaylists(): Observable<void> {
-    console.log("loading gapi...");
-    // On charge la librairie google
-    return this.GoogleApi.onLoad();
-  }
-
-  public postRate(): Observable<void> {
-    console.log("loading gapi post...");
-    // On charge la librairie google
-    return this.GoogleApi.onLoad();
-  }
-  
   public getVideosPlaylists(idPlaylists: string){
       return this.http.get("https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=25&playlistId=" + idPlaylists + "&key=" + this.apiKey);
-        
   }
 
   public getApiService(): Observable<void> {
     console.log("loading gapi");
     // On charge la librairie google
     return this.GoogleApi.onLoad();
-    
   }
 
   

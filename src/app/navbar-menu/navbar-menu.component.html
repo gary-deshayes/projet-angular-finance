@@ -25,7 +25,7 @@
       <li><a class="nav-link" href="#" (click)="signin()" *ngIf="!isLogged()"><i class="fas fa-user-alt"></i> Connexion</a></li>
     </ul>
 
-    <div class="connected" *ngIf="userLogged">
+    <div class="connected" *ngIf="isLogged()">
         <li class="nav-item dropdown">
             <a href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <div class="account-img">
@@ -33,7 +33,9 @@
               </div>
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="nav-link" href="#">Paramètres</a>
+                <p class="nav-item">{{user.w3.ig}}</p>
+                <div class="dropdown-divider"></div>
+              <p class="nav-item" >{{user.w3.U3}}</p>
               <div class="dropdown-divider"></div>
               <a class="nav-link" href="#" (click)="disconnect()">Déconnexion</a>
             </div>

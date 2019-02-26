@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, NgZone } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { DomSanitizer } from '@angular/platform-browser';
 import { YoutubeAuthService } from './../youtube-auth.service';
 import * as alertify from 'alertifyjs';
@@ -20,71 +20,68 @@ export class ApiYoutubeVideoComponent implements OnInit {
   public videos = [];
   getingRating;
 
-  constructor(private route: ActivatedRoute, private http: HttpClient, private sanitizer: DomSanitizer, private youtubeAuth: YoutubeAuthService, private router: Router) {
+  constructor(private route: ActivatedRoute, private http: HttpClient, private sanitizer: DomSanitizer, private youtubeAuth: YoutubeAuthService, private router: Router, private ngZone: NgZone) {
     if (this.youtubeAuth.getProfile() != false) {
       this.isLogged = true;
     }
-   }
+  }
 
   ngOnInit() {
     this.getVideo();
-    this.youtubeAuth.getToken();
     this.getRate(this.videoId);
   }
 
-  public getVideo(){
+  public getVideo() {
     this.http.get("https://www.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&id=" + this.videoId + "&key=" + this.apiKey)
       .subscribe((response: Array<Object>) => {
         this.videos = response["items"];
-        console.log(this.videos);
       });
   }
 
-  getRate(idVideo: string){
+  getRate(idVideo: string) {
     let args = {
       clientId: '238523767005-90jndv6p8oot3la91kv9u7kg9b3kaj2i.apps.googleusercontent.com',
       discoveryDocs: ['https://www.googleapis.com/discovery/v1/apis/youtube/v3/rest'],
       scope: 'https://www.googleapis.com/auth/youtube.force-ssl https://www.googleapis.com/auth/youtube.readonly',
       apiKey: "AIzaSyBQfBCA8tKpCL9uQsZNEjYFAGIcrMIh-ak"
     }
-    this.youtubeAuth.postRate().subscribe(() => {
-      
+    this.youtubeAuth.getApiService().subscribe(() => {
+
       let that = this;
       console.log("subscribe passed");
       //  on load auth2 client
       gapi.load('client:auth2', {
         callback: function () {
-          
+
           console.log("initialisation ...");
           // On initialise gapi.client
           gapi.client.init(args).then(
-            (value ) => {
+            (value) => {
               console.log(value)
             },
-            (reason ) => {
-               console.log(reason) 
+            (reason) => {
+              console.log(reason)
             }
           );
           if (gapi.client != undefined) {
             console.log("Gapi has loaded !");
             var data = {
-                path: "/youtube/v3/videos/getRating",
-                method: "GET",
-                params: {
+              path: "/youtube/v3/videos/getRating",
+              method: "GET",
+              params: {
                 id: idVideo
               }
             }
             gapi.client.request(data).then((response) => {
-
-              that.getingRating = response["result"]["items"];
-              if (that.getingRating!= undefined) {
-                console.log(that.getingRating);
-              }
-              
+              that.ngZone.run(() => {
+                that.getingRating = response["result"]["items"];
+                if (that.getingRating != undefined) {
+                }
+              })
             },
-            (reason) => {
-              return reason;
-            });
+              (reason) => {
+                return reason;
+              });
           }
 
         },
@@ -101,50 +98,50 @@ export class ApiYoutubeVideoComponent implements OnInit {
     });
   }
 
-  postRate(idVideo: string, type: string){
+  postRate(idVideo: string, type: string) {
     let args = {
       clientId: '238523767005-90jndv6p8oot3la91kv9u7kg9b3kaj2i.apps.googleusercontent.com',
       discoveryDocs: ['https://www.googleapis.com/discovery/v1/apis/youtube/v3/rest'],
       scope: 'https://www.googleapis.com/auth/youtube.force-ssl https://www.googleapis.com/auth/youtube.readonly',
       apiKey: "AIzaSyBQfBCA8tKpCL9uQsZNEjYFAGIcrMIh-ak"
     }
-    this.youtubeAuth.postRate().subscribe(() => {
-      
+    this.youtubeAuth.getApiService().subscribe(() => {
+
       let that = this;
       console.log("subscribe passed");
       //  on load auth2 client
       gapi.load('client:auth2', {
         callback: function () {
-          
+
           console.log("initialisation ...");
           // On initialise gapi.client
           gapi.client.init(args).then(
-            (value ) => {
+            (value) => {
               console.log(value)
             },
-            (reason ) => {
-               console.log(reason) 
+            (reason) => {
+              console.log(reason)
             }
           );
           if (gapi.client != undefined) {
             console.log("Gapi has loaded !");
             var data = {
-                path: "/youtube/v3/videos/rate",
-                method: "POST",
-                params: {
+              path: "/youtube/v3/videos/rate",
+              method: "POST",
+              params: {
                 id: idVideo,
                 rating: type
               }
             }
             gapi.client.request(data).then((response) => {
-              if(response.status == 204){
+              if (response.status == 204) {
                 alertify.notify(type + " envoyé !", "success", 10);
               }
-              
+
             },
-            (reason) => {
-              return reason;
-            });
+              (reason) => {
+                return reason;
+              });
           }
 
         },
@@ -160,10 +157,10 @@ export class ApiYoutubeVideoComponent implements OnInit {
       });
     });
 
-    
+
   }
 
-  public postAbonnement(){
+  public postAbonnement() {
     this.youtubeAuth.getApiService().subscribe(() => {
 
       let that = this;
@@ -188,9 +185,9 @@ export class ApiYoutubeVideoComponent implements OnInit {
               path: "https://www.googleapis.com/youtube/v3/subscriptions?part=snippet",
               method: "POST",
               body: {
-                "snippet": 
+                "snippet":
                 {
-                  "resourceId": 
+                  "resourceId":
                   {
                     "kind": "youtube#channel",
                     "channelId": that.videos[0].snippet.channelId
@@ -200,7 +197,7 @@ export class ApiYoutubeVideoComponent implements OnInit {
             }
             gapi.client.request(data).then((response) => {
               console.log(response);
-              if(response.status == 200){
+              if (response.status == 200) {
                 alertify.notify("Abonnement réussi", "success", 5);
               }
             },

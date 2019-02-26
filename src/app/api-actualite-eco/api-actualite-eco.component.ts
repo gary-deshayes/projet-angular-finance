@@ -49,7 +49,6 @@ export class ApiActualiteEcoComponent implements OnInit {
   
   // Permet de changer le nombre d'articles disponibles dans l'appel de l'api et rappel l'api
   nbPerPageChange(event: Object) {
-    console.log(event);
     this.pageSize = event;
     this.getNews(this.page, this.pageSize);
   }
@@ -65,7 +64,6 @@ export class ApiActualiteEcoComponent implements OnInit {
 
   // Récupère les articles suivants
   getNewsNext() {
-    console.log(this.nombrePagePossible);
     if (this.page < this.nombrePagePossible) {
       this.page++;
       this.getNews(this.page, this.pageSize);

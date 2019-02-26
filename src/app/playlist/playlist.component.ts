@@ -64,7 +64,6 @@ export class PlaylistComponent implements OnInit {
               that.loading = false;
               that.playlistsUser = response["result"]["items"];
               if (that.playlistsUser != undefined) {
-                console.log(that.playlistsUser);
                 document.getElementById("lien-playlists").click();
               }
             },
@@ -124,6 +123,7 @@ export class PlaylistComponent implements OnInit {
               if (response.result.pageInfo.totalResults > 0) {
                 that.ngZone.run(() => {
                   that.videosPlaylists = response["result"]["items"];
+                  console.log(that.videosPlaylists);
                   document.getElementById("lien-playlists").click();
                 });
               } else {
