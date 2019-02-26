@@ -7,7 +7,6 @@
 
 <div *ngIf="loading == false">
   <button class="btn btn-secondary" (click)="nouvellePlaylist()">Ajouter une playlist</button>
-
   <div class="my-playlists">
     <div class="row">
       <div *ngFor="let playlist of playlistsUser" class="col-4">
@@ -30,7 +29,6 @@
 
   <div *ngIf='videosPlaylists != undefined' id='videoPlaylists'>
     <h2>Vidéos de la playlists :</h2>
-
     <div class="row">
       <div *ngFor="let video of videosPlaylists" class="col-4" routerLink="/video/{{ video.snippet.resourceId.videoId }}">
         <div class="card">
@@ -41,5 +39,6 @@
           <button type="button" (click)="onDeleteVideosPlaylist(video.id)" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></button>
         </div>
       </div>
+    </div>
   </div>
 </div>
