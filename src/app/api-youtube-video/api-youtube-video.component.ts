@@ -23,13 +23,11 @@ export class ApiYoutubeVideoComponent implements OnInit {
   constructor(private route: ActivatedRoute, private http: HttpClient, private sanitizer: DomSanitizer, private youtubeAuth: YoutubeAuthService, private router: Router, private ngZone: NgZone) {
     if (this.youtubeAuth.getProfile() != false) {
       this.isLogged = true;
-      console.log(this.youtubeAuth.getProfile());
     }
   }
 
   ngOnInit() {
     this.getVideo();
-    this.youtubeAuth.getToken();
     this.getRate(this.videoId);
   }
 
@@ -37,7 +35,6 @@ export class ApiYoutubeVideoComponent implements OnInit {
     this.http.get("https://www.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&id=" + this.videoId + "&key=" + this.apiKey)
       .subscribe((response: Array<Object>) => {
         this.videos = response["items"];
-        console.log(this.videos);
       });
   }
 
@@ -76,10 +73,9 @@ export class ApiYoutubeVideoComponent implements OnInit {
               }
             }
             gapi.client.request(data).then((response) => {
-              this.ngZone.run(() => {
+              that.ngZone.run(() => {
                 that.getingRating = response["result"]["items"];
                 if (that.getingRating != undefined) {
-                  console.log(that.getingRating);
                 }
               })
             },
