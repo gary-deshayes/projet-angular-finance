@@ -1,9 +1,14 @@
-.onHover:hover {
-    background-color: #e6e6e6;
-    cursor: pointer;
-}
+.my-playlists {
+    margin-top: 30px;
 
-.onHoverDelete:hover{
-    background-color: #cccccc;
-    cursor: pointer;
+    i {
+        font-size: 30px;
+        color: red;
+    }
+
+    .bottom-card {
+        display: flex;
+        justify-content: space-between;
+        margin: 0 20px 10px;
+    }
 }
