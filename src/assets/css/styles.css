@@ -3,46 +3,59 @@
 @import url("https://fonts.googleapis.com/css?family=Montserrat");
 .navbar {
   padding: 10px 140px;
-  background-color: #262b3e !important; }
-  .navbar .account-img img {
-    border-radius: 20px;
-    height: 40px;
-    width: 40px; }
-  .navbar li {
-    list-style: none; }
-  .navbar #logo {
-    width: 150px;
-    height: 35px; }
-  .navbar .connected {
-    display: flex;
-    flex-direction: row; }
+  background-color: #262b3e !important;
+}
+.navbar .account-img img {
+  border-radius: 20px;
+  height: 40px;
+  width: 40px;
+}
+.navbar li {
+  list-style: none;
+}
+.navbar #logo {
+  width: 150px;
+  height: 35px;
+}
+.navbar .connected {
+  display: flex;
+  flex-direction: row;
+}
 
 #logo {
   width: 150px;
-  height: 35px; }
+  height: 35px;
+}
 
 a {
-  cursor: pointer; }
+  cursor: pointer;
+}
 
 .menu-mobile {
-  display: none; }
+  display: none;
+}
 
 @media (max-width: 768px) {
   .navbar {
     padding: 10px;
     display: flex;
     justify-content: space-between;
-    flex-direction: row; }
-    .navbar .navbar-collapse {
-      flex-basis: 0;
-      display: flex;
-      justify-content: flex-end; }
-      .navbar .navbar-collapse .dropdown-menu {
-        margin: .125rem 0 0 -125px; }
-    .navbar .collapse:not(.show) {
-      display: inherit; }
-      .navbar .collapse:not(.show) .mr-auto {
-        display: none; }
+    flex-direction: row;
+  }
+  .navbar .navbar-collapse {
+    flex-basis: 0;
+    display: flex;
+    justify-content: flex-end;
+  }
+  .navbar .navbar-collapse .dropdown-menu {
+    margin: 0.125rem 0 0 -125px;
+  }
+  .navbar .collapse:not(.show) {
+    display: inherit;
+  }
+  .navbar .collapse:not(.show) .mr-auto {
+    display: none;
+  }
 
   .menu-mobile {
     display: block;
@@ -50,116 +63,155 @@ a {
     bottom: 0;
     z-index: 5;
     background-color: #262b3e;
-    width: 100%; }
-    .menu-mobile ul {
-      display: flex;
-      flex-direction: row;
-      justify-content: center; }
-      .menu-mobile ul li {
-        margin: 0 10px; }
-        .menu-mobile ul li a {
-          color: #fff;
-          display: flex;
-          justify-content: center;
-          flex-direction: column; }
-          .menu-mobile ul li a i {
-            margin: 0 auto; }
-          .menu-mobile ul li a p {
-            margin-bottom: 0; } }
+    width: 100%;
+  }
+  .menu-mobile ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+  .menu-mobile ul li {
+    margin: 0 10px;
+  }
+  .menu-mobile ul li a {
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .menu-mobile ul li a i {
+    margin: 0 auto;
+  }
+  .menu-mobile ul li a p {
+    margin-bottom: 0;
+  }
+}
 .menu-calendar {
   display: flex;
   justify-content: flex-end;
-  margin-top: 10px; }
-  @media (max-width: 992px) {
-    .menu-calendar iframe {
-      width: 240px !important; } }
+  margin-top: 10px;
+}
+@media (max-width: 992px) {
+  .menu-calendar iframe {
+    width: 240px !important;
+  }
+}
 
 @media (max-width: 768px) {
   .menu-calendar {
-    display: none; } }
+    display: none;
+  }
+}
 #searchYoutubeDiv {
-  margin: 10px 0 10px 0; }
+  margin: 10px 0 10px 0;
+}
 
 .buttonPagination {
   display: flex;
   justify-content: space-between;
-  margin: 20px 0 10px 0; }
-  .buttonPagination .button {
-    color: white;
-    background-color: #262b3e;
-    font-size: 0.8em; }
+  margin: 20px 0 10px 0;
+}
+.buttonPagination .button {
+  color: white;
+  background-color: #262b3e;
+  font-size: 0.8em;
+}
 
 .card {
   max-height: 450px;
   margin: 10px 0;
-  cursor: pointer; }
-  .card .card-body {
-    padding: 1rem; }
-    .card .card-body .card-title {
-      color: #000;
-      font-weight: 600; }
-    .card .card-body .card-text {
-      font-size: 10px; }
+  cursor: pointer;
+}
+.card .card-body {
+  padding: 1rem;
+}
+.card .card-body .card-title {
+  color: #000;
+  font-weight: 600;
+}
+.card .card-body .card-text {
+  font-size: 10px;
+}
 
 @media (max-width: 992px) {
   .row .col-4 {
     max-width: 50%;
-    flex: 0 0 50%; } }
+    flex: 0 0 50%;
+  }
+}
 @media (max-width: 768px) {
   app-page-accueil .row {
-    display: flex; }
-    app-page-accueil .row .col-4 {
-      max-width: 50% !important; } }
+    display: flex;
+  }
+  app-page-accueil .row .col-4 {
+    max-width: 50% !important;
+  }
+}
 @media (max-width: 576px) {
   app-page-accueil .row {
     display: flex;
-    flex-direction: column; }
-    app-page-accueil .row .col-4 {
-      max-width: 100% !important; } }
+    flex-direction: column;
+  }
+  app-page-accueil .row .col-4 {
+    max-width: 100% !important;
+  }
+}
 .loader {
   display: flex;
-  justify-content: center; }
+  justify-content: center;
+}
 
 /* Extra Small Devices */
 @media screen and (max-width: 768px) {
   /* ----- GLOBAL ----- */
-  /* Retrait de la fonctionnalit├® Api-Devise */
+  /* Retrait de la fonctionnalité Api-Devise */
   api-devise {
-    display: none; }
+    display: none;
+  }
 
   /* Retrait du widget TradingView */
   div.menu-calendar {
-    display: none; }
+    display: none;
+  }
 
   /* Menu */
   /* ----- ACCUEIL ----- */
-  /* Disposition des vid├®os */
+  /* Disposition des vidéos */
   .ui.grid > [class*="ten wide"].column {
     width: 90% !important;
-    margin: 0 auto; }
+    margin: 0 auto;
+  }
 
   .ui.grid > [class*="eight wide"].column {
-    width: 100% !important; } }
+    width: 100% !important;
+  }
+}
 /* Small Devices */
 /* Medium Devices */
 /* Large Devices */
 @media screen and (max-width: 1200px) {
   .menu-devise {
-    display: none; } }
+    display: none;
+  }
+}
 body {
   background-color: #DCDCDC;
-  font-family: 'Montserrat', sans-serif; }
+  font-family: "Montserrat", sans-serif;
+}
 
 .ui.inverted.table {
   background: #262b3e;
   color: rgba(255, 255, 255, 0.9);
-  border: none; }
+  border: none;
+}
 
 .ui.inverted.segment, .ui.primary.inverted.segment {
   background: #262b3e;
-  color: rgba(255, 255, 255, 0.9); }
+  color: rgba(255, 255, 255, 0.9);
+}
 
 .ui.grid > [class*="three wide"].column {
-  width: 14.74% !important; }
+  width: 14.74% !important;
+}
 
 /*# sourceMappingURL=styles.css.map */

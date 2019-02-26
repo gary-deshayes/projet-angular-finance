@@ -4,14 +4,19 @@ footer {
     padding: 20px 0;
     background-color: $primary-color;
 
-    .container {
+    .container-fluid {
         display: flex;
         justify-content: center;
 
         .text-muted {
             color: white !important;
         }
+        .retour-ligne{
+            display: flex;
+            flex-direction: column;
+        }
     }
+    
 }
 
 @media (max-width: 768px) {

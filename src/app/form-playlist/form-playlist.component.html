@@ -2,10 +2,10 @@
   <label for="title">Titre de la playlist :</label>
   <input type="text" required placeholder="Titre de la playlist" name="title" id="inputTitle" [(ngModel)]="inputTitle" class="col-12 form-control">
   <label for="description">Description de la playlist :</label>
-  <textarea class="form-control" rows="5" name="description" id="inputDescription" [(ngModel)]="inputDescription" class="col-12 form-control"></textarea>
-  <label for="tags">Tags :</label>
-  <input type="text" required placeholder="Tags de la playlist" name="tags" id="tags" [(ngModel)]="inputTags" class="col-12 form-control">
-  <select class="custom-select col-2" name="privacyStatus" id="selectStatus" [(ngModel)]="selectStatus">
+  <textarea class="form-control" rows="5" name="description" id="inputDescription" [(ngModel)]="inputDescription" class="col-12"></textarea>
+  <label for="privacyStatus">Statut :</label>
+  <select name="privacyStatus" id="selectStatus" [(ngModel)]="selectStatus">
+    <option value="0"></option>
     <option value = 1>Privée</option>
     <option value = 2>Public</option>
     <option value = 3>Non répertoriée</option>
