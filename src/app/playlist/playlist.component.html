@@ -6,34 +6,39 @@
 </div>
 
 <div *ngIf="loading == false">
-  <button class="btn btn-primary" (click)="nouvellePlaylist()">Ajouter une playlist</button>
-
-  <div id="my-playlists">
-    <h1>Mes playlists : </h1>
+  <button class="btn btn-secondary" (click)="nouvellePlaylist()">Ajouter une playlist</button>
+  <div class="my-playlists">
     <div class="row">
       <div *ngFor="let playlist of playlistsUser" class="col-4">
-        <div class="onHover" (click)="getVideosPlaylists(playlist.id)">
-          <h4>{{ playlist.snippet.title}}</h4>
-          <img src="{{ playlist.snippet.thumbnails.default.url }}">
-          <p>{{ playlist.snippet.description}}</p>
+          <div class="card">
+            <div (click)="getVideosPlaylists(playlist.id)">
+              <img src="{{ playlist.snippet.thumbnails.medium.url }}" class="card-img-top" alt="{{ playlist.snippet.title}}">
+              <div class="card-body">
+                <h5 class="card-title">{{ playlist.snippet.title}}</h5>
+                <p class="card-text">{{ playlist.snippet.description}}</p>
+            </div>
+            <div class="bottom-card">
+              <a href="https://www.youtube.com/playlist?list={{ playlist.id}}"><i class="fab fa-youtube"></i></a>
+              <button (click)="editerPlaylists(playlist)" class="btn btn-secondary btn-sm">Editer la playlist</button>
+            </div>
+          </div>
         </div>
-        <a href="https://www.youtube.com/playlist?list={{ playlist.id}}">Aller vers la playlist</a>
-        <button (click)="editerPlaylists(playlist)" class="btn btn-outline-secondary">Editer la playlist</button>
       </div>
-
     </div>
   </div>
 
   <div *ngIf='videosPlaylists != undefined' id='videoPlaylists'>
     <h2>Vidéos de la playlists :</h2>
-
     <div class="row">
-      <div *ngFor="let video of videosPlaylists" class="col-4 onHover" routerLink="/video/{{ video.snippet.resourceId.videoId }}">
-        <span (click)="onDeleteVideosPlaylist(video.id)" class="onHoverDelete">X</span>
-        <h4>{{ video.snippet.title}}</h4>
-        <img src="{{ video.snippet.thumbnails.default.url }}">
+      <div *ngFor="let video of videosPlaylists" class="col-4" routerLink="/video/{{ video.snippet.resourceId.videoId }}">
+        <div class="card">
+          <img src="{{ video.snippet.thumbnails.medium.url }}" class="card-img-top" alt="{{ video.snippet.title}}">
+          <div class="card-body">
+            <p class="card-title">{{ video.snippet.title}}</p>
+          </div>
+          <button type="button" (click)="onDeleteVideosPlaylist(video.id)" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></button>
+        </div>
       </div>
     </div>
-
   </div>
 </div>
