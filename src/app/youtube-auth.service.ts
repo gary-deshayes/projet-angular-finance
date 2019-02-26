@@ -27,7 +27,6 @@ export class YoutubeAuthService {
     googleAuth.getAuth().subscribe((response)=>{
       this.ngZone.run(()=>{
         this.user = response.currentUser.get();
-      console.log(this.user);
       })
     });
 
@@ -88,7 +87,6 @@ export class YoutubeAuthService {
   }
 
   public getApiService(): Observable<void> {
-    console.log("loading gapi");
     // On charge la librairie google
     return this.GoogleApi.onLoad();
   }

@@ -46,7 +46,7 @@ export class PageFormulaireModificationPlaylistComponent implements OnInit {
               path: "https://www.googleapis.com/youtube/v3/playlists",
               method: "GET",
               params: {
-                part: "snippet,contentDetails",
+                part: "snippet, contentDetails, status",
                 id: that.id_playlist.id
               }
             }
