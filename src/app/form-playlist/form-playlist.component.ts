@@ -25,7 +25,6 @@ export class FormPlaylistComponent implements OnInit {
   ngOnInit() {
     if (this.playlist != undefined) {
       this.playlistModif = this.playlist[0];
-      console.log(this.playlistModif);
       this.inputTitle = this.playlistModif.snippet.title;
       this.inputDescription = this.playlistModif.snippet.description;
       let status = this.formatSelectResult(this.playlistModif.status.privacyStatus, 1);
