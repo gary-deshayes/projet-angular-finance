@@ -18,8 +18,8 @@
 </div>
 
 <div class="buttonPagination" *ngIf="loading == false">
-    <button type="button" class="btn btn-light" (click)="getVideosPrev()">Page précédente</button>
-    <button type="button" class="btn btn-light" (click)="getVideosNext()">Page suivante</button>
+    <button type="button" class="btn btn-sm btn-outline-secondary" (click)="getVideosPrev()">Page précédente</button>
+    <button type="button" class="btn btn-sm btn-outline-secondary" (click)="getVideosNext()">Page suivante</button>
 </div>
 <div class="row">
     <div *ngFor="let video of videos" class="col-4" routerLink="/video/{{ video.id.videoId }}">
@@ -34,6 +34,6 @@
 </div>
 
 <div class="buttonPagination" *ngIf="loading == false">
-    <button type="button" class="btn btn-light" (click)="getVideosPrev()">Page précédente</button>
-    <button type="button" class="btn btn-light" (click)="getVideosNext()">Page suivante</button>
+    <button type="button" class="btn btn-sm btn-outline-secondary" (click)="getVideosPrev()">Page précédente</button>
+    <button type="button" class="btn btn-sm btn-outline-secondary" (click)="getVideosNext()">Page suivante</button>
 </div>
