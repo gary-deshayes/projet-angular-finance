@@ -1,10 +1,10 @@
 <form id="form-playlist" class="form-group" > 
   <label for="title">Titre de la playlist :</label>
-  <input type="text" required placeholder="Titre de la playlist" name="title" id="inputTitle" [(ngModel)]="inputTitle" class="col-12 form-control">
+  <input type="text" required placeholder="Titre de la playlist" name="title" id="inputTitle" [(ngModel)]="inputTitle" class="col-4 form-control">
   <label for="description">Description de la playlist :</label>
-  <textarea class="form-control" rows="5" name="description" id="inputDescription" [(ngModel)]="inputDescription" class="col-12"></textarea>
-  <label for="privacyStatus">Statut :</label>
-  <select name="privacyStatus" id="selectStatus" [(ngModel)]="selectStatus">
+  <textarea class="form-control" rows="5" name="description" id="inputDescription" [(ngModel)]="inputDescription" class="col-12 form-control"></textarea>
+  <label for="privacyStatus">Statut : </label>
+  <select name="privacyStatus" class="col-2 form-control" id="selectStatus" [(ngModel)]="selectStatus">
     <option value="0"></option>
     <option value = 1>Privée</option>
     <option value = 2>Public</option>
@@ -12,9 +12,9 @@
   </select>
 </form>
 <div #btnAjoutPlaylist *ngIf="ajoutPlaylist == true; else btnModifPlaylist">
-    <button class="btn btn-primary" (click)="ajouterPlaylist($event)">Ajouter</button>
+    <button class="btn btn-light" (click)="ajouterPlaylist($event)">Ajouter</button>
 </div>
 
 <ng-template #btnModifPlaylist>
-    <button class="btn btn-primary" (click)="modifierPlaylist($event)">Modifier</button>
+    <button class="btn btn-light" (click)="modifierPlaylist($event)">Modifier</button>
 </ng-template>
