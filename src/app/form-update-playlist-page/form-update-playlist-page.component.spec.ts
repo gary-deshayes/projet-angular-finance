@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PageFormulaireModificationPlaylistComponent } from './page-formulaire-modification-playlist.component';
+import { FormUpdatePlaylistPageComponent } from './form-update-playlist-page.component';
 
 describe('PageFormulaireModificationPlaylistComponent', () => {
-  let component: PageFormulaireModificationPlaylistComponent;
-  let fixture: ComponentFixture<PageFormulaireModificationPlaylistComponent>;
+  let component: FormUpdatePlaylistPageComponent;
+  let fixture: ComponentFixture<FormUpdatePlaylistPageComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PageFormulaireModificationPlaylistComponent ]
+      declarations: [ FormUpdatePlaylistPageComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PageFormulaireModificationPlaylistComponent);
+    fixture = TestBed.createComponent(FormUpdatePlaylistPageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

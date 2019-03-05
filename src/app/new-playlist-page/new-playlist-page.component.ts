@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router }     from '@angular/router';
-import { YoutubeAuthService } from './../youtube-auth.service';
+import { YoutubeAuthService } from '../youtube-auth.service';
 
 @Component({
-  selector: 'app-page-nouvelle-playlist',
-  templateUrl: './page-nouvelle-playlist.component.html',
-  styleUrls: ['./page-nouvelle-playlist.component.scss']
+  selector: 'app-new-playlist-page',
+  templateUrl: './new-playlist-page.component.html',
+  styleUrls: ['./new-playlist-page.component.scss']
 })
-export class PageNouvellePlaylistComponent implements OnInit {
+export class NewPlaylistPage implements OnInit {
 
   constructor(private route: ActivatedRoute, private apiyoutube: YoutubeAuthService, private router: Router) { 
     if (this.apiyoutube.getProfile() == false) {

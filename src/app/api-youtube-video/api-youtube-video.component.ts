@@ -54,23 +54,13 @@ export class ApiYoutubeVideoComponent implements OnInit {
     this.youtubeAuth.getApiService().subscribe(() => {
 
       let that = this;
-      console.log("subscribe passed");
       //  on load auth2 client
       gapi.load('client:auth2', {
         callback: function () {
 
-          console.log("initialisation ...");
           // On initialise gapi.client
-          gapi.client.init(that.args).then(
-            (value) => {
-              console.log(value)
-            },
-            (reason) => {
-              console.log(reason)
-            }
-          );
+          gapi.client.init(that.args);
           if (gapi.client != undefined) {
-            console.log("Gapi has loaded !");
             var data = {
               path: "https://www.googleapis.com/youtube/v3/subscriptions",
               method: "GET",
@@ -81,7 +71,6 @@ export class ApiYoutubeVideoComponent implements OnInit {
               }
             }
             gapi.client.request(data).then((response) => {
-              console.log(response.result.items);
               that.ngZone.run(() => {
                 if (response.result.items.length == 0) {
                   that.subscription = false;
@@ -115,23 +104,12 @@ export class ApiYoutubeVideoComponent implements OnInit {
     this.youtubeAuth.getApiService().subscribe(() => {
 
       let that = this;
-      console.log("subscribe passed");
       //  on load auth2 client
       gapi.load('client:auth2', {
         callback: function () {
-
-          console.log("initialisation ...");
           // On initialise gapi.client
-          gapi.client.init(that.args).then(
-            (value) => {
-              console.log(value)
-            },
-            (reason) => {
-              console.log(reason)
-            }
-          );
+          gapi.client.init(that.args);
           if (gapi.client != undefined) {
-            console.log("Gapi has loaded !");
             var data = {
               path: "/youtube/v3/videos/getRating",
               method: "GET",
@@ -169,23 +147,12 @@ export class ApiYoutubeVideoComponent implements OnInit {
     this.youtubeAuth.getApiService().subscribe(() => {
 
       let that = this;
-      console.log("subscribe passed");
       //  on load auth2 client
       gapi.load('client:auth2', {
         callback: function () {
-
-          console.log("initialisation ...");
           // On initialise gapi.client
-          gapi.client.init(that.args).then(
-            (value) => {
-              console.log(value)
-            },
-            (reason) => {
-              console.log(reason)
-            }
-          );
+          gapi.client.init(that.args);
           if (gapi.client != undefined) {
-            console.log("Gapi has loaded !");
             var data = {
               path: "/youtube/v3/videos/rate",
               method: "POST",
@@ -225,23 +192,12 @@ export class ApiYoutubeVideoComponent implements OnInit {
     this.youtubeAuth.getApiService().subscribe(() => {
 
       let that = this;
-      console.log("subscribe passed");
       //  on load auth2 client
       gapi.load('client:auth2', {
         callback: function () {
-
-          console.log("initialisation ...");
           // On initialise gapi.client
-          gapi.client.init(that.youtubeAuth.args).then(
-            (value) => {
-              console.log(value)
-            },
-            (reason) => {
-              console.log(reason)
-            }
-          );
+          gapi.client.init(that.youtubeAuth.args);
           if (gapi.client != undefined) {
-            console.log("Gapi has loaded !");
             var data;
             if (value == true) {
               data = {

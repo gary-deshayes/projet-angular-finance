@@ -52,7 +52,6 @@ export class ApiYoutubeComponent implements OnInit {
         });
       },
       (error)=>{
-        console.log(error);
         alertify.notify("Erreur lors du chargement des vidéos youtube, veuillez réessayer plus tard", "error", 10);
         this.error = true;
         this.errorStatus = error.status;
@@ -73,7 +72,6 @@ export class ApiYoutubeComponent implements OnInit {
         });
       },
       (error)=>{
-        console.log(error);
         alertify.notify("Erreur lors du chargement des vidéos youtube, veuillez réessayer plus tard", "error", 10);
         this.error = true;
         this.errorStatus = error.status;
@@ -94,7 +92,6 @@ export class ApiYoutubeComponent implements OnInit {
         });
       },
       (error)=>{
-        console.log(error);
         alertify.notify("Erreur lors du chargement des vidéos youtube, veuillez réessayer plus tard", "error", 10);
         this.error = true;
         this.errorStatus = error.status;

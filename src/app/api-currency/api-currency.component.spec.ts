@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PageAccueilComponent } from './page-accueil.component';
+import { ApiCurrencyComponent } from './api-currency.component';
 
-describe('PageAccueilComponent', () => {
-  let component: PageAccueilComponent;
-  let fixture: ComponentFixture<PageAccueilComponent>;
+describe('ApiDeviseComponent', () => {
+  let component: ApiCurrencyComponent;
+  let fixture: ComponentFixture<ApiCurrencyComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PageAccueilComponent ]
+      declarations: [ ApiCurrencyComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PageAccueilComponent);
+    fixture = TestBed.createComponent(ApiCurrencyComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

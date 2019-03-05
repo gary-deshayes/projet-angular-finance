@@ -2,11 +2,11 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import * as alertify from 'alertifyjs';
 @Component({
-  selector: 'app-api-actualite-eco',
-  templateUrl: './api-actualite-eco.component.html',
-  styleUrls: ['./api-actualite-eco.component.scss']
+  selector: 'app-api-economy-actuality',
+  templateUrl: './api-economy-actuality.component.html',
+  styleUrls: ['./api-economy-actuality.component.scss']
 })
-export class ApiActualiteEcoComponent implements OnInit {
+export class ApiEconomyActualityComponent implements OnInit {
 
   public news = [];
   pageSize;

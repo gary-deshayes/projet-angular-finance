@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PageActualiteEconomiqueComponent } from './page-actualite-economique.component';
+import { EconomyActualityPageComponent } from './economy-actuality-page.component';
 
 describe('PageActualiteEconomiqueComponent', () => {
-  let component: PageActualiteEconomiqueComponent;
-  let fixture: ComponentFixture<PageActualiteEconomiqueComponent>;
+  let component: EconomyActualityPageComponent;
+  let fixture: ComponentFixture<EconomyActualityPageComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PageActualiteEconomiqueComponent ]
+      declarations: [ EconomyActualityPageComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PageActualiteEconomiqueComponent);
+    fixture = TestBed.createComponent(EconomyActualityPageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
