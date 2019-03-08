@@ -1,3 +1,5 @@
+[English Readme](https://github.com/gary-deshayes/projet-angular-finance/edit/develop/README.EN.md)
+
 # Projet Finance Angular
 
 Application web permettant de recenser toutes les dernières vidéos YouTube basée sur le domaine de la finance. 
@@ -21,9 +23,9 @@ les derniers sujets sur l'économie. Et une partie playlist vous permet de visio
 
 ## Lancement du projet
 
-- npm install (installe toutes les dépendances)
-- npm install -g @angular/cli (installe la CLI Angular (nécessaire pour serve --open))
-- ng serve --open
+1. npm install (installe toutes les dépendances)
+2. npm install -g @angular/cli (installe la CLI Angular (nécessaire pour serve --open))
+3. ng serve --open
 
 ## Modification du scss
 
