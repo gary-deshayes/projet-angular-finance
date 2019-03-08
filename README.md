@@ -9,7 +9,7 @@ les derniers sujets sur l'économie. Et une partie playlist vous permet de visio
 
 ## Technologies
 
-- AngularJS 7
+- Angular 7
 - SCSS
 - Bootstrap
 
