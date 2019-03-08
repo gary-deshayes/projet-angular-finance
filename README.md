@@ -21,9 +21,9 @@ les derniers sujets sur l'économie. Et une partie playlist vous permet de visio
 
 ## Lancement du projet
 
-> npm install (installe toutes les dépendances)
-> npm install -g @angular/cli (installe la CLI Angular (nécessaire pour serve --open))
-> ng serve --open
+- npm install (installe toutes les dépendances)
+- npm install -g @angular/cli (installe la CLI Angular (nécessaire pour serve --open))
+- ng serve --open
 
 ## Modification du scss
 
