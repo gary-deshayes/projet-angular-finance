@@ -1,21 +1,21 @@
-import { PageActualiteEconomiqueComponent } from './page-actualite-economique/page-actualite-economique.component';
-import { PageAccueilComponent } from './page-accueil/page-accueil.component';
 import { NgModule, Component } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { PageTutorielComponent } from './page-tutoriel/page-tutoriel.component';
+import { TutorialPageComponent } from './tutorial-page/tutorial-page.component';
 import { PagePlaylistComponent } from './page-playlist/page-playlist.component';
-import { PageFormulaireModificationPlaylistComponent } from './page-formulaire-modification-playlist/page-formulaire-modification-playlist.component';
+import { FormUpdatePlaylistPageComponent } from './form-update-playlist-page/form-update-playlist-page.component';
 import { PageOnevideoComponent } from './page-onevideo/page-onevideo.component';
-import { PageNouvellePlaylistComponent } from './page-nouvelle-playlist/page-nouvelle-playlist.component';
+import { NewPlaylistPage } from './new-playlist-page/new-playlist-page.component';
+import { HomePageComponent } from './home-page/home-page.component';
+import { EconomyActualityPageComponent } from './economy-actuality-page/economy-actuality-page.component';
 
 const routes: Routes = [
-  { path: '', component: PageAccueilComponent},
-  { path: 'tutoriel', component: PageTutorielComponent},
-  { path: 'actualite-economique', component: PageActualiteEconomiqueComponent},
+  { path: '', component: HomePageComponent},
+  { path: 'tutoriel', component: TutorialPageComponent},
+  { path: 'actualite-economique', component: EconomyActualityPageComponent},
   { path: 'playlists', component: PagePlaylistComponent},
-  { path: 'modification-playlist/:id', component: PageFormulaireModificationPlaylistComponent },
+  { path: 'modification-playlist/:id', component:  FormUpdatePlaylistPageComponent},
   { path: 'video/:id', component: PageOnevideoComponent},
-  { path: "nouvelle-playlist", component: PageNouvellePlaylistComponent}
+  { path: "nouvelle-playlist", component: NewPlaylistPage}
 ];
 
 @NgModule({

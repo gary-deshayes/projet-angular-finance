@@ -1,13 +1,13 @@
 import { Component, OnInit, NgZone } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { YoutubeAuthService } from './../youtube-auth.service';
+import { YoutubeAuthService } from '../youtube-auth.service';
 
 @Component({
-  selector: 'app-page-formulaire-modification-playlist',
-  templateUrl: './page-formulaire-modification-playlist.component.html',
-  styleUrls: ['./page-formulaire-modification-playlist.component.scss']
+  selector: 'app-form-update-playlist-page',
+  templateUrl: './form-update-playlist-page.component.html',
+  styleUrls: ['./form-update-playlist-page.component.scss']
 })
-export class PageFormulaireModificationPlaylistComponent implements OnInit {
+export class FormUpdatePlaylistPageComponent implements OnInit {
 
   id_playlist;
   playlistModif;
@@ -33,14 +33,7 @@ export class PageFormulaireModificationPlaylistComponent implements OnInit {
       gapi.load('client:auth2', {
         callback: function () {
           // On initialise gapi.client
-          gapi.client.init(that.apiyoutube.args).then(
-            (value) => {
-              console.log(value)
-            },
-            (reason) => {
-              console.log(reason)
-            }
-          );
+          gapi.client.init(that.apiyoutube.args);
           if (gapi.client != undefined) {
             var data = {
               path: "https://www.googleapis.com/youtube/v3/playlists",
