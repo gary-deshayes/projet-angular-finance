@@ -1,4 +1,4 @@
-[English Readme](https://github.com/gary-deshayes/projet-angular-finance/edit/develop/README.EN.md)
+[English Readme](https://github.com/gary-deshayes/projet-angular-finance/blob/develop/README.EN.md)
 
 # Projet Finance Angular
 
