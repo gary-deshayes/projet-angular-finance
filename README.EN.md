@@ -21,8 +21,9 @@ about economy. And an part about playlist allow you to watch favorite videos, up
 
 ## Launch the project
 
-> npm install (install dependencies)
-> ng serve --open
+1. npm install (install dependencies)
+2. npm install -g @angular/cli (install the Angular CLI (needed for npm serve --open))
+3. ng serve --open
 
 ## Initialize SCSS
 
