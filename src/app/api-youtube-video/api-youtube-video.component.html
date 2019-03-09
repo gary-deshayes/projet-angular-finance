@@ -1,29 +1,30 @@
 <div class="video" *ngFor="let video of videos">
   <div class="main">
+    <div class="row">
+      <div class="col-10">
+        <h5 class="card-title">{{ video.snippet.title }}</h5>
+      </div>
+      <div class="col-2 d-flex justify-content-end">
+        <span><i class="far fa-eye"></i> {{ video.statistics.viewCount }} vues</span>
+      </div>
+    </div>
     <iframe class="e2e-iframe-trusted-src" width="100%" height="600" [src]="videoUrl"></iframe>
     <div class="counter" *ngFor="let rate of getingRating">
-      <span>{{ video.statistics.viewCount }} vues</span>
-
-      <div *ngFor="let rate of getingRating">
-        <button type="button" class="btn" [ngClass]="rate.rating == 'like' ? 'btn-primary' : ' '" (click)="postRate(video.id, 'like')">
-          J'aime <span class="badge badge-light">{{ video.statistics.likeCount }}</span>
-        </button>
-        <button type="button" class="btn" [ngClass]="rate.rating == 'dislike' ? 'btn-danger' : ' '" (click)="postRate(video.id, 'dislike')">
+        <div class="rate">
+          <button type="button" class="btn" [ngClass]="rate.rating == 'like' ? 'btn-primary' : ' '" (click)="postRate(video.id, 'like')">
+            J'aime <span class="badge badge-light">{{ video.statistics.likeCount }}</span>
+          </button>
+          <button type="button" class="btn" [ngClass]="rate.rating == 'dislike' ? 'btn-danger' : ' '" (click)="postRate(video.id, 'dislike')">
             Je n'aime pas <span class="badge badge-light">{{ video.statistics.dislikeCount }}</span>
-        </button>
+          </button>
+        </div>
         <div style="display: inline-block" *ngIf="subscription == false; else desabonner" >
             <button class="btn btn-info" (click)="postAbonnement(true)">S'abonner</button>
-
         </div>  
         <ng-template #desabonner>
             <button class="btn btn-warning" (click)="postAbonnement(false)">Se désabonner</button>
-
         </ng-template>  
       </div>
-    </div>
   </div>
-
-  <h5 class="card-title">{{ video.snippet.title }}</h5>
-  <p class="card-text">{{ video.snippet.description }}</p>
-  
+  <p class="mb-5 card-text">{{ video.snippet.description }}</p>
 </div>

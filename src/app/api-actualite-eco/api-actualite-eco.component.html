@@ -6,16 +6,18 @@
     <p>Erreur lors du chargement des actualités économiques</p>
 </div>
 <div *ngIf="loading == false">
-  <label for="nbPerPage">Nombre de news par page : </label>
-  <select name="nbPage" id="nbPerPage" class="ui selection dropdown" (change)="nbPerPageChange($event.path[0].value)">
-      <option value="10">10</option>
-      <option value="20">20</option>
-      <option value="30">30</option>
-  </select>
+    <div class="d-flex flex-row align-items-center">
+        <label class ="mb-0" for="nbPerPage">Nombre de news par page</label>
+        <select name="nbPage" id="nbPerPage" class="col-1 form-control" (change)="nbPerPageChange($event.path[0].value)">
+            <option value="10">10</option>
+            <option value="20">20</option>
+            <option value="30">30</option>
+        </select>
+    </div>
   <div class="buttonPagination">
-          <a class="btn btn-sm btn-outline-secondary" (click)="getNewsPrev()">Plus Récent</a>
-          <a class="btn btn-sm btn-outline-secondary" (click)="getNewsNext()">Plus Ancien</a>
-      </div>
+    <a class="btn btn-sm btn-outline-secondary" (click)="getNewsPrev()">Plus Récent</a>
+    <a class="btn btn-sm btn-outline-secondary" (click)="getNewsNext()">Plus Ancien</a>
+</div>
   <div class="row mb-2">
       <div class="col-md-6" *ngFor="let new of news">
           <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">

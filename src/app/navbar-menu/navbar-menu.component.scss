@@ -10,6 +10,10 @@
             border-radius: 20px;
             height: 40px;
             width: 40px;
+
+            &:hover {
+                opacity: 0.8;
+            }
         }
     }
 
@@ -28,7 +32,7 @@
     }
 
     .dropdown-menu {
-        margin: .125rem -300px 0;
+        margin: .125rem -100px 0;
 
         .nav-item {
             margin: 0 10px;
