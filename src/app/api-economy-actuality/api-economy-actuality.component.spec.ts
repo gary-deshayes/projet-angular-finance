@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ApiActualiteEcoComponent } from './api-actualite-eco.component';
+import { ApiEconomyActualityComponent } from './api-economy-actuality.component';
 
 describe('ApiActualiteEcoComponent', () => {
-  let component: ApiActualiteEcoComponent;
-  let fixture: ComponentFixture<ApiActualiteEcoComponent>;
+  let component: ApiEconomyActualityComponent;
+  let fixture: ComponentFixture<ApiEconomyActualityComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ApiActualiteEcoComponent ]
+      declarations: [ ApiEconomyActualityComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ApiActualiteEcoComponent);
+    fixture = TestBed.createComponent(ApiEconomyActualityComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

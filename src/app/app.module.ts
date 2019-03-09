@@ -4,15 +4,15 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { NavbarMenuComponent } from './navbar-menu/navbar-menu.component';
-import { ApiDeviseComponent } from './api-devise/api-devise.component';
+import { ApiCurrencyComponent } from './api-currency/api-currency.component';
 import { FooterComponent } from './footer/footer.component';
 import { EconomicCalendarComponent } from './economic-calendar/economic-calendar.component';
 import { ApiYoutubeComponent } from './api-youtube/api-youtube.component';
-import { PageTutorielComponent } from './page-tutoriel/page-tutoriel.component';
+import { TutorialPageComponent } from './tutorial-page/tutorial-page.component';
 import { AppRoutingModule } from './app-routing.module';
-import { PageAccueilComponent } from './page-accueil/page-accueil.component';
-import { ApiActualiteEcoComponent } from './api-actualite-eco/api-actualite-eco.component';
-import { PageActualiteEconomiqueComponent } from './page-actualite-economique/page-actualite-economique.component';
+import { HomePageComponent } from './home-page/home-page.component';
+import { ApiEconomyActualityComponent } from './api-economy-actuality/api-economy-actuality.component';
+import { EconomyActualityPageComponent } from './economy-actuality-page/economy-actuality-page.component';
 import { FormsModule } from '@angular/forms';
 import {
   GoogleApiModule, 
@@ -27,8 +27,8 @@ import { PlaylistComponent } from './playlist/playlist.component';
 import { PageOnevideoComponent } from './page-onevideo/page-onevideo.component';
 import { ApiYoutubeVideoComponent } from './api-youtube-video/api-youtube-video.component';
 import { FormPlaylistComponent } from './form-playlist/form-playlist.component';
-import { PageFormulaireModificationPlaylistComponent } from './page-formulaire-modification-playlist/page-formulaire-modification-playlist.component';
-import { PageNouvellePlaylistComponent } from './page-nouvelle-playlist/page-nouvelle-playlist.component';
+import { FormUpdatePlaylistPageComponent } from './form-update-playlist-page/form-update-playlist-page.component';
+import { NewPlaylistPage } from './new-playlist-page/new-playlist-page.component';
 
 
 let gapiClientConfig: NgGapiClientConfig = {
@@ -44,21 +44,21 @@ let gapiClientConfig: NgGapiClientConfig = {
   declarations: [
     AppComponent,
     NavbarMenuComponent,
-    ApiDeviseComponent,
+    ApiCurrencyComponent,
     FooterComponent,
     EconomicCalendarComponent,
     ApiYoutubeComponent,
-    PageTutorielComponent,
-    PageAccueilComponent,
-    ApiActualiteEcoComponent,
-    PageActualiteEconomiqueComponent,
+    TutorialPageComponent,
+    HomePageComponent,
+    ApiEconomyActualityComponent,
+    EconomyActualityPageComponent,
     PagePlaylistComponent,
     PlaylistComponent,
-    PageFormulaireModificationPlaylistComponent,
+    FormUpdatePlaylistPageComponent,
     PageOnevideoComponent,
     ApiYoutubeVideoComponent,
     FormPlaylistComponent,
-    PageNouvellePlaylistComponent
+    NewPlaylistPage
   ],
   imports: [
     FormsModule,

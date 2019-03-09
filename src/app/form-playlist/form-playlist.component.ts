@@ -28,7 +28,6 @@ export class FormPlaylistComponent implements OnInit {
       this.inputTitle = this.playlistModif.snippet.title;
       this.inputDescription = this.playlistModif.snippet.description;
       let status = this.formatSelectResult(this.playlistModif.status.privacyStatus, 1);
-      console.log(status);
       this.selectStatus = status;
 
     } else {
@@ -48,14 +47,7 @@ export class FormPlaylistComponent implements OnInit {
         gapi.load('client:auth2', {
           callback: function () {
             // On initialise gapi.client
-            gapi.client.init(that.youtubeAuth.args).then(
-              (value) => {
-                console.log(value)
-              },
-              (reason) => {
-                console.log(reason)
-              }
-            );
+            gapi.client.init(that.youtubeAuth.args);
             if (gapi.client != undefined) {
               var data = {
                 path: "https://www.googleapis.com/youtube/v3/playlists",
@@ -116,14 +108,7 @@ export class FormPlaylistComponent implements OnInit {
         gapi.load('client:auth2', {
           callback: function () {
             // On initialise gapi.client
-            gapi.client.init(that.youtubeAuth.args).then(
-              (value) => {
-                console.log(value)
-              },
-              (reason) => {
-                console.log(reason)
-              }
-            );
+            gapi.client.init(that.youtubeAuth.args);
             if (gapi.client != undefined) {
               var data = {
                 path: "https://www.googleapis.com/youtube/v3/playlists",

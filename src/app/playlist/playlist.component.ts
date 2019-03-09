@@ -19,7 +19,6 @@ export class PlaylistComponent implements OnInit {
 
   constructor(private youtubeAuth: YoutubeAuthService, private router: Router, private ngZone: NgZone) {
     if (this.youtubeAuth.getProfile() == false) {
-      console.log("redirection to ''");
       this.router.navigate(['']);
     }
   }
@@ -36,22 +35,12 @@ export class PlaylistComponent implements OnInit {
     this.youtubeAuth.getApiService().subscribe(() => {
 
       let that = this;
-      console.log("subscribe passed");
       //  on load auth2 client
       gapi.load('client:auth2', {
         callback: function () {
-          console.log("initialisation ...");
           // On initialise gapi.client
-          gapi.client.init(that.youtubeAuth.args).then(
-            (value) => {
-              console.log(value)
-            },
-            (reason) => {
-              console.log(reason)
-            }
-          );
+          gapi.client.init(that.youtubeAuth.args);
           if (gapi.client != undefined) {
-            console.log("Gapi has loaded !");
             var data = {
               path: "https://www.googleapis.com/youtube/v3/playlists",
               method: "GET",
@@ -94,22 +83,12 @@ export class PlaylistComponent implements OnInit {
   getVideosPlaylists(idPlaylists: string) {
     this.youtubeAuth.getApiService().subscribe(() => {
       let that = this;
-      console.log("subscribe passed");
       //  on load auth2 client
       gapi.load('client:auth2', {
         callback: function () {
-          console.log("initialisation ...");
           // On initialise gapi.client
-          gapi.client.init(that.youtubeAuth.args).then(
-            (value) => {
-              console.log(value)
-            },
-            (reason) => {
-              console.log(reason)
-            }
-          );
+          gapi.client.init(that.youtubeAuth.args);
           if (gapi.client != undefined) {
-            console.log("Gapi has loaded !");
             var data = {
               path: "https://www.googleapis.com/youtube/v3/playlistItems",
               method: "GET",
@@ -123,7 +102,6 @@ export class PlaylistComponent implements OnInit {
               if (response.result.pageInfo.totalResults > 0) {
                 that.ngZone.run(() => {
                   that.videosPlaylists = response["result"]["items"];
-                  console.log(that.videosPlaylists);
                   document.getElementById("lien-playlists").click();
                 });
               } else {
@@ -154,7 +132,6 @@ export class PlaylistComponent implements OnInit {
   // Supprime une vidéo d'une playlist
   onDeleteVideosPlaylist(idVideoPlaylist: string) {
     if (confirm("Êtes vous sûr de vouloir supprimer cette vidéo de la playlist ?")) {
-      console.log(idVideoPlaylist);
       this.deleteVideoPlaylist(idVideoPlaylist);
     }
   }
@@ -162,22 +139,12 @@ export class PlaylistComponent implements OnInit {
   deleteVideoPlaylist(idVideoPlaylist: string) {
     this.youtubeAuth.getApiService().subscribe(() => {
       let that = this;
-      console.log("subscribe passed");
       //  on load auth2 client
       gapi.load('client:auth2', {
         callback: function () {
-          console.log("initialisation ...");
           // On initialise gapi.client
-          gapi.client.init(that.youtubeAuth.args).then(
-            (value) => {
-              console.log(value)
-            },
-            (reason) => {
-              console.log(reason)
-            }
-          );
+          gapi.client.init(that.youtubeAuth.args);
           if (gapi.client != undefined) {
-            console.log("Gapi has loaded !");
             var data = {
               path: "https://www.googleapis.com/youtube/v3/playlistItems",
               method: "DELETE",

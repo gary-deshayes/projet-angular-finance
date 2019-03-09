@@ -2,11 +2,11 @@ import { Component, OnInit, Input } from '@angular/core';
 import { ApiYoutubeComponent } from '../api-youtube/api-youtube.component';
 
 @Component({
-  selector: 'app-page-tutoriel',
-  templateUrl: './page-tutoriel.component.html',
-  styleUrls: ['./page-tutoriel.component.scss']
+  selector: 'app-tutorial-page',
+  templateUrl: './tutorial-page.component.html',
+  styleUrls: ['./tutorial-page.component.scss']
 })
-export class PageTutorielComponent implements OnInit {
+export class TutorialPageComponent implements OnInit {
 
   @Input() searchVideoTutoriel: string;
 
