@@ -184,8 +184,6 @@ export class ApiYoutubeVideoComponent implements OnInit {
         }
       });
     });
-
-
   }
 
   public postAbonnement(value) {

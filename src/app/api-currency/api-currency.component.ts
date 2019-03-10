@@ -14,7 +14,6 @@ export class ApiCurrencyComponent implements OnInit {
 
   constructor(private http: HttpClient) {
     this.getDevises();
-
   }
 
   // Récuperation des devises

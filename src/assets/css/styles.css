@@ -8,6 +8,8 @@
     border-radius: 20px;
     height: 40px;
     width: 40px; }
+    .navbar .account-img img:hover {
+      opacity: 0.8; }
   .navbar li {
     list-style: none; }
   .navbar #logo {
@@ -17,7 +19,7 @@
     display: flex;
     flex-direction: row; }
   .navbar .dropdown-menu {
-    margin: .125rem -300px 0; }
+    margin: .125rem -100px 0; }
     .navbar .dropdown-menu .nav-item {
       margin: 0 10px; }
 
@@ -32,6 +34,9 @@ a {
   display: none; }
 
 @media (max-width: 768px) {
+  .row {
+    margin-bottom: 70px; }
+
   .navbar {
     padding: 10px;
     display: flex;
@@ -79,12 +84,12 @@ a {
   .menu-calendar {
     display: none; } }
 #searchYoutubeDiv {
-  margin: 10px 0 10px 0; }
+  margin: 10px 15px; }
 
 .buttonPagination {
   display: flex;
   justify-content: space-between;
-  margin: 20px 0 10px 0; }
+  margin: 20px 15px 10px; }
   .buttonPagination .button {
     color: white;
     background-color: #262b3e;
@@ -107,15 +112,15 @@ a {
     max-width: 50%;
     flex: 0 0 50%; } }
 @media (max-width: 768px) {
-  app-page-accueil .row {
+  app-home-page .row {
     display: flex; }
-    app-page-accueil .row .col-4 {
+    app-home-page .row .col-4 {
       max-width: 50% !important; } }
 @media (max-width: 576px) {
-  app-page-accueil .row {
+  app-home-page .row {
     display: flex;
     flex-direction: column; }
-    app-page-accueil .row .col-4 {
+    app-home-page .row .col-4 {
       max-width: 100% !important; } }
 .row {
   margin-left: 0;
@@ -123,6 +128,8 @@ a {
   .row .loader {
     display: flex;
     justify-content: center; }
+  .row .card {
+    height: 95%; }
 
 /* Extra Small Devices */
 @media screen and (max-width: 768px) {

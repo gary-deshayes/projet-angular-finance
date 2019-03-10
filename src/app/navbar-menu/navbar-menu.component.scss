@@ -54,6 +54,10 @@ a {
 }
 
 @media (max-width: 768px) {
+    .row {
+        margin-bottom: 70px;
+    }
+
     .navbar {
         padding: 10px;
         display: flex;

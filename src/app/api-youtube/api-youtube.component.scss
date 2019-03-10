@@ -44,7 +44,7 @@
 }
 
 @media (max-width: 768px) {
-    app-page-accueil {
+    app-home-page {
         .row {
             display: flex;
 
@@ -56,7 +56,7 @@
 }
 
 @media (max-width: 576px) {
-    app-page-accueil {
+    app-home-page {
         .row {
             display: flex;
             flex-direction: column;
@@ -67,4 +67,3 @@
         }
     }
 }
-
