@@ -14,7 +14,7 @@ export class ApiYoutubeVideoComponent implements OnInit {
 
   apiKey = "AIzaSyCyaZRe4xMnxqPdh9_fwuizP7bKTreyKNc";
   videoId = this.route.snapshot.paramMap.get('id');
-  dangerousVideoUrl = 'http://www.youtube.com/embed/' + this.videoId;
+  dangerousVideoUrl = 'https://www.youtube.com/embed/' + this.videoId;
   videoUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.dangerousVideoUrl);
   isLogged = false;
   public videos = [];
