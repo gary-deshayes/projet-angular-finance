@@ -1,0 +1,20 @@
+@import '../../assets/variables.scss';
+
+footer {
+    padding: 20px 0;
+    background-color: $primary-color;
+
+    .container-fluid {
+        display: flex;
+        justify-content: center;
+
+        .text-muted {
+            color: white !important;
+        }
+
+        .retour-ligne {
+            display: flex;
+            flex-direction: column;
+        }
+    }
+}

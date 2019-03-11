@@ -1,0 +1,164 @@
+/* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css?family=Montserrat");
+.navbar {
+  padding: 10px 140px;
+  background-color: #262b3e !important;
+  margin-bottom: 20px; }
+  .navbar .account-img img {
+    border-radius: 20px;
+    height: 40px;
+    width: 40px; }
+    .navbar .account-img img:hover {
+      opacity: 0.8; }
+  .navbar li {
+    list-style: none; }
+  .navbar #logo {
+    width: 150px;
+    height: 35px; }
+  .navbar .connected {
+    display: flex;
+    flex-direction: row; }
+  .navbar .dropdown-menu {
+    margin: .125rem -100px 0; }
+    .navbar .dropdown-menu .nav-item {
+      margin: 0 10px; }
+
+#logo {
+  width: 150px;
+  height: 35px; }
+
+a {
+  cursor: pointer; }
+
+.menu-mobile {
+  display: none; }
+
+@media (max-width: 768px) {
+  .row {
+    margin-bottom: 70px; }
+
+  .navbar {
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row; }
+    .navbar .navbar-collapse {
+      flex-basis: 0;
+      display: flex;
+      justify-content: flex-end; }
+    .navbar .collapse:not(.show) {
+      display: inherit; }
+      .navbar .collapse:not(.show) .mr-auto {
+        display: none; }
+
+  .menu-mobile {
+    display: block;
+    position: fixed;
+    bottom: 0;
+    z-index: 5;
+    background-color: #262b3e;
+    width: 100%; }
+    .menu-mobile ul {
+      display: flex;
+      flex-direction: row;
+      justify-content: center; }
+      .menu-mobile ul li {
+        margin: 0 10px; }
+        .menu-mobile ul li a {
+          color: #fff;
+          display: flex;
+          justify-content: center;
+          flex-direction: column; }
+          .menu-mobile ul li a i {
+            margin: 0 auto; }
+          .menu-mobile ul li a p {
+            margin-bottom: 0; } }
+.menu-calendar {
+  display: flex;
+  justify-content: flex-end; }
+  @media (max-width: 992px) {
+    .menu-calendar iframe {
+      width: 240px !important; } }
+
+@media (max-width: 768px) {
+  .menu-calendar {
+    display: none; } }
+#searchYoutubeDiv {
+  margin: 10px 15px; }
+
+.buttonPagination {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 15px 10px; }
+  .buttonPagination .button {
+    color: white;
+    background-color: #262b3e;
+    font-size: 0.8em; }
+
+.card {
+  max-height: 450px;
+  margin: 10px 0;
+  cursor: pointer; }
+  .card .card-body {
+    padding: 1rem; }
+    .card .card-body .card-title {
+      color: #000;
+      font-weight: 600; }
+    .card .card-body .card-text {
+      font-size: 10px; }
+
+@media (max-width: 992px) {
+  .row .col-4 {
+    max-width: 50%;
+    flex: 0 0 50%; } }
+@media (max-width: 768px) {
+  app-home-page .row {
+    display: flex; }
+    app-home-page .row .col-4 {
+      max-width: 50% !important; } }
+@media (max-width: 576px) {
+  app-home-page .row {
+    display: flex;
+    flex-direction: column; }
+    app-home-page .row .col-4 {
+      max-width: 100% !important; } }
+.row {
+  margin-left: 0;
+  margin-right: 0; }
+  .row .loader {
+    display: flex;
+    justify-content: center; }
+  .row .card {
+    height: 95%; }
+
+/* Extra Small Devices */
+@media screen and (max-width: 768px) {
+  footer {
+    display: none; } }
+/* Small Devices */
+/* Medium Devices */
+/* Large Devices */
+@media screen and (max-width: 1200px) {
+  .col-2 {
+    display: none !important; }
+
+  .col-8 {
+    flex: 0 0 100%;
+    max-width: 100%; } }
+body {
+  background-color: #DCDCDC;
+  font-family: 'Montserrat', sans-serif; }
+
+.ui.inverted.table {
+  background: #262b3e;
+  color: rgba(255, 255, 255, 0.9);
+  border: none; }
+
+.ui.inverted.segment, .ui.primary.inverted.segment {
+  background: #262b3e;
+  color: rgba(255, 255, 255, 0.9); }
+
+.ui.grid > [class*="three wide"].column {
+  width: 14.74% !important; }
+
+/*# sourceMappingURL=styles.css.map */

@@ -1,0 +1,46 @@
+<div class="loader">
+    <img src="../../assets/img/loader.gif" class="loader" *ngIf="loading == true">
+</div>
+
+<div *ngIf="error">
+    <p>Erreur lors du chargement des actualités économiques</p>
+</div>
+<div *ngIf="loading == false">
+    <div class="d-flex flex-row align-items-center">
+        <label class ="mb-0" for="nbPerPage">Nombre de news par page</label>
+        <select name="nbPage" id="nbPerPage" class="col-1 form-control" (change)="nbPerPageChange($event.path[0].value)">
+            <option value="10">10</option>
+            <option value="20">20</option>
+            <option value="30">30</option>
+        </select>
+    </div>
+  <div class="buttonPagination">
+    <a class="btn btn-sm btn-outline-secondary" (click)="getNewsPrev()">Plus Récent</a>
+    <a class="btn btn-sm btn-outline-secondary" (click)="getNewsNext()">Plus Ancien</a>
+</div>
+  <div class="row mb-2">
+      <div class="col-md-6" *ngFor="let new of news">
+          <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+
+              <div class="col p-4 d-flex flex-column position-static news">
+                  <div class="news-top">
+                      <div *ngIf='new.urlToImage !== null; else no_image_news'>
+                          <img src="{{new.urlToImage}}" alt="{{new.title}}"/>
+                      </div>
+                      <ng-template #no_image_news>
+                          <img src="../assets/img/news.png" alt="{{new.title}}"/>
+                      </ng-template>
+                      <h4 class="mb-0">{{new.title}}</h4>
+                  </div>
+                  <div class="mb-1 text-muted">{{ new.publishedAt | date: "d/M/yyyy h'h'mm" }}</div>
+                  <p class="card-text mb-auto">{{new.description}}</p>
+                  <a href="{{new.url}}" target="_blank" class="stretched-link">Lire la suite</a>
+              </div>
+          </div>
+      </div>    
+  </div>
+</div>
+<div class="buttonPagination">
+    <a class="btn btn-sm btn-outline-secondary" (click)="getNewsPrev()">Plus Récent</a>
+    <a class="btn btn-sm btn-outline-secondary" (click)="getNewsNext()">Plus Ancien</a>
+</div>

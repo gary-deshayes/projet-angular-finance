@@ -1,0 +1,39 @@
+
+<div class="loader">
+    <img src="../../assets/img/loader.gif" *ngIf="loading == true" >
+</div>
+
+<div *ngIf="error">
+    <p>Erreur lors du chargement des vidéos youtube, veuillez réessayer plus tard.</p>
+    <p>Code erreur : {{ errorStatus }}</p>
+</div>
+
+<div id="searchYoutubeDiv" *ngIf="loading == false">
+    <div class="input-group">
+        <input #search type="text" placeholder="Cherchez vos vidéos" (keyup.enter)="getVideos(search.value)" class="form-control">
+        <span class="input-group-btn">
+          <button class="btn btn-default" (click)="getVideos(search.value)" type="button"><i class="fas fa-search"></i></button>
+        </span>
+      </div>
+</div>
+
+<div class="buttonPagination" *ngIf="loading == false">
+    <button type="button" class="btn btn-sm btn-outline-secondary" (click)="getVideosPrev()">Page précédente</button>
+    <button type="button" class="btn btn-sm btn-outline-secondary" (click)="getVideosNext()">Page suivante</button>
+</div>
+<div class="row">
+    <div *ngFor="let video of videos" class="col-4" routerLink="/video/{{ video.id.videoId }}">
+        <div class="card">
+            <img class="card-img-top" [src]="video.snippet.thumbnails.medium.url" alt="{{ video.snippet.title }}">
+            <div class="card-body">
+                <a class="card-title">{{ video.snippet.title }}</a>
+                <p class="card-text">{{ video.snippet.description }}</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="buttonPagination" *ngIf="loading == false">
+    <button type="button" class="btn btn-sm btn-outline-secondary" (click)="getVideosPrev()">Page précédente</button>
+    <button type="button" class="btn btn-sm btn-outline-secondary" (click)="getVideosNext()">Page suivante</button>
+</div>

@@ -1,0 +1,69 @@
+@import '../../assets/variables.scss';
+
+#searchYoutubeDiv{
+    margin: 10px 15px;
+}
+
+.buttonPagination{
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 15px 10px;
+
+    .button {
+        color: white;
+        background-color: $primary-color;
+        font-size: 0.8em;
+    }
+}
+
+.card {
+    max-height: 450px;
+    margin: 10px 0;
+    cursor: pointer;
+
+    .card-body{
+        padding: 1rem;
+
+        .card-title {
+            color: #000;
+            font-weight: 600;
+        }
+        .card-text {
+            font-size: 10px;
+        }
+    }
+}
+
+@media (max-width: 992px) {
+    .row {
+        .col-4 {
+            max-width: 50%;
+            flex: 0 0 50%;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    app-home-page {
+        .row {
+            display: flex;
+
+            .col-4 {
+                max-width: 50% !important;
+            }
+        }
+    }
+}
+
+@media (max-width: 576px) {
+    app-home-page {
+        .row {
+            display: flex;
+            flex-direction: column;
+
+            .col-4 {
+                max-width: 100% !important;
+            }
+        }
+    }
+}

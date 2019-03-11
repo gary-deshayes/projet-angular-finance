@@ -1,0 +1,28 @@
+/* You can add global styles to this file, and also import other style files */
+@import 'app/app.component.scss';
+@import 'app/navbar-menu/navbar-menu.component.scss';
+@import 'app/economic-calendar/economic-calendar.component.scss';
+@import 'app/api-youtube/api-youtube.component.scss';
+@import 'assets/variables.scss';
+@import 'assets/main.scss';
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+body {
+    background-color: #DCDCDC;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.ui.inverted.table {
+    background: $primary-color;
+    color: rgba(255, 255, 255, 0.9);
+    border: none;
+}
+
+.ui.inverted.segment, .ui.primary.inverted.segment {
+    background: $primary-color;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.ui.grid > [class*="three wide"].column {
+    width: 14.74% !important;
+}
