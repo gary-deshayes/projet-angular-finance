@@ -22,10 +22,10 @@ les derniers sujets sur l'économie. Et une partie playlist vous permet de visio
 - Tradingview 
 
 ## Lancement du projet
-
-1. npm install (installe toutes les dépendances)
-2. npm install -g @angular/cli (installe la CLI Angular (nécessaire pour serve --open))
-3. ng serve --open
+1. Avoir npm d'installé sur l'ordinateur [Lien npm](https://www.npmjs.com/get-npm)
+2. npm install (installe toutes les dépendances)
+3. npm install -g @angular/cli (installe la CLI Angular (nécessaire pour serve --open))
+4. ng serve --open
 
 ## Modification du scss
 
